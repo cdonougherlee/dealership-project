@@ -9,6 +9,7 @@ const registerUser = (req, res, next) => {
   const salt = saltHash.salt;
   const hash = saltHash.hash;
 
+  // Creae user with all requirements
   const newUser = new User({
     username: req.body.username,
     hash: hash,
@@ -33,6 +34,7 @@ const registerUser = (req, res, next) => {
 };
 
 const loginUser = (req, res, next) => {
+  // First find the user by username in the db
   User.findOne({ username: req.body.username })
     .then((user) => {
       if (!user) {
@@ -41,7 +43,7 @@ const loginUser = (req, res, next) => {
           .json({ success: false, msg: "could not find user" });
       }
 
-      // Function defined at bottom of app.js
+      // Validate password
       const isValid = auth.validPassword(
         req.body.password,
         user.hash,
@@ -69,17 +71,7 @@ const loginUser = (req, res, next) => {
     });
 };
 
-const getProfile = (req, res, next) => {
-  res.status(200).json({ success: true, user: req.user });
-};
-
-const updateProfile = (req, res, next) => {
-  return res.status(200).json({ success: true, msg: "Update user" });
-};
-
 module.exports = {
   registerUser,
   loginUser,
-  getProfile,
-  updateProfile,
 };

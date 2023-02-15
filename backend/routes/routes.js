@@ -1,56 +1,44 @@
-const mongoose = require("mongoose");
 const router = require("express").Router();
 const passport = require("passport");
 
-router.get(
-  "/protected",
-  passport.authenticate("jwt", { session: false }), //session false due to using JWT rather than local
-  (req, res, next) => {
-    res.status(200).json({ success: true, msg: "You're authorized" });
-  }
-);
+const protect = () => passport.authenticate("jwt", { session: false });
 
-// const { protect } = require("../middleware/authMiddleware");
+// Destructure routes from controllers
+const { registerUser, loginUser } = require("../controllers/userController");
 
 const {
-  registerUser,
-  loginUser,
   getProfile,
   updateProfile,
-} = require("../controllers/userController");
+} = require("../controllers/profileController");
 
-// const {
-//   setCar,
-//   viewCar,
-//   updateCar,
-//   deleteCar,
-// } = require("../controllers/carController");
+const {
+  setCar,
+  viewCar,
+  updateCar,
+  deleteCar,
+} = require("../controllers/carController");
 
 // Landing and car configurator pages don't need routes
 // Logout too will be handled by frontend
 
-// Log in and registration
+// Log in and registration routes
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 
-// View and update profile
+// View and update profile routes
 router
   .route("/:username")
-  .get(passport.authenticate("jwt", { session: false }), getProfile)
-  .put(passport.authenticate("jwt", { session: false }), updateProfile);
+  .get(protect(), getProfile)
+  .put(protect(), updateProfile);
 
-// // Save a user's car from inital car creation screen
-// router.post(
-//   "/:username/car",
-//   passport.authenticate("jwt", { session: false }),
-//   setCar
-// );
+// Save a user's car from inital car creation screen routes
+router.post("/:username/car", protect(), setCar);
 
-// // View, update and delete a user's car
-// router
-//   .route("/:username/car/:id")
-//   .get(passport.authenticate("jwt", { session: false }), viewCar)
-//   .put(passport.authenticate("jwt", { session: false }), updateCar)
-//   .delete(passport.authenticate("jwt", { session: false }), deleteCar);
+// View, update and delete a user's car routes
+router
+  .route("/:username/car/:id")
+  .get(protect(), viewCar)
+  .put(protect(), updateCar)
+  .delete(protect(), deleteCar);
 
 module.exports = router;

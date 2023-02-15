@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 
-const devConnection = process.env.DB_STRING;
-const prodConnection = process.env.DB_STRING_PROD;
+const URI =
+  process.env.NODE_ENV === "production"
+    ? process.env.DB_STRING_PROD
+    : process.env.DB_STRING;
 
-// Connect to the correct environment database
-if (process.env.NODE_ENV === "production") {
-  mongoose.connect(prodConnection, {
+try {
+  mongoose.connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: `DealershipDB`,
@@ -14,14 +15,7 @@ if (process.env.NODE_ENV === "production") {
   mongoose.connection.on("connected", () => {
     console.log("Database connected");
   });
-} else {
-  mongoose.connect(devConnection, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    dbName: `DealershipDB`,
-  });
-
-  mongoose.connection.on("connected", () => {
-    console.log("Database connected");
-  });
+} catch (error) {
+  console.log(error);
+  process.exit(1); // Exit the process with error (1)
 }
