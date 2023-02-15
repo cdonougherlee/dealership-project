@@ -1,0 +1,21 @@
+{
+  "name": "dealership-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "(cd backend && npm install) && (cd ../frontend && npm install)"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdonougherlee/Dealership-project.git"
+  },
+  "author": "Cameron Donougher-Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdonougherlee/Dealership-project/issues"
+  },
+  "homepage": "https://github.com/cdonougherlee/Dealership-project#readme"
+}
