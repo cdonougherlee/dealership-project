@@ -21,6 +21,7 @@ const CarSchema = mongoose.Schema(
     },
     options: {
       type: Map,
+      default: new Map(),
       of: String,
     },
     owner: {

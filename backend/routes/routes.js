@@ -12,7 +12,7 @@ const {
 } = require("../controllers/profileController");
 
 const {
-  setCar,
+  createCar,
   viewCar,
   updateCar,
   deleteCar,
@@ -32,11 +32,11 @@ router
   .put(protect(), updateProfile);
 
 // Save a user's car from inital car creation screen routes
-router.post("/:username/car", protect(), setCar);
+router.post("/:username/car", protect(), createCar);
 
 // View, update and delete a user's car routes
 router
-  .route("/:username/car/:id")
+  .route("/:username/car/:index")
   .get(protect(), viewCar)
   .put(protect(), updateCar)
   .delete(protect(), deleteCar);

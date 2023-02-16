@@ -12,6 +12,7 @@
     "cors": "*",
     "dotenv": "^16.0.3",
     "express": "*",
+    "express-async-handler": "^1.2.0",
     "mongoose": "*",
     "passport": "*",
     "passport-jwt": "*"
