@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const UserSchema = mongoose.Schema(
+const CarSchema = mongoose.Schema(
   {
     brand: {
       type: String,
@@ -34,4 +34,4 @@ const UserSchema = mongoose.Schema(
   }
 );
 
-mongoose.model("User", UserSchema);
+mongoose.model("Car", CarSchema);

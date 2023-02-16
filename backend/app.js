@@ -8,7 +8,8 @@ require("dotenv").config({ path: "../.env" });
 var app = express();
 
 require("./config/database");
-require("./models/user");
+require("./models/userModel");
+require("./models/carModel");
 require("./config/passport")(passport);
 
 app.use(passport.initialize());
