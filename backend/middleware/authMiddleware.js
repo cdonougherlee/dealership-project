@@ -51,6 +51,17 @@ function genJWT(user) {
   };
 }
 
+// To check that the requesting user is the same as the username in the URL
+const URLAuthenticated = (user, username, res) => {
+  // Make sure logged in user matches the URI username parameter
+  if (user.username !== username) {
+    res.status(401).json({ success: false, msg: "Unauthorized" });
+    return false;
+  }
+  return true;
+};
+
 module.exports.validPassword = validPassword;
 module.exports.genPassword = genPassword;
 module.exports.genJWT = genJWT;
+module.exports.URLAuthenticated = URLAuthenticated;
