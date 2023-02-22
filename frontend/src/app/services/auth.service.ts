@@ -29,7 +29,7 @@ export class AuthService {
 
     // Takes a key value pair
     localStorage.setItem('token', responseObj.token);
-    localStorage.setItem('expires', expires.toString());
+    localStorage.setItem('expires', expires.valueOf().toString());
   }
 
   logout() {
@@ -38,7 +38,8 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    return dayjs().isBefore(this.getExpiration()); // JWT is still valid if True
+    console.log(dayjs().valueOf(), 'VS', this.getExpiration().valueOf());
+    return dayjs().valueOf() <= this.getExpiration().valueOf(); // JWT is still valid if True
   }
 
   isLoggedOut() {
@@ -48,12 +49,12 @@ export class AuthService {
   getExpiration() {
     const expiration = localStorage.getItem('expires');
     if (expiration) {
-      // const expiresAt = JSON.parse(expiration);
+      const expiresAt = JSON.parse(expiration);
 
       // console.log('moment: ', moment());
       console.log('expiration: ', expiration);
 
-      return dayjs(expiration);
+      return dayjs(expiresAt);
     } else {
       return dayjs();
     }
