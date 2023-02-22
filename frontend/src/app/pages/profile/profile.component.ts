@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
           this.message =
             'You are not authorized to visit this route.  No data is displayed.';
         }
+        console.log(error);
       },
 
       // When observable completes
