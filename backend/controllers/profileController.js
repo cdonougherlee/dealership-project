@@ -4,6 +4,7 @@ const auth = require("../middleware/authMiddleware");
 const asyncHandler = require("express-async-handler");
 
 const getProfile = asyncHandler(async (req, res) => {
+  console.log("GET PROFILE");
   const { user, username } = extractCommonVariables(req);
   if (!auth.URLAuthenticated(user, username, res)) {
     return;

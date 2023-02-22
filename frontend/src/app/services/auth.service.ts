@@ -56,6 +56,7 @@ export class AuthService {
 
       return dayjs(expiresAt);
     } else {
+      console.log('FAIL');
       return dayjs();
     }
   }
