@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // Moment.js will get the exact date and stuff
-import * as dayjs from 'dayjs';
+import * as moment from 'moment';
 
 // Basically this puts it into local storage, deletes upon logout
 @Injectable()
@@ -23,13 +23,11 @@ export class AuthService {
   //  }
 
   setLocalStorage(responseObj: any) {
-    console.log('responseObj.expiresIn: ', responseObj.expiresIn);
-    const expires = dayjs().add(responseObj.expiresIn, 'day');
-    console.log('expires', expires);
+    const expires = moment().add(responseObj.expiresIn);
 
     // Takes a key value pair
     localStorage.setItem('token', responseObj.token);
-    localStorage.setItem('expires', expires.valueOf().toString());
+    localStorage.setItem('expires', JSON.stringify(expires.valueOf()));
   }
 
   logout() {
@@ -38,8 +36,9 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    console.log(dayjs().valueOf(), 'VS', this.getExpiration().valueOf());
-    return dayjs().valueOf() <= this.getExpiration().valueOf(); // JWT is still valid if True
+    // console.log(moment().valueOf());
+    // console.log(this.getExpiration().valueOf());
+    return moment().valueOf() <= this.getExpiration().valueOf(); // True means JWT is still valid
   }
 
   isLoggedOut() {
@@ -50,14 +49,9 @@ export class AuthService {
     const expiration = localStorage.getItem('expires');
     if (expiration) {
       const expiresAt = JSON.parse(expiration);
-
-      // console.log('moment: ', moment());
-      console.log('expiration: ', expiration);
-
-      return dayjs(expiresAt);
+      return moment(expiresAt);
     } else {
-      console.log('FAIL');
-      return dayjs();
+      return moment();
     }
   }
 }
