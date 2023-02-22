@@ -55,7 +55,10 @@ function genJWT(user) {
 const URLAuthenticated = (user, username, res) => {
   // Make sure logged in user matches the URI username parameter
   if (user.username !== username) {
-    res.status(401).json({ success: false, msg: "Unauthorized" });
+    res.status(401).json({
+      success: false,
+      msg: "Requested username in URL does not match that of the currently logged in user",
+    });
     return false;
   }
   return true;
