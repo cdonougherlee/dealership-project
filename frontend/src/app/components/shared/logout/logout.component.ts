@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-logout',
@@ -9,13 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./logout.component.scss'],
 })
 export class LogoutComponent {
-  constructor(
-    private http: HttpClient,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private authService: AuthService, private uiService: UiService) {}
 
   onLogout() {
     this.authService.logout();
+    this.uiService.updateUsername(null);
   }
 }

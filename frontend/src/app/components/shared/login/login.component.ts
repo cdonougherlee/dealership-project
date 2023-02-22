@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private uiService: UiService
   ) {}
 
   onLoginSubmit() {
@@ -48,7 +50,8 @@ export class LoginComponent implements OnInit {
 
         // When observable completes
         complete: () => {
-          this.router.navigate(['/']);
+          this.router.navigate([`/profile/${username}`]);
+          this.uiService.updateUsername(username);
         },
       });
   }

@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfiguratorComponent } from './pages/configurator/configurator.component';
-import { DisplayComponent } from './pages/display/display.component';
-import { LandingComponent } from './pages/landing/landing.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { ConfiguratorComponent } from './pages/public/configurator/configurator.component';
+import { DisplayComponent } from './pages/protected/display/display.component';
+import { LandingComponent } from './pages/public/landing/landing.component';
+import { ProfileComponent } from './pages/protected/profile/profile.component';
+import { ErrorComponent } from './pages/public/error/error.component';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  { path: 'landing', component: LandingComponent },
   { path: 'configurator', component: ConfiguratorComponent },
-  { path: 'cameron', component: ProfileComponent },
+  { path: 'profile/:username', component: ProfileComponent },
   { path: 'display', component: DisplayComponent },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({

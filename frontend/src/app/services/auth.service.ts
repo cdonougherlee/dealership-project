@@ -37,13 +37,9 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    // console.log(moment().valueOf());
-    // console.log(this.getExpiration().valueOf());
     const expiration = localStorage.getItem('expires');
     if (expiration) {
       const expiresAt = JSON.parse(expiration);
-      console.log(moment());
-      console.log(moment(expiresAt));
       return moment().valueOf() <= moment(expiresAt).valueOf();
     } else {
       return false;

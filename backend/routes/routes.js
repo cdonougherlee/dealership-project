@@ -27,7 +27,7 @@ router.post("/login", loginUser);
 
 // View and update profile routes
 router
-  .route("/:username")
+  .route("/profile/:username")
   .get(protect(), getProfile)
   .put(protect(), updateProfile);
 
