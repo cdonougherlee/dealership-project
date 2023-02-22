@@ -33,7 +33,7 @@ function genPassword(password) {
 function genJWT(user) {
   const _id = user._id;
 
-  const expiresIn = 1;
+  const expiresIn = "1d";
 
   const payload = {
     sub: _id,

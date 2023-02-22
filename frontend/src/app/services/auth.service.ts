@@ -23,7 +23,8 @@ export class AuthService {
   //  }
 
   setLocalStorage(responseObj: any) {
-    const expires = moment().add(responseObj.expiresIn);
+    const [amount, key] = responseObj.expiresIn.split('');
+    const expires = moment().add(parseInt(amount), key);
 
     // Takes a key value pair
     localStorage.setItem('token', responseObj.token);
@@ -38,20 +39,18 @@ export class AuthService {
   isLoggedIn() {
     // console.log(moment().valueOf());
     // console.log(this.getExpiration().valueOf());
-    return moment().valueOf() <= this.getExpiration().valueOf(); // True means JWT is still valid
+    const expiration = localStorage.getItem('expires');
+    if (expiration) {
+      const expiresAt = JSON.parse(expiration);
+      console.log(moment());
+      console.log(moment(expiresAt));
+      return moment().valueOf() <= moment(expiresAt).valueOf();
+    } else {
+      return false;
+    }
   }
 
   isLoggedOut() {
     return !this.isLoggedIn();
-  }
-
-  getExpiration() {
-    const expiration = localStorage.getItem('expires');
-    if (expiration) {
-      const expiresAt = JSON.parse(expiration);
-      return moment(expiresAt);
-    } else {
-      return moment();
-    }
   }
 }
