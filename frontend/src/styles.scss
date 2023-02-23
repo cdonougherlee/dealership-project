@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Nobel, Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.text {
+  color: white;
+}
+
+.text-large {
+  font-size: large;
+}
+
+.container {
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.justify-end {
+  justify-self: end;
+}
+
+.justify-start {
+  justify-self: start;
+}

@@ -1,10 +1,32 @@
-<p>header works!</p>
+<section [ngClass]="{'border-bottom': isSmall}" class="navbar">
+  <!-- Sort out the nav border -->
+  <div [ngClass]="{'border-right': !isSmall}"></div>
+  <div [ngClass]="{'border-left': !isSmall}"></div>
 
-<p><a routerLink="/landing">Landing</a></p>
+  <!-- Nav options -->
+  <nav [ngClass]="{'container': !isSmall}" class="grid grid-3 text">
+
+    <a [ngClass]="{'justify-end': !isXSmall}" routerLink="/configurator"><fa-icon [icon]="faSliders"></fa-icon><span
+        *ngIf="!isXSmall" class="text-large">
+        Configurator</span></a>
+
+    <h1 class="volvo-logo">VOLVO</h1>
+
+    <a *ngIf="loggedIn else elseBlock" [ngClass]="{'justify-start': !isXSmall}" class="text-large"
+      routerLink="/profile/{{username}}"><fa-icon [icon]="faUser"></fa-icon><span *ngIf="!isXSmall" class="text-large">
+        Profile</span></a>
+
+    <ng-template #elseBlock>
+      <p [ngClass]="{'justify-start': !isXSmall}" class="text-large"><fa-icon [icon]="faIdBadge"></fa-icon><span
+          *ngIf="!isXSmall" class="text-large">
+          Register</span></p>
+    </ng-template>
+
+  </nav>
+</section>
+
+
+<!-- <p><a routerLink="/landing">Landing</a></p>
 <p><a routerLink="/configurator">Configurator</a></p>
 <p><a routerLink="/profile/{{username}}">Profile</a></p>
-<p><a routerLink="/display">Display</a></p>
-
-<app-login></app-login>
-<app-logout></app-logout>
-<app-register></app-register>
+<p><a routerLink="/{{username}}/car/{{id}}">Display</a></p> -->
