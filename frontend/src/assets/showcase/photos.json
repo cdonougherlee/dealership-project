@@ -1,0 +1,16 @@
+{
+  "data":[
+      {
+          "previewImageSrc": "./4k-side-on.jpg",
+          "thumbnailImageSrc": "./4k-side-on.jpg",
+          "alt": "Description for Image 1",
+          "title": "Title 1"
+      },
+      {
+          "previewImageSrc": "./1080p-architecture.jpg",
+          "thumbnailImageSrc": "1080p-architecture.jpg",
+          "alt": "Description for Image 2",
+          "title": "Title 2"
+      }
+  ]
+}

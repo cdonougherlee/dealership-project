@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LayoutModule } from '@angular/cdk/layout';
+import { GalleriaModule } from 'primeng/galleria';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/shared/login/login.component';
@@ -42,6 +43,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     HttpClientModule,
     FontAwesomeModule,
     LayoutModule,
+    GalleriaModule,
   ],
   providers: [
     AuthService,

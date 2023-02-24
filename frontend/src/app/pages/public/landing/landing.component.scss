@@ -1,15 +1,45 @@
-img {
-  z-index: -1;
-  top: 0;
+article {
+  background-color: rgb(50, 50, 50);
+}
+
+// Header styling
+header {
+  top: 50px;
+  left: 10%;
   position: absolute;
-  width: 100%;
-  min-width: 740px;
+
+  h1 {
+    font-size: 9em;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: min(280px, 30%); /* or 100px */
+      border-bottom: 2px solid white;
+    }
+  }
+
+  h3 {
+    margin-top: 2%;
+    font-size: calc(1em + 3rem);
+  }
 }
 
-h1 {
-  font-size: max(12vw, 5em);
+#img-wrapper {
+  overflow-x: hidden;
+
+  img {
+    z-index: -1;
+    top: 0;
+    width: 100%;
+    min-width: 740px;
+  }
 }
 
-h2 {
-  font-size: max(7vw, 3em);
+// Gallery styling
+#gallery-wrapper {
+  width: 800px;
 }

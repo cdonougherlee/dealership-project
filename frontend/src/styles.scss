@@ -38,3 +38,7 @@ a {
 .justify-start {
   justify-self: start;
 }
+
+.p-link:focus {
+  box-shadow: none !important;
+}

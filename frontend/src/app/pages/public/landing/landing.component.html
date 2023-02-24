@@ -1,10 +1,37 @@
-<section>
-  <img src="../../../../assets/4k-side-on.jpg" alt="">
-  <div class="container">
-    <h1 class="text">S90</h1>
-    <h2 class="text">Elegance <br>
-      & <br>
-      Class
-    </h2>
-  </div>
-</section>
+<app-header></app-header>
+
+<article>
+
+  <!-- Opener -->
+  <section>
+    <header [ngClass]="{'container': !isSmall}" class="text">
+      <h1>S90</h1>
+      <h3 *ngIf="!isSmall">Elegance<br>& Class</h3>
+    </header>
+    <div id="img-wrapper">
+      <img id="side-on-image" src="../../../../assets/4k-side-on.jpg" alt="Picture of Volvo S90 side view">
+    </div>
+  </section>
+
+  <!-- Photos with animation -->
+  <section [ngClass]="{'container': !isSmall}" class="text">
+    <div id="gallery-wrapper">
+      <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '100%'}"
+        [numVisible]="3" [circular]="true" [showItemNavigators]="true" [showItemNavigatorsOnHover]="true">
+        <ng-template pTemplate="item" let-item>
+          <img [src]="item.previewImageSrc" [alt]="item.alt" [title]="item.title" style="width: 100%;" />
+        </ng-template>
+
+        <ng-template pTemplate="thumbnail" let-item width="50%">
+          <div class="grid  grid-nogutter justify-content-center">
+            <img [src]="item.thumbnailImageSrc" [alt]="item.alt" [title]="item.title" width=80% />
+          </div>
+        </ng-template>
+      </p-galleria>
+    </div>
+  </section>
+
+
+</article>
+
+<app-footer></app-footer>
