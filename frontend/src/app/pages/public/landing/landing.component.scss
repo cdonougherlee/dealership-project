@@ -1,5 +1,5 @@
 article {
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(16, 16, 16);
 }
 
 // Header styling
@@ -40,6 +40,12 @@ header {
 }
 
 // Gallery styling
-#gallery-wrapper {
-  width: 800px;
+
+#featured {
+  margin-bottom: 3%;
+}
+
+.featured-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5%;
 }
