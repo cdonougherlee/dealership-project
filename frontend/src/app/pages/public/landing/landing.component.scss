@@ -1,8 +1,4 @@
-article {
-  background-color: rgb(16, 16, 16);
-}
-
-// Header styling
+// Opener styling
 header {
   top: 50px;
   left: 10%;
@@ -22,7 +18,7 @@ header {
     }
   }
 
-  h3 {
+  h2 {
     margin-top: 2%;
     font-size: calc(1em + 3rem);
   }
@@ -32,7 +28,6 @@ header {
   overflow-x: hidden;
 
   img {
-    z-index: -1;
     top: 0;
     width: 100%;
     min-width: 740px;
@@ -41,11 +36,12 @@ header {
 
 // Gallery styling
 
-#featured {
+#showcase {
   margin-bottom: 3%;
 }
 
-.featured-grid {
+.showcase-grid {
   grid-template-columns: repeat(2, 1fr);
   gap: 5%;
+  align-items: start;
 }

@@ -1,3 +1,4 @@
+// Nav bar border outline
 @mixin nav-border($deg) {
   width: 30%;
   height: 50px;
@@ -20,18 +21,19 @@
   right: 50%;
 }
 
+// For small screens
 .border-bottom {
   border-bottom: 2px white solid;
 }
 
+// Navbar content
 .navbar {
   z-index: 3;
   width: 100vw;
   height: 50px;
   background-image: linear-gradient(to right, black, rgb(44, 44, 44), black);
-  opacity: 95%;
+  opacity: 90%;
   position: fixed;
-  top: 0;
 }
 
 .grid {

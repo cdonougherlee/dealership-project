@@ -7,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
+  // Variable intialisation
   isSmall: boolean = false;
 
-  imageString: String = '../../../../assets/showcase/';
+  constructor(private breakpointService: BreakpointObserver) {}
 
+  ngOnInit() {
+    this.breakpointService
+      .observe([Breakpoints.Small, Breakpoints.XSmall])
+      .subscribe((res) => {
+        this.isSmall = false;
+
+        if (res.matches) {
+          this.isSmall = true;
+        }
+      });
+  }
+
+  // Data for gallery images
+  imageString: String = '../../../../assets/showcase/';
   images: any[] = [
     {
       previewImageSrc: `${this.imageString}1080p-architecture.jpg`,
@@ -38,32 +53,22 @@ export class LandingComponent implements OnInit {
     },
   ];
 
-  responsiveOptions: any[] = [
+  specifications: any[] = [
     {
-      breakpoint: '1024px',
-      numVisible: 5,
+      name: 'Performance',
+      detail: 'Fast',
     },
     {
-      breakpoint: '768px',
-      numVisible: 3,
+      name: 'Sound',
+      detail: 'Fast',
     },
     {
-      breakpoint: '560px',
-      numVisible: 1,
+      name: 'Performance',
+      detail: 'Fast',
+    },
+    {
+      name: 'Performance',
+      detail: 'Fast',
     },
   ];
-
-  constructor(private breakpointService: BreakpointObserver) {}
-
-  ngOnInit() {
-    this.breakpointService
-      .observe([Breakpoints.Small, Breakpoints.XSmall])
-      .subscribe((res) => {
-        this.isSmall = false;
-
-        if (res.matches) {
-          this.isSmall = true;
-        }
-      });
-  }
 }
