@@ -29,6 +29,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FeaturesComponent } from './components/landing/features/features.component';
 import { SpecificationsComponent } from './components/landing/specifications/specifications.component';
 import { DataService } from './services/data.service';
+import { ConfiguratorAnimationsComponent } from './components/landing/configurator-animations/configurator-animations.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DataService } from './services/data.service';
     GalleryComponent,
     FeaturesComponent,
     SpecificationsComponent,
+    ConfiguratorAnimationsComponent,
   ],
   imports: [
     BrowserModule,

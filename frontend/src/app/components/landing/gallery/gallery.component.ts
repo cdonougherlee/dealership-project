@@ -21,8 +21,8 @@ export class GalleryComponent {
       numVisible: 3,
     },
     {
-      breakpoint: '560px',
-      numVisible: 1,
+      breakpoint: '400px',
+      numVisible: 2,
     },
   ];
 

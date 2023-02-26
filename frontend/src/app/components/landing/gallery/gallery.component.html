@@ -1,7 +1,7 @@
 <div [ngClass]="{'small-screen': isSmall}">
   <h3>Gallery</h3>
 
-  <div class="gallery-wrapper">
+  <div id="gallery-wrapper">
     <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '100%'}"
       [numVisible]="3" [circular]="true" [showItemNavigators]="true" [showItemNavigatorsOnHover]="true">
       <ng-template pTemplate="item" let-item>

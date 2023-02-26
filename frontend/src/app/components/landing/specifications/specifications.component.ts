@@ -24,7 +24,7 @@ export class SpecificationsComponent {
     private dataService: DataService
   ) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {

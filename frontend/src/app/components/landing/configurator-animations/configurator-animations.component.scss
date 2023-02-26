@@ -1,0 +1,40 @@
+h3 {
+  font-size: 3rem;
+  margin: 3% 0;
+  font-weight: lighter;
+}
+
+.grid {
+  gap: 5%;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+img {
+  max-width: 100%;
+}
+
+// For mobile
+.small-screen {
+  h3 {
+    padding-left: 1%;
+  }
+
+  @for $i from 1 to 4 {
+    .a:nth-child(#{$i}) {
+      grid-area: s + $i;
+    }
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "s1 s2" "s3 s3";
+  }
+}
+
+.xsmall-screen {
+  .grid {
+    grid-template-areas: "s1" "s2" "s3";
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
