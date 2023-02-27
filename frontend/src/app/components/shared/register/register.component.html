@@ -3,7 +3,7 @@
     Register</span></p>
 
 <!-- Sidebar -->
-<p-sidebar [(visible)]="display" position="right" [baseZIndex]="1">
+<p-sidebar [(visible)]="display" position="right" [baseZIndex]="4">
   <div id="sidebar-content">
     <h3>Register</h3>
 
@@ -24,7 +24,7 @@
           ngModel>
       </div>
 
-      <p-button type="submit" label="Register"></p-button>
+      <div id="btn-wrapper"><p-button type="submit" styleClass="p-button-lg" label="Register"></p-button></div>
     </form>
 
     <p *ngIf="errorMsg">Hello {{errorMsg}}</p>

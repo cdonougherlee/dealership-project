@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfiguratorPageComponent } from './pages/public/configurator-page/configurator-page.component';
-import { ShowcasePageComponent } from './pages/protected/showcase-page/showcase-page.component';
-import { ProfileComponent } from './pages/protected/profile-page/profile.component';
-import { ErrorPageComponent } from './pages/public/error-page/error-page.component';
-import { LandingComponent } from './pages/public/landing-page/landing.component';
+import { ConfiguratorPageComponent } from './pages/public-pages/configurator-page/configurator-page.component';
+import { ShowcasePageComponent } from './pages/protected-pages/showcase-page/showcase-page.component';
+import { ProfileComponent } from './pages/protected-pages/profile-page/profile.component';
+import { ErrorPageComponent } from './pages/public-pages/error-page/error-page.component';
+import { LandingComponent } from './pages/public-pages/landing-page/landing.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
