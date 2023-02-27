@@ -10,15 +10,14 @@
         *ngIf="!isXSmall">
         Configurator</span></a>
 
-    <h2 class="volvo-logo">VOLVO</h2>
+    <app-volvo-logo></app-volvo-logo>
 
     <a *ngIf="loggedIn else elseBlock" [ngClass]="{'justify-start': !isXSmall}"
       routerLink="/profile/{{username}}"><fa-icon [icon]="faUser"></fa-icon><span *ngIf="!isXSmall">
         Profile</span></a>
 
     <ng-template #elseBlock>
-      <p [ngClass]="{'justify-start': !isXSmall}"><fa-icon [icon]="faIdBadge"></fa-icon><span *ngIf="!isXSmall">
-          Register</span></p>
+      <app-register [ngClass]="{'justify-start': !isXSmall}"></app-register>
     </ng-template>
 
   </nav>

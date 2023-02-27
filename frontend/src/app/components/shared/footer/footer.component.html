@@ -1,1 +1,27 @@
-<div></div>
+<section [ngClass]="{'small-screen': isSmall}">
+  <div [ngClass]="{'x-small-screen': isXSmall}" class="container grid">
+
+    <app-volvo-logo></app-volvo-logo>
+
+    <p>The code for this project can be found <a id="github"
+        href="https://github.com/cdonougherlee/Dealership-project">here</a>
+    </p>
+
+    <div id="page-links">
+      <a routerLink="/configurator"><fa-icon [icon]="faSliders"></fa-icon><span>
+          Configurator</span></a>
+
+      <a *ngIf="loggedIn else elseBlock" routerLink="/profile/{{username}}"><fa-icon [icon]="faUser"></fa-icon><span>
+          Profile</span></a>
+
+      <ng-template #elseBlock>
+        <div>
+          <app-register></app-register>
+        </div>
+
+      </ng-template>
+    </div>
+
+  </div>
+  <p-scrollTop></p-scrollTop>
+</section>

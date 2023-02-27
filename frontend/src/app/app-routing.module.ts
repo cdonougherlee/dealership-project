@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfiguratorComponent } from './pages/public/configurator/configurator.component';
-import { ShowcaseComponent } from './pages/protected/showcase/showcase.component';
-import { ProfileComponent } from './pages/protected/profile/profile.component';
-import { ErrorComponent } from './pages/public/error/error.component';
-import { LandingComponent } from './pages/public/landing/landing.component';
+import { ConfiguratorPageComponent } from './pages/public/configurator-page/configurator-page.component';
+import { ShowcasePageComponent } from './pages/protected/showcase-page/showcase-page.component';
+import { ProfileComponent } from './pages/protected/profile-page/profile.component';
+import { ErrorPageComponent } from './pages/public/error-page/error-page.component';
+import { LandingComponent } from './pages/public/landing-page/landing.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: 'landing', component: LandingComponent },
-  { path: 'configurator', component: ConfiguratorComponent },
+  { path: 'configurator', component: ConfiguratorPageComponent },
   { path: 'profile/:username', component: ProfileComponent },
-  { path: ':username/car/:index', component: ShowcaseComponent },
-  { path: '**', component: ErrorComponent },
+  { path: ':username/car/:index', component: ShowcasePageComponent },
+  { path: '**', component: ErrorPageComponent },
 ];
 
 @NgModule({

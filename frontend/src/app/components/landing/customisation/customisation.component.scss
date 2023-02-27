@@ -1,0 +1,59 @@
+button {
+  width: 60%;
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  margin: 3% 0;
+}
+
+.grid {
+  grid-template-columns: repeat(3, 1fr);
+  height: fit-content;
+}
+
+.exterior-shadow {
+  filter: brightness(0) saturate(100);
+}
+
+.blurb {
+  border: 1px white solid;
+  border-radius: 4%;
+  width: 100%;
+  height: fit-content;
+  padding: 5%;
+  text-align: center;
+}
+
+// For mobile
+@mixin small-screens {
+  .grid {
+    margin: 0 5%;
+  }
+}
+
+.small-screen {
+  @include small-screens;
+  @for $i from 1 to 4 {
+    .g-area:nth-child(#{$i}) {
+      grid-area: s + $i;
+    }
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "s1 s2" "s3 s3";
+  }
+}
+
+.xsmall-screen {
+  @include small-screens;
+  .grid {
+    gap: 0%;
+    grid-template-areas: "s1" "s2" "s3";
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}

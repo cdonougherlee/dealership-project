@@ -1,16 +1,23 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-configurator-animations',
-  templateUrl: './configurator-animations.component.html',
-  styleUrls: ['./configurator-animations.component.scss'],
+  selector: 'app-customisation',
+  templateUrl: './customisation.component.html',
+  styleUrls: ['./customisation.component.scss'],
 })
-export class ConfiguratorAnimationsComponent {
+export class CustomisationComponent {
+  path!: String;
+  images!: any[];
+
   isSmall: boolean = false;
   isXSmall: boolean = false;
 
-  constructor(private breakpointService: BreakpointObserver) {}
+  constructor(
+    private breakpointService: BreakpointObserver,
+    private dataService: DataService
+  ) {}
 
   ngOnInit() {
     this.breakpointService
@@ -28,5 +35,10 @@ export class ConfiguratorAnimationsComponent {
           this.isXSmall = true;
         }
       });
+
+    this.dataService.getCarouselImages().then((res) => {
+      this.path = res.path;
+      this.images = res.images;
+    });
   }
 }

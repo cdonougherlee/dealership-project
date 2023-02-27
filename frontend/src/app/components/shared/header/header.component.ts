@@ -44,13 +44,10 @@ export class HeaderComponent implements OnInit {
         this.isSmall = false;
         this.isXSmall = false;
 
-        if (res.breakpoints[Breakpoints.Small]) {
-          this.isSmall = true;
-        }
+        this.isSmall = res.breakpoints[Breakpoints.Small];
 
         if (res.breakpoints[Breakpoints.XSmall]) {
-          this.isSmall = true;
-          this.isXSmall = true;
+          this.isXSmall = this.isSmall = true;
         }
       });
   }

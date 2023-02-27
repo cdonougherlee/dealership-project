@@ -12,8 +12,14 @@ a {
   text-decoration: inherit;
 }
 
-.text-large {
-  font-size: large;
+h3 {
+  font-size: 3rem;
+  margin: 3% 0;
+  font-weight: lighter;
+}
+
+img {
+  max-width: 100%;
 }
 
 .container {
@@ -26,15 +32,13 @@ a {
   display: grid;
   justify-items: center;
   align-items: center;
+  gap: 5%;
 }
 
-// May remove from here after all...
-.justify-end {
-  justify-self: end;
-}
-
-.justify-start {
-  justify-self: start;
+.small-screen {
+  h3 {
+    padding-left: 1%;
+  }
 }
 
 .p-link:focus {

@@ -4,13 +4,13 @@
   <div id="gallery-wrapper">
     <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '100%'}"
       [numVisible]="3" [circular]="true" [showItemNavigators]="true" [showItemNavigatorsOnHover]="true">
-      <ng-template pTemplate="item" let-item>
-        <img [src]="item.previewImageSrc" [alt]="item.alt" [title]="item.title" style="width: 100%;" />
+      <ng-template pTemplate="item" let-image>
+        <img [src]="path+image.previewImageSrc" [alt]="image.alt" [title]="image.title" style="width: 100%;" />
       </ng-template>
 
-      <ng-template pTemplate="thumbnail" let-item width="50%">
+      <ng-template pTemplate="thumbnail" let-image width="50%">
         <div class="grid  grid-nogutter justify-content-center">
-          <img [src]="item.thumbnailImageSrc" [alt]="item.alt" [title]="item.title" width=80% />
+          <img [src]="path+image.thumbnailImageSrc" [alt]="image.alt" [title]="image.title" width=80% />
         </div>
       </ng-template>
     </p-galleria>

@@ -9,27 +9,33 @@ import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { CarouselModule } from 'primeng/carousel';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { SidebarModule } from 'primeng/sidebar';
+import { InputTextModule } from 'primeng/inputtext';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/shared/login/login.component';
 import { LogoutComponent } from './components/shared/logout/logout.component';
-import { ProfileComponent } from './pages/protected/profile/profile.component';
-import { LandingComponent } from './pages/public/landing/landing.component';
-import { ConfiguratorComponent } from './pages/public/configurator/configurator.component';
+import { ProfileComponent } from './pages/protected/profile-page/profile.component';
+import { LandingComponent } from './pages/public/landing-page/landing.component';
+import { ConfiguratorPageComponent } from './pages/public/configurator-page/configurator-page.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { RegisterComponent } from './components/shared/register/register.component';
-import { ErrorComponent } from './pages/public/error/error.component';
-import { ShowcaseComponent } from './pages/protected/showcase/showcase.component';
+import { ErrorPageComponent } from './pages/public/error-page/error-page.component';
+import { ShowcasePageComponent } from './pages/protected/showcase-page/showcase-page.component';
 import { GalleryComponent } from './components/landing/gallery/gallery.component';
-
-import { AuthService } from './services/auth.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CustomisationComponent } from './components/landing/customisation/customisation.component';
+import { BackdropComponent } from './components/landing/backdrop/backdrop.component';
+import { VolvoLogoComponent } from './components/shared/volvo-logo/volvo-logo.component';
 import { FeaturesComponent } from './components/landing/features/features.component';
 import { SpecificationsComponent } from './components/landing/specifications/specifications.component';
+
+import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
-import { ConfiguratorAnimationsComponent } from './components/landing/configurator-animations/configurator-animations.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,16 +44,18 @@ import { ConfiguratorAnimationsComponent } from './components/landing/configurat
     LogoutComponent,
     ProfileComponent,
     LandingComponent,
-    ConfiguratorComponent,
+    ConfiguratorPageComponent,
     HeaderComponent,
     FooterComponent,
     RegisterComponent,
-    ErrorComponent,
-    ShowcaseComponent,
+    ErrorPageComponent,
+    ShowcasePageComponent,
     GalleryComponent,
     FeaturesComponent,
     SpecificationsComponent,
-    ConfiguratorAnimationsComponent,
+    CustomisationComponent,
+    BackdropComponent,
+    VolvoLogoComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +69,10 @@ import { ConfiguratorAnimationsComponent } from './components/landing/configurat
     BrowserAnimationsModule,
     TableModule,
     ButtonModule,
+    CarouselModule,
+    ScrollTopModule,
+    SidebarModule,
+    InputTextModule,
   ],
   providers: [
     DataService,

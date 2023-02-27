@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-showcase',
-  templateUrl: './showcase.component.html',
-  styleUrls: ['./showcase.component.scss'],
+  selector: 'app-showcase-page',
+  templateUrl: './showcase-page.component.html',
+  styleUrls: ['./showcase-page.component.scss'],
 })
-export class ShowcaseComponent {
+export class ShowcasePageComponent {
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,

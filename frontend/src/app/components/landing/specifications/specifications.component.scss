@@ -1,24 +1,4 @@
-h3 {
-  font-size: 3rem;
-  margin: 3% 0;
-  font-weight: lighter;
-}
-
-.grid {
-  gap: 5%;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: start;
-}
-p {
-  padding: 3%;
-}
 // For mobile
-.small-screen {
-  h3 {
-    padding-left: 1%;
-  }
-}
-
 .accordian-wrapper {
   max-width: 100%;
 }

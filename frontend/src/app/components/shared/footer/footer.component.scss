@@ -1,5 +1,37 @@
-div {
-  height: 50px;
+section {
   width: 100%;
-  background-color: white;
+  border-top: 2px white solid;
+  text-align: center;
+}
+
+#page-links {
+  display: flex;
+  gap: 10%;
+  width: 100%;
+  justify-content: center;
+}
+
+#github {
+  text-decoration: underline;
+}
+
+.grid {
+  grid-template-columns: repeat(3, 1fr);
+  height: fit-content;
+  padding: 2% 0px;
+}
+
+.small-screen {
+  margin-top: 6%;
+}
+
+.x-small-screen {
+  padding: 5% 0px;
+  gap: 15%;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+
+  #page-links {
+    font-size: 1.5rem;
+  }
 }

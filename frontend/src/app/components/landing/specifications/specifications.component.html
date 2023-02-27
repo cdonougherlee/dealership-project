@@ -3,6 +3,7 @@
 
   <div id="accordian-wrapper">
     <p-accordion>
+
       <p-accordionTab header="Performance">
         <p-table [value]="performanceSpecs" styleClass="p-datatable-striped" responsiveLayout="scroll">
           <ng-template pTemplate="body" let-p>
@@ -13,6 +14,7 @@
           </ng-template>
         </p-table>
       </p-accordionTab>
+
       <p-accordionTab header="Capacity">
         <p-table [value]="capacitySpecs" styleClass="p-datatable-striped" responsiveLayout="scroll">
           <ng-template pTemplate="body" let-s>
@@ -23,6 +25,7 @@
           </ng-template>
         </p-table>
       </p-accordionTab>
+
       <p-accordionTab header="Weight">
         <p-table [value]="weightSpecs" styleClass="p-datatable-striped" responsiveLayout="scroll">
           <ng-template pTemplate="body" let-w>
@@ -33,6 +36,7 @@
           </ng-template>
         </p-table>
       </p-accordionTab>
+
       <p-accordionTab header="Exterior Dimensions">
         <p-table [value]="exteriorSpecs" styleClass="p-datatable-striped" responsiveLayout="scroll">
           <ng-template pTemplate="body" let-e>
@@ -43,6 +47,7 @@
           </ng-template>
         </p-table>
       </p-accordionTab>
+
     </p-accordion>
   </div>
 </div>

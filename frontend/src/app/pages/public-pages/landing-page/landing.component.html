@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<!-- Intro -->
+<article>
+  <app-backdrop></app-backdrop>
+</article>
+
+<article [ngClass]="{'container': !isSmall}">
+  <!-- Gallery and features -->
+  <section id="showcase" [ngClass]="{'grid showcase-grid': !isSmall}">
+    <app-gallery></app-gallery>
+    <app-features></app-features>
+  </section>
+
+  <!-- Specs -->
+  <section id="specifications">
+    <app-specifications></app-specifications>
+  </section>
+
+  <!-- Customisation -->
+  <section id="customisation">
+    <app-customisation></app-customisation>
+  </section>
+</article>
+
+<app-footer></app-footer>

@@ -4,19 +4,30 @@ const auth = require("../middleware/authMiddleware");
 const asyncHandler = require("express-async-handler");
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, prefDealer } = req.body;
+  const { username, password, password2, prefDealer } = req.body;
 
   // Check all fields present
-  if (!username || !prefDealer) {
-    res.status(400).json({ success: false, msg: "Please fill out all fields" });
+  if (!username || !password || !password2 || !prefDealer) {
+    return res
+      .status(400)
+      .json({ success: false, msg: "Please fill out all fields" });
   }
 
   // Check if user exists
   await User.findOne({ username }).then((user) => {
     if (user) {
-      res.status(400).json({ success: false, msg: "User already exists" });
+      return res
+        .status(400)
+        .json({ success: false, msg: "User already exists" });
     }
   });
+
+  // Check that passwords match
+  if (password !== password2) {
+    return res
+      .status(400)
+      .json({ success: false, msg: "Passwords don't match" });
+  }
 
   // Create salt and hash based off the plain text pw
   const { salt, hash } = auth.genPassword(req.body.password);
@@ -33,7 +44,7 @@ const registerUser = asyncHandler(async (req, res) => {
   if (user) {
     const jwt = auth.genJWT(user);
 
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       user: user,
       token: jwt.token,
@@ -41,7 +52,7 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   } else {
     // Else return invalid data error
-    res.status(400).json({ success: false, msg: "Invalid user data" });
+    return res.status(400).json({ success: false, msg: "Invalid user data" });
   }
 });
 

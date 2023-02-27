@@ -15,4 +15,20 @@ export class DataService {
         return specs;
       });
   }
+
+  getGalleryImages() {
+    return lastValueFrom(
+      this.http.get<any>('../../assets/data/gallery-images.json')
+    ).then((res) => {
+      return res;
+    });
+  }
+
+  getCarouselImages() {
+    return lastValueFrom(
+      this.http.get<any>('../../assets/data/carousel-images.json')
+    ).then((res) => {
+      return res;
+    });
+  }
 }

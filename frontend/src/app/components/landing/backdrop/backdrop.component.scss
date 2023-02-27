@@ -33,17 +33,3 @@ header {
     min-width: 740px;
   }
 }
-
-// Section styling
-
-#showcase,
-#specifications,
-#configuratior-animations {
-  margin-bottom: 3%;
-}
-
-.showcase-grid {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5%;
-  align-items: start;
-}

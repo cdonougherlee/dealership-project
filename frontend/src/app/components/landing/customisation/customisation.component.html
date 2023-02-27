@@ -1,0 +1,23 @@
+<div [ngClass]="{'small-screen': isSmall, 'xsmall-screen': isXSmall}">
+  <h3>Configurator</h3>
+
+  <div id="customisation-wrapper" class="grid">
+    <div>
+      <img class="exterior-shadow g-area" src="../../../../assets/photos/configurator-animation/Volvo-S90-red.png"
+        alt="">
+    </div>
+    <div class="g-area">
+      <p-carousel [value]="images" styleClass="custom-carousel" [numVisible]="1" [numScroll]="1" [circular]="true"
+        [autoplayInterval]="3000" [showIndicators]="false" [showNavigators]="false">>
+        <ng-template let-image pTemplate="item">
+          <img [src]="path+image.previewImageSrc" [alt]="image.alt" [title]="image.title" style="width: 100%;" />
+        </ng-template>
+      </p-carousel>
+    </div>
+    <div class="blurb g-area">
+      <h4>Personalise your dream S90 to suit your needs</h4>
+      <a routerLink="/configurator"><button pButton pRipple type="button" label="Build your S90"
+          class="p-button-outlined"></button></a>
+    </div>
+  </div>
+</div>
