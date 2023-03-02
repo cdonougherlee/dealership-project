@@ -61,7 +61,9 @@ const loginUser = asyncHandler(async (req, res) => {
 
   // Check all fields present
   if (!username || !password) {
-    res.status(400).json({ success: false, msg: "Please fill out all fields" });
+    return res
+      .status(400)
+      .json({ success: false, msg: "Please fill out all fields" });
   }
 
   // Find the user by username in the db
@@ -80,7 +82,7 @@ const loginUser = asyncHandler(async (req, res) => {
     if (isValid) {
       const tokenObject = auth.genJWT(user);
 
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         user: user,
         token: tokenObject.token,
@@ -88,7 +90,9 @@ const loginUser = asyncHandler(async (req, res) => {
       });
     } else {
       // Else return unauthorized response
-      res.status(401).json({ success: false, msg: "Invalid credentials" });
+      return res
+        .status(401)
+        .json({ success: false, msg: "Invalid credentials" });
     }
   });
 });

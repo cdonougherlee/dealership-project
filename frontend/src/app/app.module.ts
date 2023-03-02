@@ -13,6 +13,8 @@ import { CarouselModule } from 'primeng/carousel';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { ToastModule } from 'primeng/toast';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/shared/login/login.component';
@@ -73,6 +75,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ScrollTopModule,
     SidebarModule,
     InputTextModule,
+    DropdownModule,
+    ToastModule,
   ],
   providers: [
     DataService,

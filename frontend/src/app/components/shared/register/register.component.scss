@@ -1,12 +1,98 @@
-.p-inputgroup {
-  border: 0.5px white solid;
-  margin: 10% 0;
+// Title and link to login
+h3 {
+  margin: 0;
 }
 
+a {
+  font-size: small;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// Header register icon
 .justify-start {
   justify-self: start;
 }
 
 p:hover {
   cursor: pointer;
+}
+
+// Text inputs
+.p-inputgroup {
+  border: 0.5px white solid;
+  margin: 3% 0;
+}
+
+// Dealership input
+#dealership-input-wrapper {
+  margin-top: 5%;
+}
+
+.grid {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "s1 s2" "s3 s3";
+  grid-template-rows: 1fr 5fr;
+}
+
+#dropdown-label {
+  margin-right: 5%;
+  display: inline;
+  grid-area: s1;
+}
+
+p-dropdown {
+  width: 100%;
+  grid-area: s2;
+}
+
+#map-wrapper {
+  grid-area: s3;
+}
+
+// Register button, PrimeNG button is impossible to style
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #17202f;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 100%;
+  opacity: 1;
+  margin: 5% 0;
+
+  &:hover {
+    border-color: #12d0ff;
+  }
+}
+
+// Error message
+label {
+  color: red;
+  font-size: 1.3rem;
+  border: 1px red solid;
+  padding: 0px 30px;
+}
+
+// For Iframe at different screen dimensions
+.large-screen {
+  iframe {
+    width: 450px;
+    height: 320px;
+  }
+}
+
+.small-screen {
+  iframe {
+    width: 270px;
+    height: 270px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
 }
