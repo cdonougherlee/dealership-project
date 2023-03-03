@@ -17,27 +17,28 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/shared/login/login.component';
-import { LogoutComponent } from './components/shared/logout/logout.component';
+import { LoginComponent } from './components/shared-components/login/login.component';
+import { LogoutComponent } from './components/shared-components/logout/logout.component';
 import { ProfileComponent } from './pages/protected-pages/profile-page/profile.component';
 import { LandingComponent } from './pages/public-pages/landing-page/landing.component';
 import { ConfiguratorPageComponent } from './pages/public-pages/configurator-page/configurator-page.component';
-import { HeaderComponent } from './components/shared/header/header.component';
-import { FooterComponent } from './components/shared/footer/footer.component';
-import { RegisterComponent } from './components/shared/register/register.component';
+import { HeaderComponent } from './components/shared-components/header/header.component';
+import { FooterComponent } from './components/shared-components/footer/footer.component';
+import { RegisterComponent } from './components/shared-components/register/register.component';
 import { ErrorPageComponent } from './pages/public-pages/error-page/error-page.component';
 import { ShowcasePageComponent } from './pages/protected-pages/showcase-page/showcase-page.component';
-import { GalleryComponent } from './components/landing/gallery/gallery.component';
-import { CustomisationComponent } from './components/landing/customisation/customisation.component';
-import { BackdropComponent } from './components/landing/backdrop/backdrop.component';
-import { VolvoLogoComponent } from './components/shared/volvo-logo/volvo-logo.component';
-import { FeaturesComponent } from './components/landing/features/features.component';
-import { SpecificationsComponent } from './components/landing/specifications/specifications.component';
+import { GalleryComponent } from './components/landing-page-components/gallery/gallery.component';
+import { CustomisationComponent } from './components/landing-page-components/customisation/customisation.component';
+import { BackdropComponent } from './components/landing-page-components/backdrop/backdrop.component';
+import { VolvoLogoComponent } from './components/shared-components/volvo-logo/volvo-logo.component';
+import { FeaturesComponent } from './components/landing-page-components/features/features.component';
+import { SpecificationsComponent } from './components/landing-page-components/specifications/specifications.component';
 
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { ExtColorComponent } from './components/configurator-page-components/ext-color/ext-color.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     CustomisationComponent,
     BackdropComponent,
     VolvoLogoComponent,
+    ExtColorComponent,
   ],
   imports: [
     BrowserModule,

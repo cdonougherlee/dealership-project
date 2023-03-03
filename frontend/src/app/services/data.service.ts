@@ -31,4 +31,12 @@ export class DataService {
       return res;
     });
   }
+
+  getConfigExtImages() {
+    return lastValueFrom(
+      this.http.get<any>('../../assets/data/config-ext-images.json')
+    ).then((res) => {
+      return res;
+    });
+  }
 }

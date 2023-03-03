@@ -1,0 +1,29 @@
+{
+  "path": "https://ik.imagekit.io/h0s40k5ceq/photos/cloudimage/",
+  "images": [
+    {
+      "previewImageSrc": "car_1.jpg",
+      "thumbnailImageSrc": "car_1.jpg",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    },
+    {
+      "previewImageSrc": "car_2.jpg",
+      "thumbnailImageSrc": "car_2.jpg",
+      "alt": "1080p-evening-bridge.jpg",
+      "title": "1080p-evening-bridge.jpg"
+    },
+    {
+      "previewImageSrc": "car_3.jpg",
+      "thumbnailImageSrc": "car_3.jpg",
+      "alt": "4k-head-on.jpg",
+      "title": "4k-head-on.jpg"
+    },
+    {
+      "previewImageSrc": "car_4.jpg",
+      "thumbnailImageSrc": "car_4.jpg",
+      "alt": "1080p-water.jpg",
+      "title": "1080p-water.jpg"
+    }
+  ]
+}
