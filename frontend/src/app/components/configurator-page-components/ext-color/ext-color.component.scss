@@ -1,3 +1,9 @@
-#gallery-wrapper {
-  width: 50%;
+.grid {
+  grid-template-columns: 2fr 1fr;
+}
+
+.small-screen {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

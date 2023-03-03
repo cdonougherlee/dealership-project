@@ -1,0 +1,13 @@
+<div id="gallery-wrapper">
+  <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '100%'}"
+    [circular]="true" [showItemNavigators]="false" [showThumbnails]="false">
+    <ng-template pTemplate="item" let-image>
+      <img [src]="path+num+'.jpg'" [alt]="image.alt" [title]="image.title" style="width: 100%;" />
+    </ng-template>
+  </p-galleria>
+
+  <div class="grid">
+    <fa-icon [icon]="faBackward" (click)="rotateRight()"></fa-icon>
+    <fa-icon [icon]="faForward" (click)="rotateLeft()"></fa-icon>
+  </div>
+</div>

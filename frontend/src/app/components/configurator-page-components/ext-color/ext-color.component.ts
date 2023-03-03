@@ -8,30 +8,11 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./ext-color.component.scss'],
 })
 export class ExtColorComponent {
-  images!: any[];
-  path!: String;
-
   isSmall: boolean = false;
 
-  responsiveOptions: any[] = [
-    {
-      breakpoint: '1024px', // Can't use isSmall here as that is type boolean
-      numVisible: 5,
-    },
-    {
-      breakpoint: '768px',
-      numVisible: 3,
-    },
-    {
-      breakpoint: '400px',
-      numVisible: 2,
-    },
-  ];
+  colour: String = 'orange';
 
-  constructor(
-    private breakpointService: BreakpointObserver,
-    private dataService: DataService
-  ) {}
+  constructor(private breakpointService: BreakpointObserver) {}
 
   ngOnInit() {
     this.breakpointService
@@ -43,10 +24,9 @@ export class ExtColorComponent {
           this.isSmall = true;
         }
       });
+  }
 
-    this.dataService.getConfigExtImages().then((res) => {
-      this.path = res.path;
-      this.images = res.images;
-    });
+  update() {
+    this.colour = 'red';
   }
 }

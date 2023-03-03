@@ -14,7 +14,7 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
-import { ToastModule } from 'primeng/toast';
+import { DockModule } from 'primeng/dock';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/shared-components/login/login.component';
@@ -33,12 +33,13 @@ import { BackdropComponent } from './components/landing-page-components/backdrop
 import { VolvoLogoComponent } from './components/shared-components/volvo-logo/volvo-logo.component';
 import { FeaturesComponent } from './components/landing-page-components/features/features.component';
 import { SpecificationsComponent } from './components/landing-page-components/specifications/specifications.component';
+import { ExtColorComponent } from './components/configurator-page-components/ext-color/ext-color.component';
+import { ExtThreeSixtyComponent } from './components/configurator-page-components/ext-three-sixty/ext-three-sixty.component';
 
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { ExtColorComponent } from './components/configurator-page-components/ext-color/ext-color.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ExtColorComponent } from './components/configurator-page-components/ext
     BackdropComponent,
     VolvoLogoComponent,
     ExtColorComponent,
+    ExtThreeSixtyComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +80,7 @@ import { ExtColorComponent } from './components/configurator-page-components/ext
     SidebarModule,
     InputTextModule,
     DropdownModule,
-    ToastModule,
+    DockModule,
   ],
   providers: [
     DataService,

@@ -1,0 +1,16 @@
+#gallery-wrapper {
+  width: 100%;
+}
+
+fa-icon {
+  font-size: 3.5rem;
+  margin-top: 2%;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.grid {
+  grid-template-columns: 1fr 1fr;
+}
