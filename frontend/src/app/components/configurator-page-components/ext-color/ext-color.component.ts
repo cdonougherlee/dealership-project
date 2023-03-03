@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -11,6 +12,8 @@ export class ExtColorComponent {
   isSmall: boolean = false;
 
   colour: String = 'orange';
+
+  colourOptions!: MenuItem[];
 
   constructor(private breakpointService: BreakpointObserver) {}
 
@@ -24,9 +27,32 @@ export class ExtColorComponent {
           this.isSmall = true;
         }
       });
+
+    this.colourOptions = [
+      {
+        label: 'Finder',
+        icon: 'https://primefaces.org/cdn/primeng/images/dock/finder.svg',
+        command: () => {
+          this.updateColour('Red');
+          console.log(this.colour);
+        },
+      },
+      {
+        label: 'App Store',
+        icon: 'https://primefaces.org/cdn/primeng/images/dock/appstore.svg',
+      },
+      {
+        label: 'Photos',
+        icon: 'https://primefaces.org/cdn/primeng/images/dock/photos.svg',
+      },
+      {
+        label: 'Trash',
+        icon: 'https://primefaces.org/cdn/primeng/images/dock/trash.png',
+      },
+    ];
   }
 
-  update() {
-    this.colour = 'red';
+  updateColour(colour: String) {
+    this.colour = colour;
   }
 }

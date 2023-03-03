@@ -1,8 +1,25 @@
 <div [ngClass]="{'small-screen': isSmall}">
   <h3>Exterior Colour</h3>
+
   <div class="grid">
     <app-ext-three-sixty [colour]="colour"></app-ext-three-sixty>
-    <button (click)="update()">CLICK</button>
+
+    <div>
+      <p-dock *ngIf="!isSmall; else elseBlock" [model]="colourOptions" position="right">
+        <ng-template pTemplate="item" let-item>
+          <img [src]="item.icon" [alt]="item.label" width="100%">
+        </ng-template>
+      </p-dock>
+
+      <ng-template #elseBlock><p-dock [model]="colourOptions" position="bottom">
+          <ng-template pTemplate="item" let-item>
+            <img [src]="item.icon" [alt]="item.label" width="100%">
+          </ng-template>
+        </p-dock>
+      </ng-template>
+
+      <h4>Currently: <i>Sonic {{colour}}</i></h4>
+    </div>
   </div>
 </div>
 
