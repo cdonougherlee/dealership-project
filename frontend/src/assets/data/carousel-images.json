@@ -1,26 +1,26 @@
 {
-  "path": "../../../../assets/photos/gallery/",
+  "path": "https://ik.imagekit.io/h0s40k5ceq/photos/configurator-carousel/",
   "images": [
     {
-      "previewImageSrc": "1080p-architecture.jpg",
+      "previewImageSrc": "Volvo-S90.png",
       "thumbnailImageSrc": "1080p-architecture.jpg",
       "alt": "Description for Image 1",
       "title": "Title 1"
     },
     {
-      "previewImageSrc": "1080p-evening-bridge.jpg",
+      "previewImageSrc": "4k-showroom.jpg",
       "thumbnailImageSrc": "1080p-evening-bridge.jpg",
       "alt": "1080p-evening-bridge.jpg",
       "title": "1080p-evening-bridge.jpg"
     },
     {
-      "previewImageSrc": "4k-head-on.jpg",
+      "previewImageSrc": "Volvo-S90-red.png",
       "thumbnailImageSrc": "4k-head-on.jpg",
       "alt": "4k-head-on.jpg",
       "title": "4k-head-on.jpg"
     },
     {
-      "previewImageSrc": "1080p-water.jpg",
+      "previewImageSrc": "4k-red-garage.jpg",
       "thumbnailImageSrc": "1080p-water.jpg",
       "alt": "1080p-water.jpg",
       "title": "1080p-water.jpg"

@@ -14,7 +14,6 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
-import { DockModule } from 'primeng/dock';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/shared-components/login/login.component';
@@ -33,13 +32,14 @@ import { BackdropComponent } from './components/landing-page-components/backdrop
 import { VolvoLogoComponent } from './components/shared-components/volvo-logo/volvo-logo.component';
 import { FeaturesComponent } from './components/landing-page-components/features/features.component';
 import { SpecificationsComponent } from './components/landing-page-components/specifications/specifications.component';
-import { ExtColorComponent } from './components/configurator-page-components/ext-color/ext-color.component';
+import { ExtColourPickerComponent } from './components/configurator-page-components/ext-colour-picker/ext-colour-picker.component';
 import { ExtThreeSixtyComponent } from './components/configurator-page-components/ext-three-sixty/ext-three-sixty.component';
 
 import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { IntColourPickerComponent } from './components/configurator-page-components/int-colour-picker/int-colour-picker.component';
 
 @NgModule({
   declarations: [
@@ -60,8 +60,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     CustomisationComponent,
     BackdropComponent,
     VolvoLogoComponent,
-    ExtColorComponent,
+    ExtColourPickerComponent,
     ExtThreeSixtyComponent,
+    IntColourPickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +81,6 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     SidebarModule,
     InputTextModule,
     DropdownModule,
-    DockModule,
   ],
   providers: [
     DataService,

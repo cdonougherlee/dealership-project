@@ -1,0 +1,46 @@
+.grid {
+  grid-template-columns: 2fr 1fr;
+  height: fit-content;
+  padding-bottom: 15px;
+  border-bottom: 2px white solid;
+}
+
+#list-wrapper {
+  width: 100%;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      font-size: 2rem;
+      margin: 5%;
+      margin-left: 0;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        margin-right: 10px;
+        height: 25px;
+        width: 25px;
+        background-size: contain;
+        background-image: url("https://ik.imagekit.io/h0s40k5ceq/photos/exterior/thumbnails/lexus-hazel.jpg");
+        border: 1px white solid;
+      }
+    }
+  }
+
+  h4 {
+    margin: 3% 0;
+    font-weight: lighter;
+  }
+}
+
+.small-screen {
+  .grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 6%;
+  }
+}

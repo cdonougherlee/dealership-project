@@ -1,0 +1,21 @@
+<div [ngClass]="{'small-screen': isSmall}">
+  <h3>Exterior Options</h3>
+
+  <div id="colour-picker-wrapper" class="grid">
+    <app-ext-three-sixty [colour]="colour"></app-ext-three-sixty>
+
+    <div id="list-wrapper">
+      <ul>
+        <li>Sonic Red</li>
+        <li>Frost White</li>
+        <li>Sudo Black</li>
+        <li>Gunmetal Silver</li>
+      </ul>
+
+      <h4>Currently: <i>Sonic {{colour}}</i></h4>
+    </div>
+  </div>
+</div>
+
+<!-- https://scaleflex.cloudimg.io/v7/demo/suv-orange-car-360/ -->
+<!-- https://ik.imagekit.io/h0s40k5ceq/photos/cloudimage/ -->
