@@ -1,7 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { UiService } from 'src/app/services/ui.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { faSliders } from '@fortawesome/free-solid-svg-icons';
@@ -18,8 +17,6 @@ export class FooterComponent implements OnInit {
   isSmall: boolean = false;
 
   username!: String | null;
-  subscription!: Subscription;
-  id = 1;
   loggedIn: boolean = false;
 
   faSliders = faSliders;
@@ -27,14 +24,9 @@ export class FooterComponent implements OnInit {
   faUser = faUser;
 
   constructor(
-    private uiService: UiService,
     private breakpointService: BreakpointObserver,
     private auth: AuthService
-  ) {
-    this.subscription = this.uiService
-      .onLogin()
-      .subscribe((value: String | null) => (this.username = value));
-  }
+  ) {}
 
   ngOnInit() {
     this.breakpointService
@@ -49,9 +41,7 @@ export class FooterComponent implements OnInit {
           this.isXSmall = true;
         }
       });
-  }
-
-  isLoggedIn() {
     this.loggedIn = this.auth.isLoggedIn();
+    this.username = this.auth.getUsername();
   }
 }

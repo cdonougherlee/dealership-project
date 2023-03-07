@@ -39,7 +39,9 @@ import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { IntColourPickerComponent } from './components/configurator-page-components/int-colour-picker/int-colour-picker.component';
+import { IntTrimPickerComponent } from './components/configurator-page-components/int-trim-picker/int-trim-picker.component';
+import { IntDisplayComponent } from './components/configurator-page-components/int-display/int-display.component';
+import { AccessoriesComponent } from './components/configurator-page-components/accessories/accessories.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { IntColourPickerComponent } from './components/configurator-page-compone
     VolvoLogoComponent,
     ExtColourPickerComponent,
     ExtThreeSixtyComponent,
-    IntColourPickerComponent,
+    IntTrimPickerComponent,
+    IntDisplayComponent,
+    AccessoriesComponent,
   ],
   imports: [
     BrowserModule,

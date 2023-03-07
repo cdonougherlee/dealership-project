@@ -1,0 +1,29 @@
+#options {
+  width: 300px;
+}
+
+#options-wrapper {
+  margin: 50px 0;
+}
+
+.grid {
+  grid-template-columns: 2fr 1fr;
+}
+
+// Register button, PrimeNG button is impossible to style
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #17202f;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 100%;
+  opacity: 1;
+  margin: 5% 0;
+
+  &:hover {
+    border-color: #12d0ff;
+  }
+}

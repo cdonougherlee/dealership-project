@@ -1,0 +1,38 @@
+<div id="accessories-wrapper" [ngClass]="{'container' : !isSmall, 'small-screen': isSmall, 'xsmall-screen': isXSmall}">
+  <h3>Accessories</h3>
+
+  <div id="options-wrapper">
+
+    <p-table [value]="accessories" responsiveLayout="scroll" styleClass="p-datatable-striped"
+      [tableStyle]="{'min-width': '50rem'}">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Accessories</th>
+          <th>Description</th>
+          <th>Base Opt.</th>
+          <th>Your S90</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-accessory>
+        <tr>
+          <td>{{accessory.name}}</td>
+          <td>{{accessory.description}}</td>
+          <td>{{accessory.base}}</td>
+          <td id="options">
+            <div><p-dropdown placeholder={{accessory.base}} [showClear]=true [options]="accessory.choices"
+                [(ngModel)]="selectedAccessories[accessory.name]" optionLabel="choice" appendTo="body"></p-dropdown>
+            </div>
+          </td>
+
+        </tr>
+      </ng-template>
+
+    </p-table>
+  </div>
+
+  <div class="grid">
+    <h4>We know that buying a car is a hard decision. If you have an account with us, you can save your car and
+      purschase at a later date</h4>
+    <button type="submit" class="btn" (click)="hi()">Save</button>
+  </div>
+</div>

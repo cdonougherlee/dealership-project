@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { UiService } from 'src/app/services/ui.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -16,8 +14,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   username!: String | null;
-  subscription!: Subscription;
-  id = 1;
+
   loggedIn: boolean = false;
 
   faSliders = faSliders;
@@ -28,14 +25,9 @@ export class HeaderComponent implements OnInit {
   isXSmall: boolean = false;
 
   constructor(
-    private uiService: UiService,
     private breakpointService: BreakpointObserver,
     private auth: AuthService
-  ) {
-    this.subscription = this.uiService
-      .onLogin()
-      .subscribe((value: String | null) => (this.username = value));
-  }
+  ) {}
 
   ngOnInit(): void {
     this.breakpointService
@@ -50,9 +42,11 @@ export class HeaderComponent implements OnInit {
           this.isXSmall = this.isSmall = true;
         }
       });
-  }
 
-  isLoggedIn() {
     this.loggedIn = this.auth.isLoggedIn();
+    this.username = this.auth.getUsername();
+
+    console.log('Is logged in', this.auth.isLoggedIn(), this.loggedIn);
+    console.log('usernames', this.auth.getUsername(), this.username);
   }
 }

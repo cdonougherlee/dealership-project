@@ -1,0 +1,23 @@
+<div [ngClass]="{'container' : !isSmall, 'small-screen': isSmall, 'xsmall-screen': isXSmall}">
+  <h3>Interior Options</h3>
+
+  <div class="grid" id="trim-picker-wrapper">
+    <div id="list-wrapper">
+      <p>Our interior is hand woven leather stuff with suade and stuff</p>
+
+      <div>
+        <h4>Currently: <i>{{colour}}</i></h4>
+
+        <ul>
+          <li (click)="updateColour('Black')">Black</li>
+          <li (click)="updateColour('Beige')">Beige</li>
+          <li (click)="updateColour('Two-Tone')">Two-Tone</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <app-int-display></app-int-display>
+  </div>
+
+</div>

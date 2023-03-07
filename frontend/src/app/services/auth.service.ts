@@ -6,6 +6,8 @@ import * as moment from 'moment';
 // Basically this puts it into local storage, deletes upon logout
 @Injectable()
 export class AuthService {
+  username!: String | null;
+
   constructor() {}
 
   // Expected reponseobj example
@@ -48,5 +50,13 @@ export class AuthService {
 
   isLoggedOut() {
     return !this.isLoggedIn();
+  }
+
+  updateUsername(username: String | null) {
+    this.username = username;
+  }
+
+  getUsername() {
+    return this.username;
   }
 }

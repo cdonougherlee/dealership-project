@@ -1,20 +1,13 @@
 // Section styling
 section {
-  margin-top: 50px;
-  margin-bottom: 3%;
+  border-top: 2px white solid;
 }
 
 article {
-  overflow: auto;
-}
+  overflow: hidden;
 
-// div {
-//   width: 60%;
-//   max-width: 60%;
-//   max-height: 60%;
-//   margin: auto;
-// }
-
-div {
-  height: 450px;
+  & section:first-of-type {
+    margin-top: 80px;
+    border-top: none;
+  }
 }

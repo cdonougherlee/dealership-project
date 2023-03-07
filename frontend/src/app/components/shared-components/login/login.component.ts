@@ -4,7 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { UiService } from 'src/app/services/ui.service';
 import { faIdBadge } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
@@ -18,9 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService,
+    private auth: AuthService,
     private router: Router,
-    private uiService: UiService,
     private breakpointService: BreakpointObserver
   ) {}
 
@@ -75,7 +73,7 @@ export class LoginComponent implements OnInit {
         // If successful
         next: (response) => {
           // If the user authenticates successfully, we need to store the JWT returned in localStorage
-          this.authService.setLocalStorage(response);
+          this.auth.setLocalStorage(response);
 
           console.log(reqObject);
           console.log(response);
@@ -96,7 +94,7 @@ export class LoginComponent implements OnInit {
           console.log('done!');
 
           this.router.navigate([`/profile/${username}`]);
-          this.uiService.updateUsername(username);
+          this.auth.updateUsername(username);
         },
       });
   }

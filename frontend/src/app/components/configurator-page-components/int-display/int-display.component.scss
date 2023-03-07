@@ -1,0 +1,28 @@
+.grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+#int-wrapper {
+  padding-bottom: 65px;
+
+  & > div {
+    border: 1px white solid;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+.xsmall-screen {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #int-wrapper {
+    & > div {
+      margin: 0 5%;
+    }
+  }
+}

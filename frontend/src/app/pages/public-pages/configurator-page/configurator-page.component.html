@@ -1,11 +1,15 @@
 <app-header></app-header>
 
 <!-- Intro -->
-<article [ngClass]="{'container': !isSmall}">
+<article>
   <section>
     <app-ext-colour-picker></app-ext-colour-picker>
-    <app-int-colour-picker></app-int-colour-picker>
-    <div></div>
+  </section>
+  <section>
+    <app-int-trim-picker></app-int-trim-picker>
+  </section>
+  <section>
+    <app-accessories></app-accessories>
   </section>
 </article>
 
