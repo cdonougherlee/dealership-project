@@ -8,7 +8,7 @@ const getProfile = asyncHandler(async (req, res) => {
   if (!auth.URLAuthenticated(user, username, res)) {
     return;
   }
-  res.status(200).json({ success: true, user: user });
+  return res.status(200).json({ success: true, user: user });
 });
 
 const updateProfile = asyncHandler(async (req, res) => {

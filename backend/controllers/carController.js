@@ -24,10 +24,10 @@ const createCar = asyncHandler(async (req, res) => {
   if (car) {
     user.cars.push(car);
     user.save();
-    res.status(200).json({ success: true, msg: car });
+    return res.status(200).json({ success: true, msg: car });
   } else {
     // Else return invalid data error
-    res.status(400).json({ success: false, msg: "Invalid user data" });
+    return res.status(400).json({ success: false, msg: "Invalid user data" });
   }
 });
 
@@ -41,9 +41,9 @@ const viewCar = asyncHandler(async (req, res) => {
   const car = await Car.findOne({ _id: car_id });
 
   if (car) {
-    res.status(200).json({ success: true, car: car });
+    return res.status(200).json({ success: true, car: car });
   } else {
-    res.json({ success: false, msg: "Car not found" });
+    return res.json({ success: false, msg: "Car not found" });
   }
 });
 
@@ -59,9 +59,9 @@ const updateCar = asyncHandler(async (req, res) => {
   });
 
   if (updatedCar) {
-    res.status(200).json({ success: true, car: updatedCar });
+    return res.status(200).json({ success: true, car: updatedCar });
   } else {
-    res
+    return res
       .status(400)
       .json({ success: false, msg: "Car not found or invalid data" });
   }
@@ -81,9 +81,9 @@ const deleteCar = asyncHandler(async (req, res) => {
     user.cars.splice(i, 1);
     user.save();
 
-    res.status(200).json({ success: true, car: deletedCar });
+    return res.status(200).json({ success: true, car: deletedCar });
   } else {
-    res.status(400).json({ success: false, msg: "Car not found" });
+    return res.status(400).json({ success: false, msg: "Car not found" });
   }
 });
 

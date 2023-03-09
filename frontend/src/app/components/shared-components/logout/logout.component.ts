@@ -13,7 +13,6 @@ export class LogoutComponent {
 
   onLogout() {
     this.auth.logout();
-    this.auth.updateUsername(null);
     this.router.navigate([`/landing`]);
   }
 }

@@ -31,11 +31,13 @@ export class AuthService {
     // Takes a key value pair
     localStorage.setItem('token', responseObj.token);
     localStorage.setItem('expires', JSON.stringify(expires.valueOf()));
+    localStorage.setItem('username', responseObj.user.username);
   }
 
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('expires');
+    localStorage.removeItem('username');
   }
 
   isLoggedIn() {
@@ -52,11 +54,16 @@ export class AuthService {
     return !this.isLoggedIn();
   }
 
-  updateUsername(username: String | null) {
-    this.username = username;
+  updateUsername(username: string) {
+    // if (username) {
+    //   localStorage.setItem('username', username);
+    // } else {
+    //   localStorage.setItem('username', "");
+    // }
+    localStorage.setItem('username', username);
   }
 
   getUsername() {
-    return this.username;
+    return localStorage.getItem('username');
   }
 }

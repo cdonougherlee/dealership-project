@@ -19,8 +19,9 @@
           <td>{{accessory.description}}</td>
           <td>{{accessory.base}}</td>
           <td id="options">
-            <div><p-dropdown placeholder={{accessory.base}} [showClear]=true [options]="accessory.choices"
-                [(ngModel)]="selectedAccessories[accessory.name]" optionLabel="choice" appendTo="body"></p-dropdown>
+            <div><p-dropdown placeholder={{accessory.base}} [showClear]=true [options]="accessory.values"
+                optionLabel="value" appendTo="body" [(ngModel)]="selectedAccessories[accessory.index] = accessory.value"
+                (onChange)="outputSelectedAccessories()"></p-dropdown>
             </div>
           </td>
 
@@ -30,9 +31,4 @@
     </p-table>
   </div>
 
-  <div class="grid">
-    <h4>We know that buying a car is a hard decision. If you have an account with us, you can save your car and
-      purschase at a later date</h4>
-    <button type="submit" class="btn" (click)="hi()">Save</button>
-  </div>
 </div>

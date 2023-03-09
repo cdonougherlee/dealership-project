@@ -9,7 +9,17 @@
     <app-int-trim-picker></app-int-trim-picker>
   </section>
   <section>
-    <app-accessories></app-accessories>
+    <app-accessories (accessoriesEvent)="updateAccessories($event)"></app-accessories>
+    <div class="grid container">
+      <p>We know that buying a car is a hard decision. If you have an account with us, you can save your S90
+        configuration
+        and
+        purschase at a later date</p>
+      <button *ngIf="isLoggedIn; else elseBlock" type="submit" class="btn"
+        (click)="onConfiguratorSubmit()">Save</button>
+
+      <ng-template #elseBlock><button type="submit" class="btn"><app-register></app-register></button></ng-template>
+    </div>
   </section>
 </article>
 

@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
   isXSmall: boolean = false;
   isSmall: boolean = false;
 
-  username!: String | null;
+  username!: string | null;
   loggedIn: boolean = false;
 
   faSliders = faSliders;

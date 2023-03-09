@@ -20,9 +20,9 @@ const CarSchema = mongoose.Schema(
       required: [true, "Please add a trim"],
     },
     options: {
-      type: Map,
-      default: new Map(),
-      of: String,
+      type: Array,
+      default: new Array(),
+      of: Object,
     },
     owner: {
       type: Schema.Types.ObjectId,

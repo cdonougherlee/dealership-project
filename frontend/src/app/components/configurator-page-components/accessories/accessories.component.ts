@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-accessories',
@@ -7,39 +7,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accessories.component.scss'],
 })
 export class AccessoriesComponent implements OnInit {
+  // Variable initialisation
+  @Output() accessoriesEvent = new EventEmitter<any>();
+
+  selectedAccessories: Array<Object> = [];
+
+  // Screen responsive handling
   isSmall: boolean = false;
   isXSmall: boolean = false;
 
-  selectedAccessories: any = [];
+  outputSelectedAccessories() {
+    this.accessoriesEvent.emit(this.selectedAccessories);
+  }
 
   accessories = [
     {
+      index: 0,
       name: 'Audio',
       description: 'Our premium audio systems',
       base: '7 speaker surround system',
-      choices: [
-        { choice: '7 speaker surround system' },
-        { choice: '12 speaker surround system' },
+      values: [
+        { value: '7 speaker surround system' },
+        { value: '12 speaker surround system' },
       ],
     },
     {
+      index: 1,
       name: 'Roof',
       description: 'Enhance the utility of your S90',
       base: 'None',
-      choices: [
-        { choice: 'Bicycle carrier' },
-        { choice: 'Retractable ski carrier' },
-        { choice: '85L roof box' },
+      values: [
+        { value: 'Bicycle carrier' },
+        { value: 'Retractable ski carrier' },
+        { value: '85L roof box' },
       ],
     },
     {
-      name: 'Floor mats',
+      index: 2,
+
+      name: 'FloorMats',
       description: 'For convenience of cleaning',
       base: 'Carpet',
-      choices: [
-        { choice: 'Carpet' },
-        { choice: 'Rubber - front only' },
-        { choice: 'Rubber - front and rear' },
+      values: [
+        { value: 'Carpet' },
+        { value: 'Rubber - front only' },
+        { value: 'Rubber - front and rear' },
       ],
     },
   ];
@@ -62,9 +74,5 @@ export class AccessoriesComponent implements OnInit {
           this.isXSmall = true;
         }
       });
-  }
-
-  hi() {
-    console.log(this.selectedAccessories);
   }
 }
