@@ -17,6 +17,8 @@ export class ConfiguratorPageComponent implements OnInit {
 
   // Default values
   selectedAccessories: Object[] = [];
+  selectedColour: string = 'orange';
+  selectedTrim: string = 'black';
 
   errorMsg: String | null = null;
 
@@ -42,8 +44,15 @@ export class ConfiguratorPageComponent implements OnInit {
   }
 
   updateAccessories(selectedAccessories: Object[]) {
-    console.log(selectedAccessories);
     this.selectedAccessories = selectedAccessories;
+  }
+
+  updateColour(selectedColour: string) {
+    this.selectedColour = selectedColour;
+  }
+
+  updateTrim(selectedTrim: string) {
+    this.selectedTrim = selectedTrim;
   }
 
   onConfiguratorSubmit() {
@@ -54,8 +63,8 @@ export class ConfiguratorPageComponent implements OnInit {
     const reqObject = {
       brand: 'Volvo',
       model: 'S90',
-      colour: 'Black',
-      trim: 'Black',
+      colour: this.selectedColour,
+      trim: this.selectedTrim,
       options: this.selectedAccessories,
     };
 

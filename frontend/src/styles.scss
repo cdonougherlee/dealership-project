@@ -44,6 +44,15 @@ img {
   }
 }
 
+// Animations
+.scale-animation {
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
 // PrimeNG components styling
 .p-link:focus {
   box-shadow: none !important;

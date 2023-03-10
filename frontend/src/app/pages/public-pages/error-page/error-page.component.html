@@ -1,1 +1,18 @@
-<p>error works!</p>
+<div>
+  <h4><i>Sorry, but there has been an error!</i></h4>
+
+  <p>Back to:</p>
+
+  <a routerLink="/configurator">
+    <p class="scale-animation">Configurator page <fa-icon [icon]="faArrowUpRightFromSquare"></fa-icon></p>
+  </a>
+
+  <a routerLink="/landing" class="scale-animation">
+    <p class="scale-animation">Landing page <fa-icon [icon]="faArrowUpRightFromSquare"></fa-icon></p>
+  </a>
+
+  <a *ngIf="loggedIn" routerLink="/profile/{{username}}">
+    <p class="scale-animation">Profile page <fa-icon [icon]="faArrowUpRightFromSquare"></fa-icon></p>
+  </a>
+
+</div>

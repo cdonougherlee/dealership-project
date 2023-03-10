@@ -1,7 +1,9 @@
 <section *ngIf="!displayRegister; else elseBlock">
   <!-- Register button to open sidebar -->
-  <p (click)="displaySidebar = true"><fa-icon [icon]="faIdBadge"></fa-icon><span *ngIf="!isXSmall">
+  <p (click)="displaySidebar = true" class="scale-animation"><fa-icon [icon]="faIdBadge"></fa-icon><span
+      *ngIf="!isXSmall">
       Register</span></p>
+
   <!-- Sidebar -->
   <p-sidebar [(visible)]="displaySidebar" position="right" [baseZIndex]="1" styleClass="p-sidebar-md"
     [ngClass]="{'small-screen': isSmall }">

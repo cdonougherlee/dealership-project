@@ -45,8 +45,5 @@ export class HeaderComponent implements OnInit {
 
     this.loggedIn = this.auth.isLoggedIn();
     this.username = this.auth.getUsername();
-
-    console.log('Is logged in', this.auth.isLoggedIn(), this.loggedIn);
-    console.log('usernames', this.auth.getUsername(), this.username);
   }
 }

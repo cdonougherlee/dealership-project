@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-ext-colour-picker',
@@ -10,7 +10,9 @@ export class ExtColourPickerComponent {
   isSmall: boolean = false;
   isXSmall: boolean = false;
 
-  colour: String = 'orange';
+  colour: string = 'orange';
+
+  @Output() colourEvent = new EventEmitter<any>();
 
   constructor(private breakpointService: BreakpointObserver) {}
 
@@ -32,7 +34,8 @@ export class ExtColourPickerComponent {
       });
   }
 
-  updateColour(colour: String) {
+  updateColour(colour: string) {
     this.colour = colour;
+    this.colourEvent.emit(this.colour);
   }
 }

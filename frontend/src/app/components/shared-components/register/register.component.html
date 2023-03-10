@@ -1,7 +1,8 @@
 <section *ngIf="!displayLogin; else elseBlock">
 
   <!-- Register button to open sidebar -->
-  <p (click)="displaySidebar = true"><fa-icon [icon]="faIdBadge"></fa-icon><span *ngIf="!isXSmall">
+  <p (click)="displaySidebar = true" class="scale-animation"><fa-icon [icon]="faIdBadge"></fa-icon><span
+      *ngIf="!isXSmall">
       Register</span></p>
 
   <!-- Sidebar -->
@@ -35,7 +36,7 @@
           <p-dropdown [options]="dealerships" optionLabel="location" name="prefDealer" [(ngModel)]="currentlySelected"
             placeholder="Select your preferred dealership"></p-dropdown>
 
-
+          <!-- Google API key can only be used with embeded maps API, which is free anyway -->
           <div id="map-wrapper" [ngSwitch]="currentlySelected.location">
 
             <iframe *ngSwitchCase="'Greenlane'" style="border:0" loading="lazy" allowfullscreen

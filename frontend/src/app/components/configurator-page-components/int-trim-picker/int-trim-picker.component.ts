@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-int-trim-picker',
@@ -10,9 +10,12 @@ export class IntTrimPickerComponent implements OnInit {
   isSmall: boolean = false;
   isXSmall: boolean = false;
 
-  colour: String = 'Black';
+  trim: String = 'Black';
+
+  @Output() trimEvent = new EventEmitter<any>();
 
   constructor(private breakpointService: BreakpointObserver) {}
+
   ngOnInit() {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
@@ -31,7 +34,9 @@ export class IntTrimPickerComponent implements OnInit {
       });
   }
 
-  updateColour(colour: String) {
-    this.colour = colour;
+  updateTrim(trim: string) {
+    this.trim = trim;
+    this.trimEvent.emit(this.trim);
+    console.log('FIRED');
   }
 }

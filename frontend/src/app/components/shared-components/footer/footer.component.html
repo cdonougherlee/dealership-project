@@ -8,11 +8,12 @@
     </p>
 
     <div id="page-links">
-      <a routerLink="/configurator"><fa-icon [icon]="faSliders"></fa-icon><span>
+      <a routerLink="/configurator" class="scale-animation"><fa-icon [icon]="faSliders"></fa-icon><span
+          *ngIf="!isXSmall">
           Configurator</span></a>
 
-      <a *ngIf="loggedIn else elseBlock" [ngClass]="{'justify-start': !isXSmall}"
-        routerLink="/profile/{{username}}"><fa-icon [icon]="faUser"></fa-icon><span *ngIf="!isXSmall">
+      <a *ngIf="loggedIn else elseBlock" [ngClass]="{'justify-start': !isXSmall}" routerLink="/profile/{{username}}"
+        class="scale-animation"><fa-icon [icon]="faUser"></fa-icon><span *ngIf="!isXSmall">
           Profile</span></a>
 
       <ng-template #elseBlock>

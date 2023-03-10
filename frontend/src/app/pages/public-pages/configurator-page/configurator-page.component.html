@@ -3,10 +3,10 @@
 <!-- Intro -->
 <article>
   <section>
-    <app-ext-colour-picker></app-ext-colour-picker>
+    <app-ext-colour-picker (colourEvent)="updateColour($event)"></app-ext-colour-picker>
   </section>
   <section>
-    <app-int-trim-picker></app-int-trim-picker>
+    <app-int-trim-picker (trimEvent)="updateTrim($event)"></app-int-trim-picker>
   </section>
   <section>
     <app-accessories (accessoriesEvent)="updateAccessories($event)"></app-accessories>
@@ -14,7 +14,7 @@
       <p>We know that buying a car is a hard decision. If you have an account with us, you can save your S90
         configuration
         and
-        purschase at a later date</p>
+        purchase at a later date</p>
       <button *ngIf="isLoggedIn; else elseBlock" type="submit" class="btn"
         (click)="onConfiguratorSubmit()">Save</button>
 
