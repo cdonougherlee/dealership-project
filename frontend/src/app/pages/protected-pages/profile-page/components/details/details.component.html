@@ -3,8 +3,8 @@
     <h2>Hello {{username}}</h2>
     <p>Preferred dealership: {{currentPrefDealer}}</p>
 
-    <app-edit-profile-details [currentPrefDealer]="currentPrefDealer"
-      (newDetailsEvent)="updateDetails($event)"></app-edit-profile-details>
+    <app-edit-profile [currentPrefDealer]="currentPrefDealer"
+      (newDetailsEvent)="updateDetails($event)"></app-edit-profile>
 
   </div>
 

@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private authService: AuthService,
+    private auth: AuthService,
     private breakpointService: BreakpointObserver,
     private utils: Utils
   ) {}
@@ -68,38 +68,23 @@ export class RegisterComponent implements OnInit {
     const password2 = this.registerForm.value.password2;
     const prefDealer = this.prefDealer;
 
-    const headers = new HttpHeaders({ 'Content-type': 'application/json' });
-
     const reqObject = {
       username: username,
       password: password,
       password2: password2,
       prefDealer: prefDealer,
     };
-
-    this.http
-      .post('http://localhost:3000/register', reqObject, {
-        headers: headers,
-      })
-      .subscribe({
-        // The response data
-        // If successful
-        next: (response) => {
-          this.utils.setLocalStorage(response);
-          this.errorMsg = null;
-        },
-        // If there is an error
-        error: (error) => {
-          console.log(error);
-          console.log(reqObject);
-
-          this.errorMsg = error.error.msg;
-        },
-        // When observable completes
-        complete: () => {
-          console.log('done!');
-          this.router.navigate([`/profile/${username}`]);
-        },
-      });
+    return this.auth.register(reqObject).subscribe({
+      next: (response) => {
+        this.utils.setLocalStorage(response);
+        this.errorMsg = null;
+      },
+      error: (error) => {
+        this.errorMsg = error;
+      },
+      complete: () => {
+        this.router.navigate([`/profile/${username}`]);
+      },
+    });
   }
 }

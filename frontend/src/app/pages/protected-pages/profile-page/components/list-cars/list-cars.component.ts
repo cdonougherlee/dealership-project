@@ -17,9 +17,7 @@ export class ListCarsComponent implements OnInit {
 
   constructor(
     private crud: CRUDService,
-    private router: Router,
-    private breakpointService: BreakpointObserver,
-    private utils: Utils
+    private breakpointService: BreakpointObserver
   ) {
     this.crud.getCars().subscribe({
       next: (res) => {
@@ -43,18 +41,6 @@ export class ListCarsComponent implements OnInit {
           this.isXSmall = this.isSmall = true;
         }
       });
-  }
-
-  listCars() {
-    return this.crud.getCars().subscribe({
-      next: (res) => {
-        this.errorMsg = null;
-        this.cars = res.cars;
-      },
-      error: (error) => {
-        this.errorMsg = error;
-      },
-    });
   }
 
   updateCar(index: number, car: any) {

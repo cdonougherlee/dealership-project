@@ -13,11 +13,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Utils } from 'src/app/core/utils/utils';
 
 @Component({
-  selector: 'app-edit-profile-details',
-  templateUrl: './edit-profile-details.component.html',
-  styleUrls: ['./edit-profile-details.component.scss'],
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.scss'],
 })
-export class EditProfileDetailsComponent {
+export class EditProfileComponent {
   @Input() currentPrefDealer!: string;
   @Output() newDetailsEvent = new EventEmitter<any>();
   outputNewDetails(reqObject: Object) {
@@ -31,7 +31,7 @@ export class EditProfileDetailsComponent {
   faPenToSquare = faPenToSquare;
   isSmall: boolean = false;
   isXSmall: boolean = false;
-  errorMsg!: string;
+  errorMsg!: string | null;
 
   constructor(
     private auth: AuthService,
@@ -68,35 +68,23 @@ export class EditProfileDetailsComponent {
     }
     const prefDealer = this.newPrefDealer;
 
-    const headers = new HttpHeaders({ 'Content-type': 'application/json' });
-
     const reqObject = {
       username: username,
       prefDealer: prefDealer,
     };
 
-    this.http
-      .put(`http://localhost:3000/profile/${username}`, reqObject, {
-        headers: headers,
-      })
-      .subscribe({
-        // The response data
-        // If successful
-        next: (response) => {
-          this.utils.updateUsername(username);
-          this.username = this.utils.getUsername();
-          this.displaySidebar = false;
-          this.currentPrefDealer = prefDealer;
-          this.outputNewDetails(reqObject);
-        },
-        // If there is an error
-        error: (error) => {
-          console.log(error);
-          console.log(reqObject);
-          this.errorMsg = error.error.msg;
-        },
-        // When observable completes
-        complete: () => {},
-      });
+    return this.auth.updateProfile(reqObject, username).subscribe({
+      next: () => {
+        this.utils.updateUsername(username);
+        this.username = this.utils.getUsername();
+        this.displaySidebar = false;
+        this.currentPrefDealer = prefDealer;
+        this.outputNewDetails(reqObject);
+        this.errorMsg = null;
+      },
+      error: (error) => {
+        this.errorMsg = error;
+      },
+    });
   }
 }

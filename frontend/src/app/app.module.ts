@@ -51,8 +51,8 @@ import { IntDisplayComponent } from './pages/public-pages/configurator-page/comp
 
 // Profile page components
 import { EditAccessoriesComponent } from './pages/protected-pages/profile-page/components/edit-accessories/edit-accessories.component';
-import { ProfileDetailsComponent } from './pages/protected-pages/profile-page/components/profile-details/profile-details.component';
-import { EditProfileDetailsComponent } from './pages/protected-pages/profile-page/components/edit-profile-details/edit-profile-details.component';
+import { DetailsComponent } from './pages/protected-pages/profile-page/components/details/details.component';
+import { EditProfileComponent } from './pages/protected-pages/profile-page/components/edit-profile/edit-profile.component';
 import { ListCarsComponent } from './pages/protected-pages/profile-page/components/list-cars/list-cars.component';
 
 // Services
@@ -86,8 +86,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     IntDisplayComponent,
     AccessoriesComponent,
     EditAccessoriesComponent,
-    ProfileDetailsComponent,
-    EditProfileDetailsComponent,
+    DetailsComponent,
+    EditProfileComponent,
     DealershipLocationsComponent,
     ListCarsComponent,
   ],
