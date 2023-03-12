@@ -1,0 +1,8 @@
+article {
+  overflow: hidden;
+
+  & section:first-of-type {
+    margin-top: 80px;
+    border-top: none;
+  }
+}

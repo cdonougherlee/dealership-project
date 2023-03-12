@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -13,6 +13,8 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Input() protected!: boolean;
+
   username!: String | null;
 
   loggedIn: boolean = false;

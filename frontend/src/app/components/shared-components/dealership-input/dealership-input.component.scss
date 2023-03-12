@@ -1,0 +1,42 @@
+// Dealership input
+#dealership-input-wrapper {
+  margin-top: 5%;
+}
+
+.grid {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "s1 s2" "s3 s3";
+  grid-template-rows: 1fr 5fr;
+  justify-items: start;
+}
+
+#dropdown-label {
+  margin-right: 5%;
+  display: inline;
+  grid-area: s1;
+}
+
+p-dropdown {
+  width: 100%;
+  grid-area: s2;
+}
+
+#map-wrapper {
+  grid-area: s3;
+  justify-self: center;
+}
+
+// For Iframe at different screen dimensions
+.large-screen {
+  iframe {
+    width: 450px;
+    height: 320px;
+  }
+}
+
+.small-screen {
+  iframe {
+    width: 270px;
+    height: 270px;
+  }
+}

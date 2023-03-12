@@ -32,13 +32,13 @@ const createCar = asyncHandler(async (req, res) => {
 });
 
 const viewCar = asyncHandler(async (req, res) => {
-  const { user, car_id, username } = extractCommonVariables(req);
+  const { user, id, username } = extractCommonVariables(req);
   if (!auth.URLAuthenticated(user, username, res)) {
     return;
   }
 
   // Get requested car from user's cars array[index]
-  const car = await Car.findOne({ _id: car_id });
+  const car = await Car.findOne({ _id: id });
 
   if (car) {
     return res.status(200).json({ success: true, car: car });
@@ -90,9 +90,8 @@ const deleteCar = asyncHandler(async (req, res) => {
 // Helper functions
 const extractCommonVariables = (req) => {
   const user = req.user;
-  const { index, username } = req.params;
-  const car_id = user.cars.at(index);
-  return { user, car_id, username };
+  const { id, username } = req.params;
+  return { user, id, username };
 };
 
 module.exports = {

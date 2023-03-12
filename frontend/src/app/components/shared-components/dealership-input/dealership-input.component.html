@@ -1,0 +1,27 @@
+<div id="dealership-input-wrapper" class="grid" [ngClass]="isSmall ? 'small-screen' : 'large-screen'">
+
+  <p id="dropdown-label">Select your preferred dealership</p>
+
+  <p-dropdown [options]="dealerships" optionLabel="location" [(ngModel)]="currentlySelected"
+    placeholder="Select your preferred dealership" (onChange)="outputPrefDealer()"></p-dropdown>
+
+  <!-- Google API key can only be used with embeded maps API, which is free anyway -->
+  <div id="map-wrapper" [ngSwitch]="currentlySelected.location">
+
+    <iframe *ngSwitchCase="'Greenlane'" style="border:0" loading="lazy" allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtkqG7prsegmfnYDfUoqAlCfdtOxHYQuc
+  &q=-36.893870, 174.799226">
+    </iframe>
+
+    <iframe *ngSwitchCase="'North Shore'" width="450" height="320" style="border:0" loading="lazy" allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtkqG7prsegmfnYDfUoqAlCfdtOxHYQuc
+  &q=-36.778531, 174.746149">
+    </iframe>
+
+    <iframe *ngSwitchCase="'Botany'" width="450" height="320" style="border:0" loading="lazy" allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtkqG7prsegmfnYDfUoqAlCfdtOxHYQuc
+  &q=-36.927326, 174.898395">
+    </iframe>
+
+  </div>
+</div>

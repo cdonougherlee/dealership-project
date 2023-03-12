@@ -6,6 +6,14 @@ import { lastValueFrom } from 'rxjs';
 export class DataService {
   constructor(private http: HttpClient) {}
 
+  getDealerLocations() {
+    return lastValueFrom(
+      this.http.get<any>('../../assets/data/dealer-locations.json')
+    ).then((res) => {
+      return res;
+    });
+  }
+
   getSpecs() {
     return lastValueFrom(
       this.http.get<any>('../../assets/data/volvo-specs.json')

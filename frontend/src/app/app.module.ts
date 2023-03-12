@@ -14,6 +14,8 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { DialogModule } from 'primeng/dialog';
+import { CardModule } from 'primeng/card';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/shared-components/login/login.component';
@@ -42,6 +44,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { IntTrimPickerComponent } from './components/configurator-page-components/int-trim-picker/int-trim-picker.component';
 import { IntDisplayComponent } from './components/configurator-page-components/int-display/int-display.component';
 import { AccessoriesComponent } from './components/configurator-page-components/accessories/accessories.component';
+import { EditAccessoriesComponent } from './components/profile-page-components/edit-accessories/edit-accessories/edit-accessories.component';
+import { ProfileDetailsComponent } from './components/profile-page-components/profile-details/profile-details.component';
+import { EditProfileComponent } from './components/profile-page-components/edit-profile/edit-profile.component';
+import { DealershipInputComponent } from './components/shared-components/dealership-input/dealership-input.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +73,10 @@ import { AccessoriesComponent } from './components/configurator-page-components/
     IntTrimPickerComponent,
     IntDisplayComponent,
     AccessoriesComponent,
+    EditAccessoriesComponent,
+    ProfileDetailsComponent,
+    EditProfileComponent,
+    DealershipInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +95,8 @@ import { AccessoriesComponent } from './components/configurator-page-components/
     SidebarModule,
     InputTextModule,
     DropdownModule,
+    DialogModule,
+    CardModule,
   ],
   providers: [
     DataService,

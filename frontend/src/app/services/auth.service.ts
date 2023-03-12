@@ -55,11 +55,6 @@ export class AuthService {
   }
 
   updateUsername(username: string) {
-    // if (username) {
-    //   localStorage.setItem('username', username);
-    // } else {
-    //   localStorage.setItem('username', "");
-    // }
     localStorage.setItem('username', username);
   }
 

@@ -1,7 +1,24 @@
-<p>profile works!</p>
-<p>Message: {{ message }}</p>
+<app-header [protected]="true"></app-header>
 
-<a routerLink="/landing">
+<article [ngClass]="{'container': !isSmall}">
+  <section>
+    <app-profile-details></app-profile-details>
+  </section>
+
+</article>
+
+<app-footer></app-footer>
+
+
+
+
+<!-- <p>{{ message }}</p> -->
+
+
+
+<!-- <app-edit-accessories></app-edit-accessories> -->
+
+<!-- <a routerLink="/landing">
   Home</a>
 
-<app-logout></app-logout>
+<app-logout></app-logout> -->

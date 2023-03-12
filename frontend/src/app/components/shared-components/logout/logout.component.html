@@ -1,3 +1,2 @@
-<h2>Logout</h2>
-
-<button style="margin-top: 20px;" (click)="onLogout()">Logout</button>
+<p (click)="onLogout()" class="scale-animation"><fa-icon [icon]="faCircleXmark"></fa-icon><span *ngIf="!isXSmall">
+    Logout</span></p>

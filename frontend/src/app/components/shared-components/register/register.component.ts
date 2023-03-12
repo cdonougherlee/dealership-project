@@ -25,29 +25,16 @@ export class RegisterComponent implements OnInit {
 
   isXSmall: boolean = false;
 
-  dealerships!: Object[];
-
   displayLogin: boolean = false;
 
-  currentlySelected = {
-    location: 'Greenlane',
-    coordinates: '-36.893870, 174.799226',
-  };
-
-  prefDealer!: String;
+  prefDealer: string = 'Greenlane';
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private authService: AuthService,
     private breakpointService: BreakpointObserver
-  ) {
-    this.dealerships = [
-      { location: 'Greenlane', coordinates: '-36.893870, 174.799226' },
-      { location: 'North Shore', coordinates: '-36.778531, 174.746149' },
-      { location: 'Botany', coordinates: '-36.927326, 174.898395' },
-    ];
-  }
+  ) {}
 
   ngOnInit() {
     this.breakpointService
@@ -68,12 +55,16 @@ export class RegisterComponent implements OnInit {
     this.displayLogin = true;
   }
 
+  updatePrefDealer(prefDealer: string) {
+    this.prefDealer = prefDealer;
+  }
+
   // Submits a post request to the /users/register route of Express app
   onRegisterSubmit() {
     const username = this.registerForm.value.username;
     const password = this.registerForm.value.password;
     const password2 = this.registerForm.value.password2;
-    const prefDealer = this.registerForm.value.prefDealer.location;
+    const prefDealer = this.prefDealer;
 
     const headers = new HttpHeaders({ 'Content-type': 'application/json' });
 
@@ -93,9 +84,6 @@ export class RegisterComponent implements OnInit {
         // If successful
         next: (response) => {
           this.authService.setLocalStorage(response);
-          console.log(reqObject);
-          console.log(response);
-
           this.errorMsg = null;
         },
         // If there is an error

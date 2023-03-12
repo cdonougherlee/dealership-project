@@ -36,7 +36,7 @@ router.post("/:username/car", protect(), createCar);
 
 // View, update and delete a user's car routes
 router
-  .route("/:username/car/:index")
+  .route("/:username/car/:id")
   .get(protect(), viewCar)
   .put(protect(), updateCar)
   .delete(protect(), deleteCar);
