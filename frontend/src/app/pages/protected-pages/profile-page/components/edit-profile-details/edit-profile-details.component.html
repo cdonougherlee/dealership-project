@@ -1,0 +1,34 @@
+<!-- Register button to open sidebar -->
+<p (click)="displaySidebar = true" class="scale-animation"><fa-icon [icon]="faPenToSquare"></fa-icon><span
+    *ngIf="!isXSmall">
+    Edit details</span></p>
+
+<!-- Sidebar -->
+<p-sidebar [(visible)]="displaySidebar" position="right" [baseZIndex]="1" styleClass="p-sidebar-md"
+  [ngClass]="{'small-screen': isSmall }">
+  <div id="sidebar-content">
+    <h3>Update details</h3>
+
+    <form (ngSubmit)="onUpdateSubmit()" #updateform="ngForm">
+
+      <p>Your current username is {{username}}. If you would like to update it, please enter a new one below</p>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input type="text" class="p-inputtext-lg" pInputText placeholder="{{username}}" name="username" ngModel
+          required>
+      </div>
+
+      <p>Your current preferred dealership is {{currentPrefDealer}}. If you would like to update it, please select a new
+        one below
+      </p>
+
+
+      <app-dealership-locations (prefDealerEvent)="updatePrefDealer($event)"></app-dealership-locations>
+
+      <label id="error" *ngIf="errorMsg">{{errorMsg}}</label>
+
+      <button type="submit" class="btn">Update</button>
+    </form>
+
+  </div>
+</p-sidebar>

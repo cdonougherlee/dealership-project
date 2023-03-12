@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { faIdBadge } from '@fortawesome/free-regular-svg-icons';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -63,6 +64,16 @@ export class LoginComponent implements OnInit {
       username: username,
       password: password,
     };
+
+    return this.apiService.createEmployee(this.employeeForm.value).subscribe({
+      complete: () => {
+        console.log('Employee successfully created!'),
+          this.ngZone.run(() => this.router.navigateByUrl('/employees-list'));
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    });
 
     //   this.http
     //     .post('http://localhost:3000/login', reqObject, {
