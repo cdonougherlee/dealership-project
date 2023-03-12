@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { Utils } from 'src/app/core/utils/utils';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
@@ -10,22 +8,17 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  // Variable intialisation
   isSmall: boolean = false;
   message!: string;
-
   username!: String | null;
 
   constructor(
-    private http: HttpClient,
-    private router: Router,
-    private auth: AuthService,
-    private breakpointService: BreakpointObserver
+    private breakpointService: BreakpointObserver,
+    private utils: Utils
   ) {}
 
-  // Execute this HTTP request when the route loads
   ngOnInit() {
-    this.username = this.auth.getUsername();
+    this.username = this.utils.getUsername();
 
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])

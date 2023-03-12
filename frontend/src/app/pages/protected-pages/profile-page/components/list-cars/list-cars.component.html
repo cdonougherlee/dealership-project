@@ -1,1 +1,13 @@
 <p>list-cars works!</p>
+<!-- <button (click)="listCars()">List cars</button> -->
+<p>{{cars}}</p>
+<ul>
+  <li *ngFor="let item of cars; let index = index">
+    <p>https://ik.imagekit.io/h0s40k5ceq/photos/exterior/{{item.colour}}/1</p>
+    {{item.colour}}, {{item.trim}}, {{item.accessories}}, {{item._id}}
+
+    <button (click)="updateCar(index, item)">Update car {{index}}</button>
+
+    <button (click)="deleteCar(index)">Delete car</button>
+  </li>
+</ul>

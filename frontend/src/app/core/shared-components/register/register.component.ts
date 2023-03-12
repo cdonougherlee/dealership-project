@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { faIdBadge } from '@fortawesome/free-regular-svg-icons';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { Utils } from '../../utils/utils';
 
 @Component({
   selector: 'app-register',
@@ -33,7 +34,8 @@ export class RegisterComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private authService: AuthService,
-    private breakpointService: BreakpointObserver
+    private breakpointService: BreakpointObserver,
+    private utils: Utils
   ) {}
 
   ngOnInit() {
@@ -83,7 +85,7 @@ export class RegisterComponent implements OnInit {
         // The response data
         // If successful
         next: (response) => {
-          this.authService.setLocalStorage(response);
+          this.utils.setLocalStorage(response);
           this.errorMsg = null;
         },
         // If there is an error

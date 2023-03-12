@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { Utils } from 'src/app/core/utils/utils';
 
 @Component({
   selector: 'app-profile-details',
@@ -9,21 +10,18 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class ProfileDetailsComponent {
   currentPrefDealer!: string;
-
   username!: string | null;
-
   displayModal!: boolean;
-
   message!: string;
 
-  showModalDialog() {
-    this.displayModal = true;
-  }
-
-  constructor(private auth: AuthService, private http: HttpClient) {}
+  constructor(
+    private auth: AuthService,
+    private http: HttpClient,
+    private utils: Utils
+  ) {}
 
   ngOnInit() {
-    this.username = this.auth.getUsername();
+    this.username = this.utils.getUsername();
 
     this.http
       .get<any>(`http://localhost:3000/profile/${this.username}`)
@@ -46,6 +44,10 @@ export class ProfileDetailsComponent {
         // When observable completes
         complete: () => {},
       });
+  }
+
+  showModalDialog() {
+    this.displayModal = true;
   }
 
   updateDetails(newDetails: any) {

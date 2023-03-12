@@ -10,6 +10,7 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Utils } from 'src/app/core/utils/utils';
 
 @Component({
   selector: 'app-edit-profile-details',
@@ -18,38 +19,29 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class EditProfileDetailsComponent {
   @Input() currentPrefDealer!: string;
-
   @Output() newDetailsEvent = new EventEmitter<any>();
   outputNewDetails(reqObject: Object) {
     this.newDetailsEvent.emit(reqObject);
   }
-
   @ViewChild('updateform', { static: false })
   updateForm!: NgForm;
-
   displaySidebar: boolean = false;
-
   username!: string | null;
-
   newPrefDealer!: string;
-
   faPenToSquare = faPenToSquare;
-
   isSmall: boolean = false;
-
   isXSmall: boolean = false;
-
   errorMsg!: string;
 
   constructor(
     private auth: AuthService,
     private breakpointService: BreakpointObserver,
-    private http: HttpClient
+    private http: HttpClient,
+    private utils: Utils
   ) {}
 
   ngOnInit() {
-    this.username = this.auth.getUsername();
-
+    this.username = this.utils.getUsername();
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
@@ -91,8 +83,8 @@ export class EditProfileDetailsComponent {
         // The response data
         // If successful
         next: (response) => {
-          this.auth.updateUsername(username);
-          this.username = this.auth.getUsername();
+          this.utils.updateUsername(username);
+          this.username = this.utils.getUsername();
           this.displaySidebar = false;
           this.currentPrefDealer = prefDealer;
           this.outputNewDetails(reqObject);

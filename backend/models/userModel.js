@@ -22,8 +22,10 @@ const UserSchema = mongoose.Schema(
     },
     cars: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Car",
+        // For future db implementation
+        // type: Schema.Types.ObjectId,
+        type: Object,
+        // ref: "Car",
       },
     ],
   },

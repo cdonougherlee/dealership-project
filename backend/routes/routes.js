@@ -8,6 +8,7 @@ const { registerUser, loginUser } = require("../controllers/userController");
 
 const {
   getProfile,
+  getCars,
   updateProfile,
 } = require("../controllers/profileController");
 
@@ -31,12 +32,13 @@ router
   .get(protect(), getProfile)
   .put(protect(), updateProfile);
 
-// Save a user's car from inital car creation screen routes
-router.post("/:username/car", protect(), createCar);
-
-// View, update and delete a user's car routes
+// CRUD functionality
 router
-  .route("/:username/car/:id")
+  .route("/:username/car")
+  .get(protect(), getCars)
+  .post(protect(), createCar);
+router
+  .route("/:username/car/:index")
   .get(protect(), viewCar)
   .put(protect(), updateCar)
   .delete(protect(), deleteCar);
