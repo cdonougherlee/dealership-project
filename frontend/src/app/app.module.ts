@@ -46,8 +46,9 @@ import { IntDisplayComponent } from './components/configurator-page-components/i
 import { AccessoriesComponent } from './components/configurator-page-components/accessories/accessories.component';
 import { EditAccessoriesComponent } from './components/profile-page-components/edit-accessories/edit-accessories/edit-accessories.component';
 import { ProfileDetailsComponent } from './components/profile-page-components/profile-details/profile-details.component';
-import { EditProfileComponent } from './components/profile-page-components/edit-profile/edit-profile.component';
+import { EditProfileDetailsComponent } from './components/profile-page-components/edit-profile-details/edit-profile-details.component';
 import { DealershipInputComponent } from './components/shared-components/dealership-input/dealership-input.component';
+import { ListCarsComponent } from './components/profile-page-components/list-cars/list-cars.component';
 
 @NgModule({
   declarations: [
@@ -75,8 +76,9 @@ import { DealershipInputComponent } from './components/shared-components/dealers
     AccessoriesComponent,
     EditAccessoriesComponent,
     ProfileDetailsComponent,
-    EditProfileComponent,
+    EditProfileDetailsComponent,
     DealershipInputComponent,
+    ListCarsComponent,
   ],
   imports: [
     BrowserModule,

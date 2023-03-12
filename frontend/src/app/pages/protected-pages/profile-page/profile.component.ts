@@ -13,9 +13,8 @@ export class ProfileComponent implements OnInit {
   // Variable intialisation
   isSmall: boolean = false;
   message!: string;
+
   username!: String | null;
-  carIDs: any = [];
-  user!: Object;
 
   constructor(
     private http: HttpClient,
@@ -28,30 +27,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.username = this.auth.getUsername();
 
-    this.http
-      .get<any>(`http://localhost:3000/profile/${this.username}`)
-      .subscribe({
-        next: (response) => {
-          if (response) {
-            this.user = response.user;
-            this.carIDs = response.user.cars;
-          }
-          // console.log(this.user);
-        },
-
-        // If there is an error
-        error: (error) => {
-          if (error.status === 401) {
-            this.message =
-              'You are not authorized to visit this route.  No data is displayed.';
-          }
-          console.log(error);
-        },
-
-        // When observable completes
-        complete: () => {},
-      });
-
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
@@ -62,33 +37,4 @@ export class ProfileComponent implements OnInit {
         }
       });
   }
-
-  // loadCars() {
-  //   this.message.forEach((element: any) => {
-  //     this.http
-  //       .get<any>(`http://localhost:3000/${this.username}/car/${{ element }}`)
-  //       .subscribe({
-  //         next: (response) => {
-  //           console.log('RAN');
-  //           console.log(response.car);
-  //           if (response) {
-  //             this.cars.push(response.car);
-  //           }
-  //           console.log(this.cars);
-  //         },
-
-  //         // If there is an error
-  //         error: (error) => {
-  //           if (error.status === 401) {
-  //             this.message =
-  //               'You are not authorized to visit this route.  No data is displayed.';
-  //           }
-  //           console.log(error);
-  //         },
-
-  //         // When observable completes
-  //         complete: () => {},
-  //       });
-  //   });
-  // }
 }

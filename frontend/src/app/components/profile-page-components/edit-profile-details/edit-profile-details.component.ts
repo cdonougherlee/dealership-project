@@ -12,13 +12,12 @@ import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-edit-profile',
-  templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.scss'],
+  selector: 'app-edit-profile-details',
+  templateUrl: './edit-profile-details.component.html',
+  styleUrls: ['./edit-profile-details.component.scss'],
 })
-export class EditProfileComponent {
+export class EditProfileDetailsComponent {
   @Input() currentPrefDealer!: string;
-  @Input() displaySidebar: boolean = false;
 
   @Output() newDetailsEvent = new EventEmitter<any>();
   outputNewDetails(reqObject: Object) {
@@ -27,6 +26,8 @@ export class EditProfileComponent {
 
   @ViewChild('updateform', { static: false })
   updateForm!: NgForm;
+
+  displaySidebar: boolean = false;
 
   username!: string | null;
 

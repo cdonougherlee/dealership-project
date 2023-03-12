@@ -8,15 +8,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./profile-details.component.scss'],
 })
 export class ProfileDetailsComponent {
-  user!: any;
-
   currentPrefDealer!: string;
-
-  message!: string;
 
   username!: string | null;
 
   displayModal!: boolean;
+
+  message!: string;
 
   showModalDialog() {
     this.displayModal = true;
@@ -32,8 +30,7 @@ export class ProfileDetailsComponent {
       .subscribe({
         next: (response) => {
           if (response) {
-            this.user = response.user;
-            this.currentPrefDealer = this.user.prefDealer;
+            this.currentPrefDealer = response.user.prefDealer;
           }
         },
 
