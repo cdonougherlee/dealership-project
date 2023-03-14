@@ -2,6 +2,6 @@
 
 <ul>
   <li *ngFor="let car of cars; let index = index">
-    <app-display-car [car]="car" [index]="index"></app-display-car>
+    <app-display-car (refreshEvent)="getCars()" [car]="car" [index]="index"></app-display-car>
   </li>
 </ul>

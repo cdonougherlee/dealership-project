@@ -1,4 +1,4 @@
-<p-card header="header">
+<p-card header="{{car.brand}} {{car.model}} - {{index + 1}}">
   <div class="grid">
     <!-- <p>https://ik.imagekit.io/h0s40k5ceq/photos/exterior/{{item.colour}}/1</p> -->
     <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
@@ -7,7 +7,7 @@
 
     <app-edit-trim (trimEvent)="updateTrim($event)" [selectedTrim]="car.trim"></app-edit-trim>
 
-    <app-edit-accessories [selectedAccessories]="car.options"></app-edit-accessories>
+    <app-edit-accessories (change)="edited=true" [selectedAccessories]="car.options"></app-edit-accessories>
 
 
     <div class="flex">
