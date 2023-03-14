@@ -10,6 +10,7 @@ const {
   getProfile,
   getCars,
   updateProfile,
+  deleteProfile,
 } = require("../controllers/profileController");
 
 const {
@@ -30,7 +31,8 @@ router.post("/login", loginUser);
 router
   .route("/profile/:username")
   .get(protect(), getProfile)
-  .put(protect(), updateProfile);
+  .put(protect(), updateProfile)
+  .delete(protect(), deleteProfile);
 
 // CRUD functionality
 router

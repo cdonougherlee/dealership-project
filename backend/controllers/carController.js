@@ -12,7 +12,7 @@ const createCar = asyncHandler(async (req, res) => {
   // Create car
   const { brand, model, colour, trim, options } = req.body;
 
-  // For future db implementation
+  // For a future db implementation with mutliple car brands
   // const car = await Car.create({
   //   brand: brand,
   //   model: model,

@@ -30,12 +30,6 @@ export class Utils {
     localStorage.setItem('username', responseObj.user.username);
   }
 
-  logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('expires');
-    localStorage.removeItem('username');
-  }
-
   isLoggedIn() {
     const expiration = localStorage.getItem('expires');
     if (expiration) {

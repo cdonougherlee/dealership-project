@@ -29,6 +29,14 @@ const updateProfile = asyncHandler(async (req, res) => {
   return res.status(200).json({ success: true, updatedUser: updatedUser });
 });
 
+const deleteProfile = asyncHandler(async (req, res) => {
+  const { user } = extractCommonVariables(req);
+
+  const deletedUser = await User.deleteOne({ _id: user._id });
+
+  return res.status(200).json({ success: true, deletedUser: deletedUser });
+});
+
 // Helper functions
 const extractCommonVariables = (req) => {
   const user = req.user;
@@ -40,4 +48,5 @@ module.exports = {
   getProfile,
   getCars,
   updateProfile,
+  deleteProfile,
 };

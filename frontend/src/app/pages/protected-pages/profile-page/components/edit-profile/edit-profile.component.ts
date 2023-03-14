@@ -11,6 +11,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Utils } from 'src/app/core/utils/utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile',
@@ -36,7 +37,7 @@ export class EditProfileComponent {
   constructor(
     private auth: AuthService,
     private breakpointService: BreakpointObserver,
-    private http: HttpClient,
+    private router: Router,
     private utils: Utils
   ) {}
 
@@ -84,6 +85,21 @@ export class EditProfileComponent {
       },
       error: (error) => {
         this.errorMsg = error;
+      },
+    });
+  }
+
+  onDelete() {
+    return this.auth.deleteProfile(this.username).subscribe({
+      next: (response) => {
+        this.auth.logout();
+        this.errorMsg = null;
+      },
+      error: (error) => {
+        this.errorMsg = error;
+      },
+      complete: () => {
+        this.router.navigate([`/landing`]);
       },
     });
   }

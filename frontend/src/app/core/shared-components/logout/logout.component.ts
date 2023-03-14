@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Utils } from '../../utils/utils';
+import { AuthService } from '../../services/auth.service';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
@@ -17,13 +17,13 @@ export class LogoutComponent {
   isXSmall: boolean = false;
 
   constructor(
-    private utils: Utils,
+    private auth: AuthService,
     private router: Router,
     private breakpointService: BreakpointObserver
   ) {}
 
   onLogout() {
-    this.utils.logout();
+    this.auth.logout();
     this.router.navigate([`/landing`]);
   }
 

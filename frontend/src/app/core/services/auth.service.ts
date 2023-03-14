@@ -21,6 +21,13 @@ export class AuthService {
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
+  // Logout
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expires');
+    localStorage.removeItem('username');
+  }
+
   // Register
   register(data: Object): Observable<any> {
     let url = `${this.baseUri}/register`;
@@ -37,6 +44,12 @@ export class AuthService {
   updateProfile(data: Object, username: any): Observable<any> {
     let url = `${this.baseUri}/profile/${username}`;
     return this.http.put(url, data).pipe(catchError(this.errorMgmt));
+  }
+
+  // Delete Profile
+  deleteProfile(username: any): Observable<any> {
+    let url = `${this.baseUri}/profile/${username}`;
+    return this.http.delete(url).pipe(catchError(this.errorMgmt));
   }
 
   // Error handling

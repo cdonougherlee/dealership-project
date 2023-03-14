@@ -1,7 +1,6 @@
 <p-card header="{{car.brand}} {{car.model}} - {{index + 1}}">
   <div class="grid">
     <!-- <p>https://ik.imagekit.io/h0s40k5ceq/photos/exterior/{{item.colour}}/1</p> -->
-    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
 
     <app-edit-exterior (exteriorEvent)="updateExterior($event)" [selectedExterior]="car.colour"></app-edit-exterior>
 
@@ -9,11 +8,15 @@
 
     <app-edit-accessories (change)="edited=true" [selectedAccessories]="car.options"></app-edit-accessories>
 
-
-    <div class="flex">
+    <div>
       <button id="update-btn" class="btn" (click)="updateCar(index, car)">Save</button>
-      <button id="delete-btn" class="btn" (click)="deleteCar(index)">Delete</button>
+      <button class="delete-btn" (click)="deleteCar(index)">Delete</button>
     </div>
+
+    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
+    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
+    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
+
 
   </div>
 </p-card>
