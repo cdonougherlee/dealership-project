@@ -24,6 +24,13 @@ export class DataService {
       });
   }
 
+  async getAccessories() {
+    const res = await lastValueFrom(
+      this.http.get<any>('../../assets/data/accessories.json')
+    );
+    return res;
+  }
+
   getGalleryImages() {
     return lastValueFrom(
       this.http.get<any>('../../assets/data/gallery-images.json')

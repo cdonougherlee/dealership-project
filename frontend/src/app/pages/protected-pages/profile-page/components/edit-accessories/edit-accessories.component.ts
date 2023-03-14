@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-edit-accessories',
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class EditAccessoriesComponent {
   displayModal!: boolean;
+  @Input() selectedAccessories!: Array<any>;
 
   showModalDialog() {
     this.displayModal = true;

@@ -1,45 +1,15 @@
 <h5>Modal</h5>
 <p-button (click)="showModalDialog()" icon="pi pi-external-link" label="Show"></p-button>
+
 <p-dialog [(visible)]="displayModal" [modal]="true" [style]="{width: '90%'}" [baseZIndex]="10000" [draggable]="false"
   [resizable]="true">
-  <app-accessories></app-accessories>
+
+
+  <app-accessories [edit]="true" [selectedAccessories]="selectedAccessories"></app-accessories>
+
+
+
   <ng-template pTemplate="footer">
     <p-button icon="pi pi-check" (click)="displayModal=false" label="Yes" class="p-button-text"></p-button>
-    <p-button icon="pi pi-times" (click)="displayModal=false" label="No"></p-button>
   </ng-template>
 </p-dialog>
-
-
-
-<!-- <p-table #dt>
-  <ng-template pTemplate="caption">
-    <h5 class="m-0">Manage Products</h5>
-  </ng-template>
-  <ng-template pTemplate="header">
-    <tr>
-      <th pSortableColumn="name" style="min-width:15rem">Name <p-sortIcon field="name"></p-sortIcon></th>
-      <th>Image</th>
-      <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
-      <th pSortableColumn="category" style="min-width:10rem">Category <p-sortIcon field="category"></p-sortIcon></th>
-      <th pSortableColumn="rating">Reviews <p-sortIcon field="rating"></p-sortIcon></th>
-      <th pSortableColumn="inventoryStatus" style="min-width:10rem">Status <p-sortIcon
-          field="inventoryStatus"></p-sortIcon></th>
-      <th></th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body">
-    <tr>
-      <td>Volvo S90</td>
-      <td><img [src]="'../../../../assets/photos/landing-carousel/Volvo-S90-red.png'" width="100" class="shadow-4" />
-      </td>
-      <td>Vroom</td>
-      <td>Bang</td>
-      <td>
-        <!-- <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button> -->
-<!-- <app-accessories></app-accessories>
-
-      </td>
-    </tr>
-  </ng-template>
-</p-table> -->

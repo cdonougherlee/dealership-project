@@ -50,8 +50,6 @@ export class ConfiguratorPageComponent implements OnInit {
   }
 
   onConfiguratorSubmit() {
-    const username = this.utils.getUsername();
-
     const reqObject = {
       brand: 'Volvo',
       model: 'S90',
@@ -68,6 +66,7 @@ export class ConfiguratorPageComponent implements OnInit {
         this.errorMsg = error;
       },
       complete: () => {
+        let username = this.utils.getUsername();
         this.router.navigate([`/profile/${username}`]);
       },
     });

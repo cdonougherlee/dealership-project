@@ -1,5 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-accessories',
@@ -7,56 +8,20 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./accessories.component.scss'],
 })
 export class AccessoriesComponent implements OnInit {
-  // Variable initialisation
+  @Input() edit!: boolean;
+  @Input() selectedAccessories: Array<any> = [];
   @Output() accessoriesEvent = new EventEmitter<any>();
-
-  selectedAccessories: Array<Object> = [];
-
-  // Screen responsive handling
+  accessories: Array<Object> = [];
   isSmall: boolean = false;
   isXSmall: boolean = false;
+  selectedOption!: any;
+  errorMsg!: string | null;
+  cars: Array<any> = [];
 
-  outputSelectedAccessories() {
-    this.accessoriesEvent.emit(this.selectedAccessories);
-  }
-
-  accessories = [
-    {
-      index: 0,
-      name: 'Audio',
-      description: 'Our premium audio systems',
-      base: '7 speaker surround system',
-      values: [
-        { value: '7 speaker surround system' },
-        { value: '12 speaker surround system' },
-      ],
-    },
-    {
-      index: 1,
-      name: 'Roof',
-      description: 'Enhance the utility of your S90',
-      base: 'None',
-      values: [
-        { value: 'Bicycle carrier' },
-        { value: 'Retractable ski carrier' },
-        { value: '85L roof box' },
-      ],
-    },
-    {
-      index: 2,
-
-      name: 'FloorMats',
-      description: 'For convenience of cleaning',
-      base: 'Carpet',
-      values: [
-        { value: 'Carpet' },
-        { value: 'Rubber - front only' },
-        { value: 'Rubber - front and rear' },
-      ],
-    },
-  ];
-
-  constructor(private breakpointService: BreakpointObserver) {}
+  constructor(
+    private breakpointService: BreakpointObserver,
+    private dataService: DataService
+  ) {}
 
   ngOnInit() {
     this.breakpointService
@@ -74,5 +39,22 @@ export class AccessoriesComponent implements OnInit {
           this.isXSmall = true;
         }
       });
+
+    this.dataService.getAccessories().then((res) => {
+      if (!this.edit) {
+        this.selectedAccessories = res.default;
+      }
+      this.accessories = res.options;
+      this.outputSelectedAccessories();
+    });
+  }
+
+  outputSelectedAccessories() {
+    this.accessoriesEvent.emit(this.selectedAccessories);
+  }
+
+  updateAccessory(index: any, selectedOption: any) {
+    this.selectedAccessories[index].value = selectedOption.value;
+    this.outputSelectedAccessories();
   }
 }

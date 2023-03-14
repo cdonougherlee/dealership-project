@@ -53,9 +53,8 @@ export class ListCarsComponent implements OnInit {
     };
 
     return this.crud.updateCar(reqObject, index).subscribe({
-      next: (res) => {
+      next: () => {
         this.errorMsg = null;
-        console.log(res);
       },
       error: (error) => {
         this.errorMsg = error;
@@ -65,9 +64,8 @@ export class ListCarsComponent implements OnInit {
 
   deleteCar(index: number) {
     return this.crud.deleteCar(index).subscribe({
-      next: (res) => {
+      next: () => {
         this.errorMsg = null;
-        console.log(res);
       },
       error: (error) => {
         this.errorMsg = error;

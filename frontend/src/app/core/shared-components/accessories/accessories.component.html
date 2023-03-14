@@ -19,9 +19,9 @@
           <td>{{accessory.description}}</td>
           <td>{{accessory.base}}</td>
           <td id="options">
-            <div><p-dropdown placeholder={{accessory.base}} [showClear]=true [options]="accessory.values"
-                optionLabel="value" appendTo="body" [(ngModel)]="selectedAccessories[accessory.index] = accessory.value"
-                (onChange)="outputSelectedAccessories()"></p-dropdown>
+            <div><p-dropdown placeholder="{{selectedAccessories[accessory.index].value}}" [options]="accessory.values"
+                optionLabel="value" [(ngModel)]="selectedOption" appendTo="body"
+                (onChange)="updateAccessory(accessory.index, selectedOption)"></p-dropdown>
             </div>
           </td>
 
