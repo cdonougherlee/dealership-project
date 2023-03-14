@@ -7,7 +7,7 @@
       [selectedExterior]="selectedExterior"></app-ext-colour-picker>
   </section>
   <section>
-    <app-int-trim-picker (trimEvent)="updateTrim($event)"></app-int-trim-picker>
+    <app-int-trim-picker (trimEvent)="updateTrim($event)" [selectedTrim]="selectedTrim"></app-int-trim-picker>
   </section>
   <section>
     <app-accessories (accessoriesEvent)="updateAccessories($event)"></app-accessories>

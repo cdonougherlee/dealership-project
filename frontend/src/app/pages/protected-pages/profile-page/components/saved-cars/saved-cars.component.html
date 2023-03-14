@@ -1,0 +1,7 @@
+<h3>Your saved cars</h3>
+
+<ul>
+  <li *ngFor="let car of cars; let index = index">
+    <app-display-car [car]="car" [index]="index"></app-display-car>
+  </li>
+</ul>

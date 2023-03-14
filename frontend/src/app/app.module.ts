@@ -53,7 +53,7 @@ import { TrimDisplayComponent } from './core/shared-components/trim-display/trim
 import { EditAccessoriesComponent } from './pages/protected-pages/profile-page/components/edit-accessories/edit-accessories.component';
 import { DetailsComponent } from './pages/protected-pages/profile-page/components/details/details.component';
 import { EditProfileComponent } from './pages/protected-pages/profile-page/components/edit-profile/edit-profile.component';
-import { ListCarsComponent } from './pages/protected-pages/profile-page/components/list-cars/list-cars.component';
+import { SavedCarsComponent } from './pages/protected-pages/profile-page/components/saved-cars/saved-cars.component';
 
 // Services
 import { AuthService } from './core/services/auth.service';
@@ -62,6 +62,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { EditExteriorComponent } from './pages/protected-pages/profile-page/components/edit-exterior/edit-exterior.component';
 import { EditTrimComponent } from './pages/protected-pages/profile-page/components/edit-trim/edit-trim.component';
+import { DisplayCarComponent } from './pages/protected-pages/profile-page/components/display-car/display-car.component';
 
 @NgModule({
   declarations: [
@@ -91,9 +92,10 @@ import { EditTrimComponent } from './pages/protected-pages/profile-page/componen
     DetailsComponent,
     EditProfileComponent,
     DealershipLocationsComponent,
-    ListCarsComponent,
+    SavedCarsComponent,
     EditExteriorComponent,
     EditTrimComponent,
+    DisplayCarComponent,
   ],
   imports: [
     BrowserModule,

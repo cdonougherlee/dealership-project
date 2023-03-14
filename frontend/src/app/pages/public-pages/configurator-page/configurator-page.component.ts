@@ -34,6 +34,7 @@ export class ConfiguratorPageComponent implements OnInit {
           this.isSmall = true;
         }
       });
+
     this.isLoggedIn = this.utils.isLoggedIn();
   }
 

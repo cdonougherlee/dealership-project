@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, Input } from '@angular/core';
 import { CRUDService } from 'src/app/core/services/crud.service';
 
 @Component({
-  selector: 'app-list-cars',
-  templateUrl: './list-cars.component.html',
-  styleUrls: ['./list-cars.component.scss'],
+  selector: 'app-display-car',
+  templateUrl: './display-car.component.html',
+  styleUrls: ['./display-car.component.scss'],
 })
-export class ListCarsComponent implements OnInit {
-  errorMsg: String | null = null;
+export class DisplayCarComponent {
+  @Input() car!: any;
+  @Input() index!: number;
   isSmall: boolean = false;
   isXSmall: boolean = false;
-  cars!: any[];
   selectedExterior!: string;
   selectedTrim!: string;
+  errorMsg: String | null = null;
 
   constructor(
     private crud: CRUDService,
@@ -30,16 +31,6 @@ export class ListCarsComponent implements OnInit {
           this.isXSmall = this.isSmall = true;
         }
       });
-
-    this.crud.getCars().subscribe({
-      next: (res) => {
-        this.errorMsg = null;
-        this.cars = res.cars;
-      },
-      error: (error) => {
-        this.errorMsg = error;
-      },
-    });
   }
 
   updateExterior(selectedExterior: any) {
@@ -58,6 +49,7 @@ export class ListCarsComponent implements OnInit {
       trim: this.selectedTrim,
       options: car.options,
     };
+
     return this.crud.updateCar(reqObject, index).subscribe({
       next: () => {
         this.errorMsg = null;
