@@ -1,0 +1,11 @@
+<button class="btn" (click)="showExteriorModal()">View and edit your exterior</button>
+<p-dialog [(visible)]="displayExteriorModal" [modal]="true" [style]="{width: '90%'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="true">
+
+  <app-ext-colour-picker (exteriorEvent)="updateExterior($event)"
+    [selectedExterior]="selectedExterior"></app-ext-colour-picker>
+
+  <ng-template pTemplate="footer">
+    <button class="btn" (click)="displayExteriorModal=false">Update</button>
+  </ng-template>
+</p-dialog>

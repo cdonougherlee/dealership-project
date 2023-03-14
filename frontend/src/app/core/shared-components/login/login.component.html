@@ -1,0 +1,34 @@
+<section *ngIf="!displayRegister; else elseBlock">
+  <!-- Register button to open sidebar -->
+  <p (click)="displaySidebar = true" class="scale-animation"><fa-icon [icon]="faIdBadge"></fa-icon><span
+      *ngIf="!isXSmall">
+      Register</span></p>
+
+  <!-- Sidebar -->
+  <p-sidebar [(visible)]="displaySidebar" position="right" [baseZIndex]="1" styleClass="p-sidebar-md"
+    [ngClass]="{'small-screen': isSmall }">
+    <div id="sidebar-content">
+      <h3>Login <a (click)="displayRegisterClick()">Register</a></h3>
+
+      <form (ngSubmit)="onLoginSubmit()" #loginform="ngForm">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input type="text" class="p-inputtext-lg" pInputText placeholder="Username" name="username" ngModel required>
+        </div>
+
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input type="password" class="p-inputtext-lg" pInputText placeholder="Password" name="password" ngModel
+            required>
+        </div>
+
+        <label id="error" *ngIf="errorMsg">{{errorMsg}}</label>
+
+        <button type="submit" class="btn">Login</button>
+      </form>
+
+    </div>
+  </p-sidebar>
+</section>
+
+<ng-template #elseBlock><app-register [displaySidebar]=true></app-register></ng-template>

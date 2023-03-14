@@ -1,0 +1,8 @@
+<div id="details-wrapper">
+  <h2>Hello {{username}}</h2>
+  <div>
+    <h4>Preferred dealership: {{currentPrefDealer}}</h4>
+    <app-edit-profile [currentPrefDealer]="currentPrefDealer"
+      (newDetailsEvent)="updateDetails($event)"></app-edit-profile>
+  </div>
+</div>

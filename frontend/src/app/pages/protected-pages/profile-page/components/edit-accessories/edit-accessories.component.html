@@ -1,0 +1,10 @@
+<button class="btn" (click)="showAcessoriesModal()">View and edit accessories</button>
+<p-dialog [(visible)]="displayAccessoriesModal" [modal]="true" [style]="{width: '90%'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="true">
+
+  <app-accessories [edit]="true" [selectedAccessories]="selectedAccessories"></app-accessories>
+
+  <ng-template pTemplate="footer">
+    <button class="btn" (click)="displayAccessoriesModal=false">Update</button>
+  </ng-template>
+</p-dialog>

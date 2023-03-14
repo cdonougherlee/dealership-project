@@ -11,7 +11,18 @@ const createCar = asyncHandler(async (req, res) => {
 
   // Create car
   const { brand, model, colour, trim, options } = req.body;
-  const car = await Car.create({
+
+  // For future db implementation
+  // const car = await Car.create({
+  //   brand: brand,
+  //   model: model,
+  //   colour: colour,
+  //   trim: trim,
+  //   options: options,
+  //   owner: user.id,
+  // });
+
+  const car = Car({
     brand: brand,
     model: model,
     colour: colour,
@@ -48,15 +59,14 @@ const viewCar = asyncHandler(async (req, res) => {
 });
 
 const updateCar = asyncHandler(async (req, res) => {
-  const { user, car_id, username } = extractCommonVariables(req);
+  const { user, index, username } = extractCommonVariables(req);
   if (!auth.URLAuthenticated(user, username, res)) {
     return;
   }
 
   // Update requested car from user's cars array[index]
-  const updatedCar = await Car.findByIdAndUpdate(car_id, req.body, {
-    new: true, // "Returns the document after update was applied"
-  });
+  const updatedCar = (user.cars[index] = req.body);
+  user.save();
 
   if (updatedCar) {
     return res.status(200).json({ success: true, car: updatedCar });
@@ -68,19 +78,16 @@ const updateCar = asyncHandler(async (req, res) => {
 });
 
 const deleteCar = asyncHandler(async (req, res) => {
-  const { user, car_id, username } = extractCommonVariables(req);
+  const { user, index, username } = extractCommonVariables(req);
   if (!auth.URLAuthenticated(user, username, res)) {
     return;
   }
 
-  // Find delete car from the db and user's car array
-  const deletedCar = await Car.deleteOne({ _id: car_id });
-  if (deletedCar.deletedCount === 1) {
-    // Keep user's car array up to date too
-    const i = user.cars.indexOf(car_id);
-    user.cars.splice(i, 1);
-    user.save();
+  // Delete requested car from user's cars array[index]
+  const deletedCar = user.cars.splice(index, 1);
+  user.save();
 
+  if (deletedCar) {
     return res.status(200).json({ success: true, car: deletedCar });
   } else {
     return res.status(400).json({ success: false, msg: "Car not found" });
@@ -90,8 +97,8 @@ const deleteCar = asyncHandler(async (req, res) => {
 // Helper functions
 const extractCommonVariables = (req) => {
   const user = req.user;
-  const { id, username } = req.params;
-  return { user, id, username };
+  const { index, username } = req.params;
+  return { user, index, username };
 };
 
 module.exports = {

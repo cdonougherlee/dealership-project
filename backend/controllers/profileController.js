@@ -11,11 +11,16 @@ const getProfile = asyncHandler(async (req, res) => {
   return res.status(200).json({ success: true, user: user });
 });
 
-const updateProfile = asyncHandler(async (req, res) => {
+const getCars = asyncHandler(async (req, res) => {
   const { user, username } = extractCommonVariables(req);
-  // if (!auth.URLAuthenticated(user, username, res)) {
-  //   return;
-  // }
+  if (!auth.URLAuthenticated(user, username, res)) {
+    return;
+  }
+  return res.status(200).json({ success: true, cars: user.cars });
+});
+
+const updateProfile = asyncHandler(async (req, res) => {
+  const { user } = extractCommonVariables(req);
 
   const updatedUser = await User.updateOne({ _id: user._id }, req.body, {
     new: true,
@@ -33,5 +38,6 @@ const extractCommonVariables = (req) => {
 
 module.exports = {
   getProfile,
+  getCars,
   updateProfile,
 };

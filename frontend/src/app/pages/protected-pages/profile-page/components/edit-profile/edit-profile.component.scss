@@ -1,0 +1,55 @@
+// Sidebar
+// Title and link to login
+h3 {
+  margin: 0;
+}
+
+a {
+  font-size: small;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+form > p {
+  margin: 25px 0;
+}
+
+// Text inputs
+.p-inputgroup {
+  border: 0.5px white solid;
+  margin: 3% 0;
+}
+
+// Register button, PrimeNG button is hard to style
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #17202f;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 100%;
+  opacity: 1;
+  margin: 5% 0;
+
+  &:hover {
+    border-color: #12d0ff;
+  }
+}
+
+// Error message
+label {
+  color: red;
+  font-size: 1.3rem;
+  border: 1px red solid;
+  padding: 0px 30px;
+}
+
+.small-screen {
+  h3 {
+    font-size: 1.5rem;
+  }
+}

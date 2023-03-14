@@ -1,0 +1,10 @@
+.grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+// For mobile
+.small-screen {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
