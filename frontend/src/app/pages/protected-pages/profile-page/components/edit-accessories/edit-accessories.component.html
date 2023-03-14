@@ -1,15 +1,10 @@
-<h5>Modal</h5>
-<p-button (click)="showModalDialog()" icon="pi pi-external-link" label="Show"></p-button>
-
-<p-dialog [(visible)]="displayModal" [modal]="true" [style]="{width: '90%'}" [baseZIndex]="10000" [draggable]="false"
-  [resizable]="true">
-
+<button class="btn" (click)="showAcessoriesModal()">View and edit accessories</button>
+<p-dialog [(visible)]="displayAccessoriesModal" [modal]="true" [style]="{width: '90%'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="true">
 
   <app-accessories [edit]="true" [selectedAccessories]="selectedAccessories"></app-accessories>
 
-
-
   <ng-template pTemplate="footer">
-    <p-button icon="pi pi-check" (click)="displayModal=false" label="Yes" class="p-button-text"></p-button>
+    <button class="btn" (click)="displayAccessoriesModal=false">Update</button>
   </ng-template>
 </p-dialog>

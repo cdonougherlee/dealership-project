@@ -1,0 +1,10 @@
+<button class="btn" (click)="showTrimModal()">View and edit your interior trim</button>
+<p-dialog [(visible)]="displayTrimModal" [modal]="true" [style]="{width: '90%'}" [baseZIndex]="10000"
+  [draggable]="false" [resizable]="true">
+
+  <app-int-trim-picker (trimEvent)="updateTrim($event)" [selectedTrim]="selectedTrim"></app-int-trim-picker>
+
+  <ng-template pTemplate="footer">
+    <button class="btn" (click)="displayTrimModal=false">Update</button>
+  </ng-template>
+</p-dialog>

@@ -3,7 +3,8 @@
 <!-- Intro -->
 <article>
   <section>
-    <app-ext-colour-picker (colourEvent)="updateColour($event)"></app-ext-colour-picker>
+    <app-ext-colour-picker (exteriorEvent)="updateExterior($event)"
+      [selectedExterior]="selectedExterior"></app-ext-colour-picker>
   </section>
   <section>
     <app-int-trim-picker (trimEvent)="updateTrim($event)"></app-int-trim-picker>

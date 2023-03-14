@@ -53,6 +53,23 @@ img {
   }
 }
 
+// Register button, PrimeNG button is hard to style
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 100%;
+  margin: 5% 0;
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
 // PrimeNG components styling
 .p-link:focus {
   box-shadow: none !important;

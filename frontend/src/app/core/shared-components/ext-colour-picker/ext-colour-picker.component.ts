@@ -1,16 +1,19 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-int-display',
-  templateUrl: './int-display.component.html',
-  styleUrls: ['./int-display.component.scss'],
+  selector: 'app-ext-colour-picker',
+  templateUrl: './ext-colour-picker.component.html',
+  styleUrls: ['./ext-colour-picker.component.scss'],
 })
-export class IntDisplayComponent implements OnInit {
+export class ExtColourPickerComponent {
   isSmall: boolean = false;
   isXSmall: boolean = false;
+  @Input() selectedExterior!: string;
+  @Output() exteriorEvent = new EventEmitter<any>();
 
   constructor(private breakpointService: BreakpointObserver) {}
+
   ngOnInit() {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
@@ -27,5 +30,12 @@ export class IntDisplayComponent implements OnInit {
           this.isXSmall = true;
         }
       });
+
+    this.exteriorEvent.emit(this.selectedExterior);
+  }
+
+  updateExterior(selectedExterior: string) {
+    this.selectedExterior = selectedExterior;
+    this.exteriorEvent.emit(this.selectedExterior);
   }
 }

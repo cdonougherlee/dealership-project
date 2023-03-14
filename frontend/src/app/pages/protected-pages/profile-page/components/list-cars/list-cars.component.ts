@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { CRUDService } from 'src/app/core/services/crud.service';
-import { Utils } from 'src/app/core/utils/utils';
 
 @Component({
   selector: 'app-list-cars',
@@ -14,11 +12,25 @@ export class ListCarsComponent implements OnInit {
   isSmall: boolean = false;
   isXSmall: boolean = false;
   cars!: any[];
+  selectedExterior!: string;
+  selectedTrim!: string;
 
   constructor(
     private crud: CRUDService,
     private breakpointService: BreakpointObserver
-  ) {
+  ) {}
+
+  ngOnInit() {
+    this.breakpointService
+      .observe([Breakpoints.Small, Breakpoints.XSmall])
+      .subscribe((res) => {
+        this.isXSmall = false;
+        this.isSmall = res.breakpoints[Breakpoints.Small];
+        if (res.breakpoints[Breakpoints.XSmall]) {
+          this.isXSmall = this.isSmall = true;
+        }
+      });
+
     this.crud.getCars().subscribe({
       next: (res) => {
         this.errorMsg = null;
@@ -30,28 +42,22 @@ export class ListCarsComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.breakpointService
-      .observe([Breakpoints.Small, Breakpoints.XSmall])
-      .subscribe((res) => {
-        this.isXSmall = false;
-        this.isSmall = res.breakpoints[Breakpoints.Small];
+  updateExterior(selectedExterior: any) {
+    this.selectedExterior = selectedExterior;
+  }
 
-        if (res.breakpoints[Breakpoints.XSmall]) {
-          this.isXSmall = this.isSmall = true;
-        }
-      });
+  updateTrim(selectedTrim: any) {
+    this.selectedTrim = selectedTrim;
   }
 
   updateCar(index: number, car: any) {
     const reqObject = {
       brand: car.brand,
       model: car.model,
-      colour: 'grey',
-      trim: car.trim,
+      colour: this.selectedExterior,
+      trim: this.selectedTrim,
       options: car.options,
     };
-
     return this.crud.updateCar(reqObject, index).subscribe({
       next: () => {
         this.errorMsg = null;

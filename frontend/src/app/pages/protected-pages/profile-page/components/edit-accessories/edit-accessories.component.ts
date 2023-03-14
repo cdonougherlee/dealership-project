@@ -6,10 +6,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./edit-accessories.component.scss'],
 })
 export class EditAccessoriesComponent {
-  displayModal!: boolean;
   @Input() selectedAccessories!: Array<any>;
+  displayAccessoriesModal!: boolean;
 
-  showModalDialog() {
-    this.displayModal = true;
+  showAcessoriesModal() {
+    this.displayAccessoriesModal = true;
   }
 }

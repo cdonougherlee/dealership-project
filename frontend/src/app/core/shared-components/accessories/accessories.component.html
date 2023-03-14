@@ -3,7 +3,7 @@
 
   <div id="options-wrapper">
 
-    <p-table [value]="accessories" responsiveLayout="scroll" styleClass="p-datatable-striped"
+    <p-table [value]="accessoriesData" responsiveLayout="scroll" styleClass="p-datatable-striped"
       [tableStyle]="{'min-width': '50rem'}">
       <ng-template pTemplate="header">
         <tr>
@@ -20,8 +20,8 @@
           <td>{{accessory.base}}</td>
           <td id="options">
             <div><p-dropdown placeholder="{{selectedAccessories[accessory.index].value}}" [options]="accessory.values"
-                optionLabel="value" [(ngModel)]="selectedOption" appendTo="body"
-                (onChange)="updateAccessory(accessory.index, selectedOption)"></p-dropdown>
+                optionLabel="value" [(ngModel)]="selectedValue" appendTo="body"
+                (onChange)="updateAccessory(accessory.index, selectedValue)"></p-dropdown>
             </div>
           </td>
 

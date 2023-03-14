@@ -13,7 +13,7 @@ export class ConfiguratorPageComponent implements OnInit {
   isSmall: boolean = false;
   isLoggedIn!: boolean;
   selectedAccessories: Object[] = [];
-  selectedColour: string = 'orange';
+  selectedExterior: string = 'orange';
   selectedTrim: string = 'black';
   errorMsg: String | null = null;
 
@@ -41,8 +41,8 @@ export class ConfiguratorPageComponent implements OnInit {
     this.selectedAccessories = selectedAccessories;
   }
 
-  updateColour(selectedColour: string) {
-    this.selectedColour = selectedColour;
+  updateExterior(selectedExterior: string) {
+    this.selectedExterior = selectedExterior;
   }
 
   updateTrim(selectedTrim: string) {
@@ -53,7 +53,7 @@ export class ConfiguratorPageComponent implements OnInit {
     const reqObject = {
       brand: 'Volvo',
       model: 'S90',
-      colour: this.selectedColour,
+      colour: this.selectedExterior,
       trim: this.selectedTrim,
       options: this.selectedAccessories,
     };

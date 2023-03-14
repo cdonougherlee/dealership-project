@@ -35,6 +35,8 @@ import { FooterComponent } from './core/shared-components/footer/footer.componen
 import { RegisterComponent } from './core/shared-components/register/register.component';
 import { AccessoriesComponent } from './core/shared-components/accessories/accessories.component';
 import { DealershipLocationsComponent } from './core/shared-components/dealership-locations/dealership-locations.component';
+import { ExtColourPickerComponent } from './core/shared-components/ext-colour-picker/ext-colour-picker.component';
+import { ExtThreeSixtyComponent } from './core/shared-components/ext-three-sixty/ext-three-sixty.component';
 
 // Landing page components
 import { GalleryComponent } from './pages/public-pages/landing-page/components/gallery/gallery.component';
@@ -44,10 +46,8 @@ import { FeaturesComponent } from './pages/public-pages/landing-page/components/
 import { SpecificationsComponent } from './pages/public-pages/landing-page/components/specifications/specifications.component';
 
 // Configurator page components
-import { ExtColourPickerComponent } from './pages/public-pages/configurator-page/components/ext-colour-picker/ext-colour-picker.component';
-import { ExtThreeSixtyComponent } from './pages/public-pages/configurator-page/components/ext-three-sixty/ext-three-sixty.component';
-import { IntTrimPickerComponent } from './pages/public-pages/configurator-page/components/int-trim-picker/int-trim-picker.component';
-import { IntDisplayComponent } from './pages/public-pages/configurator-page/components/int-display/int-display.component';
+import { IntTrimPickerComponent } from './core/shared-components/int-trim-picker/int-trim-picker.component';
+import { TrimDisplayComponent } from './core/shared-components/trim-display/trim-display.component';
 
 // Profile page components
 import { EditAccessoriesComponent } from './pages/protected-pages/profile-page/components/edit-accessories/edit-accessories.component';
@@ -60,6 +60,8 @@ import { AuthService } from './core/services/auth.service';
 import { DataService } from './core/services/data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { EditExteriorComponent } from './pages/protected-pages/profile-page/components/edit-exterior/edit-exterior.component';
+import { EditTrimComponent } from './pages/protected-pages/profile-page/components/edit-trim/edit-trim.component';
 
 @NgModule({
   declarations: [
@@ -83,13 +85,15 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
     ExtColourPickerComponent,
     ExtThreeSixtyComponent,
     IntTrimPickerComponent,
-    IntDisplayComponent,
+    TrimDisplayComponent,
     AccessoriesComponent,
     EditAccessoriesComponent,
     DetailsComponent,
     EditProfileComponent,
     DealershipLocationsComponent,
     ListCarsComponent,
+    EditExteriorComponent,
+    EditTrimComponent,
   ],
   imports: [
     BrowserModule,

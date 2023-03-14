@@ -1,14 +1,10 @@
 .grid {
-  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .flex {
   display: flex;
   flex-direction: column;
-}
-
-button {
-  margin: 20px;
 }
 
 li {

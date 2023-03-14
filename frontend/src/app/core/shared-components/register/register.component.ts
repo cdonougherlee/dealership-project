@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { faIdBadge } from '@fortawesome/free-regular-svg-icons';
@@ -31,7 +30,6 @@ export class RegisterComponent implements OnInit {
   prefDealer: string = 'Greenlane';
 
   constructor(
-    private http: HttpClient,
     private router: Router,
     private auth: AuthService,
     private breakpointService: BreakpointObserver,

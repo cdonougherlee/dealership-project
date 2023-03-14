@@ -11,12 +11,10 @@ export class AccessoriesComponent implements OnInit {
   @Input() edit!: boolean;
   @Input() selectedAccessories: Array<any> = [];
   @Output() accessoriesEvent = new EventEmitter<any>();
-  accessories: Array<Object> = [];
+  accessoriesData: Array<Object> = [];
+  selectedValue!: any;
   isSmall: boolean = false;
   isXSmall: boolean = false;
-  selectedOption!: any;
-  errorMsg!: string | null;
-  cars: Array<any> = [];
 
   constructor(
     private breakpointService: BreakpointObserver,
@@ -44,17 +42,13 @@ export class AccessoriesComponent implements OnInit {
       if (!this.edit) {
         this.selectedAccessories = res.default;
       }
-      this.accessories = res.options;
-      this.outputSelectedAccessories();
+      this.accessoriesData = res.options;
+      this.accessoriesEvent.emit(this.selectedAccessories);
     });
   }
 
-  outputSelectedAccessories() {
+  updateAccessory(index: any, selectedValue: any) {
+    this.selectedAccessories[index].value = selectedValue.value;
     this.accessoriesEvent.emit(this.selectedAccessories);
-  }
-
-  updateAccessory(index: any, selectedOption: any) {
-    this.selectedAccessories[index].value = selectedOption.value;
-    this.outputSelectedAccessories();
   }
 }

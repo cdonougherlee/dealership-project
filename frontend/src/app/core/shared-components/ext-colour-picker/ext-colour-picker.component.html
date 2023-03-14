@@ -1,0 +1,22 @@
+<div [ngClass]="{'container' : !isSmall, 'small-screen': isSmall, 'xsmall-screen': isXSmall}">
+  <h3>Exterior</h3>
+
+  <div id="colour-picker-wrapper" class="grid">
+    <app-ext-three-sixty [selectedExterior]="selectedExterior"></app-ext-three-sixty>
+
+    <div id="list-wrapper">
+      <h4>Currently: <i>{{selectedExterior}}</i></h4>
+
+      <ul>
+        <li (click)="updateExterior('Sonic Red')">Sonic Red</li>
+        <li (click)="updateExterior('Frost White')">Frost White</li>
+        <li (click)="updateExterior('Sudo Black')">Sudo Black</li>
+        <li (click)="updateExterior('Gunmetal Silver')">Gunmetal Silver</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<!-- https://scaleflex.cloudimg.io/v7/demo/suv-orange-car-360/ -->
+<!-- https://ik.imagekit.io/h0s40k5ceq/photos/cloudimage/ -->

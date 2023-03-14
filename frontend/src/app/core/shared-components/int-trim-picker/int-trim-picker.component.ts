@@ -1,18 +1,16 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-ext-colour-picker',
-  templateUrl: './ext-colour-picker.component.html',
-  styleUrls: ['./ext-colour-picker.component.scss'],
+  selector: 'app-int-trim-picker',
+  templateUrl: './int-trim-picker.component.html',
+  styleUrls: ['./int-trim-picker.component.scss'],
 })
-export class ExtColourPickerComponent {
+export class IntTrimPickerComponent implements OnInit {
   isSmall: boolean = false;
   isXSmall: boolean = false;
-
-  colour: string = 'orange';
-
-  @Output() colourEvent = new EventEmitter<any>();
+  @Input() selectedTrim!: string;
+  @Output() trimEvent = new EventEmitter<any>();
 
   constructor(private breakpointService: BreakpointObserver) {}
 
@@ -32,10 +30,12 @@ export class ExtColourPickerComponent {
           this.isXSmall = true;
         }
       });
+
+    this.trimEvent.emit(this.selectedTrim);
   }
 
-  updateColour(colour: string) {
-    this.colour = colour;
-    this.colourEvent.emit(this.colour);
+  updateTrim(selectedTrim: string) {
+    this.selectedTrim = selectedTrim;
+    this.trimEvent.emit(this.selectedTrim);
   }
 }

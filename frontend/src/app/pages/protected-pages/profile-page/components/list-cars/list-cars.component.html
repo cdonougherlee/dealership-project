@@ -6,22 +6,19 @@
       <div class="grid">
         <!-- <p>https://ik.imagekit.io/h0s40k5ceq/photos/exterior/{{item.colour}}/1</p> -->
         <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
-        {{car.colour}}, {{car.trim}}, {{car._id}}, {{car.options}}
 
-        <div>
-          <ul *ngFor="let accessory of car.options; let index = index">
-            <span>{{accessory.value}}</span>
-          </ul>
-          <app-edit-accessories [selectedAccessories]="car.options"></app-edit-accessories>
-        </div>
+        <app-edit-exterior (exteriorEvent)="updateExterior($event)" [selectedExterior]="car.colour"></app-edit-exterior>
+
+        <app-edit-trim (trimEvent)="updateTrim($event)" [selectedTrim]="car.trim"></app-edit-trim>
+
+        <app-edit-accessories [selectedAccessories]="car.options"></app-edit-accessories>
+
 
         <div class="flex">
-          <button id="update-btn" pButton pRipple type="button" label="Update" icon="pi pi-check"
-            class="p-button-rounded" (click)="updateCar(index, car)"></button>
-
-          <button id="delete-btn" pButton pRipple type="button" label="Delete" icon="pi pi-times"
-            class="p-button-rounded" (click)="deleteCar(index)"></button>
+          <button id="update-btn" class="btn" (click)="updateCar(index, car)">Save</button>
+          <button id="delete-btn" class="btn" (click)="deleteCar(index)">Delete</button>
         </div>
+
       </div>
     </p-card>
 

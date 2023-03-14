@@ -10,17 +10,11 @@ import { faBackward } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./ext-three-sixty.component.scss'],
 })
 export class ExtThreeSixtyComponent {
-  @Input()
-  colour!: String;
-
+  @Input() selectedExterior!: String;
   images!: any[];
-
   path!: String;
-
   isSmall: boolean = false;
-
   num: any = '1';
-
   faForward = faForward;
   faBackward = faBackward;
 
@@ -77,13 +71,13 @@ export class ExtThreeSixtyComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.colour = changes['colour'].currentValue;
+    this.selectedExterior = changes['selectedExterior'].currentValue;
     this.getImages();
   }
 
   getImages() {
     this.dataService.getConfigExtImages().then((res) => {
-      this.path = res.path + this.colour + '-';
+      this.path = res.path + this.selectedExterior + '-';
       this.images = res.images;
     });
   }
