@@ -1,4 +1,9 @@
-<button class="btn" (click)="showExteriorModal()">View and edit your exterior</button>
+<div>
+  <h4>Exterior</h4>
+  <p id="trigger" (click)="showExteriorModal()" class="scale-animation"><fa-icon [icon]="faPenToSquare"></fa-icon><span>
+      View and edit</span></p>
+</div>
+
 <p-dialog [(visible)]="displayExteriorModal" [modal]="true" [style]="{width: '90%'}" [baseZIndex]="10000"
   [draggable]="false" [resizable]="true">
 

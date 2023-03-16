@@ -16,7 +16,6 @@ export class DisplayCarComponent {
   selectedExterior!: string;
   selectedTrim!: string;
   errorMsg: String | null = null;
-  edited!: boolean;
 
   constructor(
     private crud: CRUDService,

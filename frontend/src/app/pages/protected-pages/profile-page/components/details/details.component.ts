@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -13,16 +14,29 @@ export class DetailsComponent {
   username!: string | null;
   displayModal!: boolean;
   errorMsg!: string | null;
+  isSmall: boolean = false;
 
   constructor(
     private auth: AuthService,
-    private http: HttpClient,
+    private breakpointService: BreakpointObserver,
     private utils: Utils
   ) {}
 
   ngOnInit() {
-    this.username = this.utils.getUsername();
+    this.breakpointService
+      .observe([Breakpoints.Small, Breakpoints.XSmall])
+      .subscribe((res) => {
+        this.isSmall = false;
 
+        if (
+          res.breakpoints[Breakpoints.Small] ||
+          res.breakpoints[Breakpoints.XSmall]
+        ) {
+          this.isSmall = true;
+        }
+      });
+
+    this.username = this.utils.getUsername();
     return this.auth.getProfile(this.username).subscribe({
       next: (res) => {
         this.currentPrefDealer = res.user.prefDealer;

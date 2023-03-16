@@ -25,6 +25,10 @@ img {
   max-width: 100%;
 }
 
+ul {
+  list-style-type: none;
+}
+
 // Sizing
 .container {
   height: 100%;
@@ -53,13 +57,13 @@ img {
   }
 }
 
-// Register button, PrimeNG button is hard to style
+// Custom button, PrimeNG button is hard to style
 .btn {
   display: inline-block;
   padding: 10px 30px;
   cursor: pointer;
   color: #fff;
-  background-color: #17202f;
+  background-color: #1f2d40;
   border: 1px solid white;
   border-radius: 5px;
   width: 100%;
@@ -100,7 +104,3 @@ img {
   width: 100% !important;
   position: relative !important;
 }
-
-// .p-dropdown-items {
-//   position: absolute !important;
-// }

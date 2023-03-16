@@ -18,6 +18,30 @@ export class ExtThreeSixtyComponent {
   faForward = faForward;
   faBackward = faBackward;
 
+  constructor(
+    private breakpointService: BreakpointObserver,
+    private dataService: DataService
+  ) {}
+
+  ngOnInit() {
+    this.breakpointService
+      .observe([Breakpoints.Small, Breakpoints.XSmall])
+      .subscribe((res) => {
+        this.isSmall = false;
+
+        if (res.matches) {
+          this.isSmall = true;
+        }
+      });
+
+    this.getImages();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.selectedExterior = changes['selectedExterior'].currentValue;
+    this.getImages();
+  }
+
   rotateLeft() {
     this.num = parseInt(this.num);
     this.num += 1;
@@ -51,33 +75,10 @@ export class ExtThreeSixtyComponent {
     },
   ];
 
-  constructor(
-    private breakpointService: BreakpointObserver,
-    private dataService: DataService
-  ) {}
-
-  ngOnInit() {
-    this.breakpointService
-      .observe([Breakpoints.Small, Breakpoints.XSmall])
-      .subscribe((res) => {
-        this.isSmall = false;
-
-        if (res.matches) {
-          this.isSmall = true;
-        }
-      });
-
-    this.getImages();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.selectedExterior = changes['selectedExterior'].currentValue;
-    this.getImages();
-  }
-
   getImages() {
     this.dataService.getConfigExtImages().then((res) => {
       this.path = res.path + this.selectedExterior + '-';
+      // baseURL + path + selectedExterior/num.webp
       this.images = res.images;
     });
   }

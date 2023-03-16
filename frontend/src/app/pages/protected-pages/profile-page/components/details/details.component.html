@@ -1,4 +1,4 @@
-<div id="details-wrapper">
+<div id="details-wrapper" [ngClass]="{'small-screen': isSmall}">
   <h2>Hello {{username}}</h2>
   <div>
     <h4>Preferred dealership: {{currentPrefDealer}}</h4>

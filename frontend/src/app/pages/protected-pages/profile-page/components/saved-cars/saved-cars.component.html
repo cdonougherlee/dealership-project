@@ -1,7 +1,19 @@
-<h3>Your saved cars</h3>
+<div id="saved-cars-wrapper" [ngClass]="{'small-screen': isSmall}">
+  <h3>Your saved cars</h3>
 
-<ul>
-  <li *ngFor="let car of cars; let index = index">
-    <app-display-car (refreshEvent)="getCars()" [car]="car" [index]="index"></app-display-car>
-  </li>
-</ul>
+  <ul>
+    <li *ngIf="cars.length == 0; else elseBlock"><p-card>
+        <h2>You have no saved cars!</h2>
+        <h2>Visit the configurator page to create your custom S90:</h2>
+        <button routerLink="/configurator" class="btn"><fa-icon [icon]="faSliders"></fa-icon><span>
+            Configurator</span></button>
+      </p-card>
+    </li>
+
+    <ng-template #elseBlock>
+      <li *ngFor="let car of cars; let index = index">
+        <app-display-car (refreshEvent)="getCars()" [car]="car" [index]="index"></app-display-car>
+      </li>
+    </ng-template>
+  </ul>
+</div>

@@ -6,22 +6,33 @@ import { lastValueFrom } from 'rxjs';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  getDealerLocations() {
-    return lastValueFrom(
-      this.http.get<any>('../../assets/data/dealer-locations.json')
-    ).then((res) => {
-      return res;
-    });
+  async getBaseURL() {
+    const res = await lastValueFrom(
+      this.http.get<any>('../../assets/data/base-url.json')
+    );
+    return res;
   }
 
-  getSpecs() {
-    return lastValueFrom(
+  async getBackDropImages() {
+    const res = await lastValueFrom(
+      this.http.get<any>('../../assets/data/backdrop.json')
+    );
+    return res;
+  }
+
+  async getDealerLocations() {
+    const res = await lastValueFrom(
+      this.http.get<any>('../../assets/data/dealer-locations.json')
+    );
+    return res;
+  }
+
+  async getSpecs() {
+    const res = await lastValueFrom(
       this.http.get<any>('../../assets/data/volvo-specs.json')
-    )
-      .then((res) => res.specs)
-      .then((specs) => {
-        return specs;
-      });
+    );
+    const specs = res.specs;
+    return specs;
   }
 
   async getAccessories() {
@@ -31,34 +42,30 @@ export class DataService {
     return res;
   }
 
-  getGalleryImages() {
-    return lastValueFrom(
+  async getGalleryImages() {
+    const res = await lastValueFrom(
       this.http.get<any>('../../assets/data/gallery-images.json')
-    ).then((res) => {
-      return res;
-    });
+    );
+    return res;
   }
 
-  getCarouselImages() {
-    return lastValueFrom(
+  async getCarouselImages() {
+    const res = await lastValueFrom(
       this.http.get<any>('../../assets/data/carousel-images.json')
-    ).then((res) => {
-      return res;
-    });
+    );
+    return res;
   }
 
-  getConfigExtImages() {
-    return lastValueFrom(
+  async getConfigExtImages() {
+    const res = await lastValueFrom(
       this.http.get<any>('../../assets/data/config-ext-images.json')
-    ).then((res) => {
-      return res;
-    });
+    );
+    return res;
   }
-  getIntImages() {
-    return lastValueFrom(
+  async getIntImages() {
+    const res = await lastValueFrom(
       this.http.get<any>('../../assets/data/config-ext-images.json')
-    ).then((res) => {
-      return res;
-    });
+    );
+    return res;
   }
 }

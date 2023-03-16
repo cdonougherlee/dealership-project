@@ -10,8 +10,7 @@ import { DataService } from 'src/app/core/services/data.service';
 export class GalleryComponent {
   images!: any[];
   path!: String;
-
-  isSmall: boolean = false;
+  isSmall!: boolean;
 
   responsiveOptions: any[] = [
     {
@@ -37,11 +36,7 @@ export class GalleryComponent {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-
-        if (res.matches) {
-          this.isSmall = true;
-        }
+        this.isSmall = res.matches;
       });
 
     this.dataService.getGalleryImages().then((res) => {

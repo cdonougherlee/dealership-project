@@ -14,7 +14,7 @@ export class ConfiguratorPageComponent implements OnInit {
   isLoggedIn!: boolean;
   selectedAccessories: Object[] = [];
   selectedExterior: string = 'orange';
-  selectedTrim: string = 'black';
+  selectedTrim: string = 'Black';
   errorMsg: String | null = null;
 
   constructor(

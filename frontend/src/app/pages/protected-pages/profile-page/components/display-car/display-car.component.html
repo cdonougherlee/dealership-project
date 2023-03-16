@@ -1,22 +1,56 @@
-<p-card header="{{car.brand}} {{car.model}} - {{index + 1}}">
-  <div class="grid">
-    <!-- <p>https://ik.imagekit.io/h0s40k5ceq/photos/exterior/{{item.colour}}/1</p> -->
-
+<p-card [ngClass]="{'small-screen': isSmall, 'xsmall-screen': isXSmall}">
+  <div *ngIf="!isSmall; else elseBlock" class="grid">
     <app-edit-exterior (exteriorEvent)="updateExterior($event)" [selectedExterior]="car.colour"></app-edit-exterior>
-
     <app-edit-trim (trimEvent)="updateTrim($event)" [selectedTrim]="car.trim"></app-edit-trim>
+    <app-edit-accessories [selectedAccessories]="car.options"></app-edit-accessories>
+    <h4>{{index + 1}} - {{car.brand}} {{car.model}}</h4>
 
-    <app-edit-accessories (change)="edited=true" [selectedAccessories]="car.options"></app-edit-accessories>
+    <!-- <img src="https://ik.imagekit.io/h0s40k5ceq/photos/exterior/{{car.colour}}/1" alt=""> -->
+    <!-- <img src="https://ik.imagekit.io/h0s40k5ceq/photos/interior/{{car.trim}}/1" alt=""> -->
+    <!-- <img src="https://ik.imagekit.io/h0s40k5ceq/photos/wheels/{{car.options[1].value}}/1" alt=""> -->
 
+
+    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
+    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
+    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
     <div>
-      <button id="update-btn" class="btn" (click)="updateCar(index, car)">Save</button>
-      <button class="delete-btn" (click)="deleteCar(index)">Delete</button>
+      <button class="btn" (click)="updateCar(index, car)">Save Changes</button>
+      <button class="delete-btn" (click)="deleteCar(index)">Delete Car</button>
+    </div>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="grid">
+
+      <div *ngIf="!isXSmall; then thenBlock else elseBlock"></div>
+
+      <ng-template #thenBlock>
+        <app-edit-exterior (exteriorEvent)="updateExterior($event)" [selectedExterior]="car.colour"></app-edit-exterior>
+        <app-edit-trim (trimEvent)="updateTrim($event)" [selectedTrim]="car.trim"></app-edit-trim>
+        <app-edit-accessories [selectedAccessories]="car.options"></app-edit-accessories>
+
+        <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
+        <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
+        <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
+
+        <h4>{{index + 1}} - {{car.brand}} {{car.model}}</h4>
+        <button class="btn" (click)="updateCar(index, car)">Save Changes</button>
+        <button class="delete-btn" (click)="deleteCar(index)">Delete Car</button>
+      </ng-template>
+
+      <ng-template #elseBlock>
+        <h4>{{index + 1}} - {{car.brand}} {{car.model}}</h4>
+        <app-edit-exterior (exteriorEvent)="updateExterior($event)" [selectedExterior]="car.colour"></app-edit-exterior>
+
+        <app-edit-trim (trimEvent)="updateTrim($event)" [selectedTrim]="car.trim"></app-edit-trim>
+        <app-edit-accessories [selectedAccessories]="car.options"></app-edit-accessories>
+
+        <button class="btn" (click)="updateCar(index, car)">Save Changes</button>
+        <button class="delete-btn" (click)="deleteCar(index)">Delete Car</button>
+      </ng-template>
     </div>
 
-    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
-    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
-    <img src="../../../../../../assets/photos/gallery/1080p-architecture.jpg" alt="">
-
-
-  </div>
+  </ng-template>
 </p-card>
+
+<!-- <p>https://ik.imagekit.io/h0s40k5ceq/photos/exterior/{{item.colour}}/1</p> -->

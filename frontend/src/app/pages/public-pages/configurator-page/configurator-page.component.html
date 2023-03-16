@@ -19,11 +19,9 @@
       <button *ngIf="isLoggedIn; else elseBlock" type="submit" class="btn"
         (click)="onConfiguratorSubmit()">Save</button>
 
-      <ng-template #elseBlock><button type="submit" class="btn"><app-register></app-register></button></ng-template>
+      <ng-template #elseBlock><button class="btn"><app-register></app-register></button></ng-template>
     </div>
   </section>
 </article>
 
 <app-footer></app-footer>
-
-<!-- https://ik.imagekit.io/h0s40k5ceq/photos/cloudimage/" -->

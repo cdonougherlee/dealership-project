@@ -4,7 +4,14 @@ h2 {
 }
 
 #details-wrapper > div {
-  width: min(400px);
+  width: min(420px);
   display: grid;
   grid-template-columns: 3fr 1fr;
+}
+
+.small-screen {
+  h2,
+  div {
+    padding-left: 1%;
+  }
 }
