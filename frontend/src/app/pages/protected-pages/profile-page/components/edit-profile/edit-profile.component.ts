@@ -9,9 +9,9 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgForm } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Utils } from 'src/app/core/utils/utils';
 import { Router } from '@angular/router';
+import { ProfileUpdate } from 'src/app/core/interfaces/ProfileUpdate';
 
 @Component({
   selector: 'app-edit-profile',
@@ -20,10 +20,7 @@ import { Router } from '@angular/router';
 })
 export class EditProfileComponent {
   @Input() currentPrefDealer!: string;
-  @Output() newDetailsEvent = new EventEmitter<any>();
-  outputNewDetails(reqObject: Object) {
-    this.newDetailsEvent.emit(reqObject);
-  }
+  @Output() newDetailsEvent = new EventEmitter<ProfileUpdate>();
   @ViewChild('updateform', { static: false })
   updateForm!: NgForm;
   displaySidebar: boolean = false;
@@ -46,11 +43,7 @@ export class EditProfileComponent {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-        this.isXSmall = false;
-
         this.isSmall = res.breakpoints[Breakpoints.Small];
-
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isSmall = true;
         }
@@ -62,14 +55,18 @@ export class EditProfileComponent {
     this.newPrefDealer = prefDealer;
   }
 
+  outputNewDetails(reqObject: ProfileUpdate) {
+    this.newDetailsEvent.emit(reqObject);
+  }
+
   onUpdateSubmit() {
     let username = this.updateForm.value.username;
     if (!username) {
       username = this.username;
     }
-    const prefDealer = this.newPrefDealer;
+    const prefDealer: string = this.newPrefDealer;
 
-    const reqObject = {
+    const reqObject: ProfileUpdate = {
       username: username,
       prefDealer: prefDealer,
     };
@@ -91,7 +88,7 @@ export class EditProfileComponent {
 
   onDelete() {
     return this.auth.deleteProfile(this.username).subscribe({
-      next: (response) => {
+      next: () => {
         this.auth.logout();
         this.errorMsg = null;
       },

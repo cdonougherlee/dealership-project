@@ -14,7 +14,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   @Input() protected!: boolean;
-  username!: String | null;
+  username!: string | null;
   loggedIn: boolean = false;
   faSliders = faSliders;
   faIdBadge = faIdBadge;
@@ -31,8 +31,7 @@ export class HeaderComponent implements OnInit {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isXSmall = false;
-        this.isSmall = res.breakpoints[Breakpoints.Small];
+        this.isXSmall = res.breakpoints[Breakpoints.Small];
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isSmall = true;
         }

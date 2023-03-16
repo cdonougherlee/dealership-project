@@ -11,9 +11,6 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class LogoutComponent {
   faCircleXmark = faCircleXmark;
-
-  isSmall: boolean = false;
-
   isXSmall: boolean = false;
 
   constructor(
@@ -28,14 +25,8 @@ export class LogoutComponent {
   }
 
   ngOnInit() {
-    this.breakpointService
-      .observe([Breakpoints.Small, Breakpoints.XSmall])
-      .subscribe((res) => {
-        this.isXSmall = false;
-        this.isSmall = res.breakpoints[Breakpoints.Small];
-        if (res.breakpoints[Breakpoints.XSmall]) {
-          this.isXSmall = this.isSmall = true;
-        }
-      });
+    this.breakpointService.observe([Breakpoints.XSmall]).subscribe((res) => {
+      this.isXSmall = res.breakpoints[Breakpoints.XSmall];
+    });
   }
 }

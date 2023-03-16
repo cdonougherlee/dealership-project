@@ -1,4 +1,3 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 
@@ -9,26 +8,15 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 })
 export class EditTrimComponent {
   @Input() selectedTrim!: string;
-  @Output() trimEvent = new EventEmitter<any>();
+  @Output() trimEvent = new EventEmitter<string>();
   displayTrimModal!: boolean;
-
   isSmall: boolean = false;
   isXSmall: boolean = false;
   faPenToSquare = faPenToSquare;
 
-  constructor(private breakpointService: BreakpointObserver) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.breakpointService
-      .observe([Breakpoints.Small, Breakpoints.XSmall])
-      .subscribe((res) => {
-        this.isXSmall = false;
-        this.isSmall = res.breakpoints[Breakpoints.Small];
-        if (res.breakpoints[Breakpoints.XSmall]) {
-          this.isXSmall = this.isSmall = true;
-        }
-      });
-  }
+  ngOnInit() {}
 
   showTrimModal() {
     this.displayTrimModal = true;

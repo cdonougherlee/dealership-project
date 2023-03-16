@@ -10,7 +10,7 @@ export class ExtColourPickerComponent {
   isSmall: boolean = false;
   isXSmall: boolean = false;
   @Input() selectedExterior!: string;
-  @Output() exteriorEvent = new EventEmitter<any>();
+  @Output() exteriorEvent = new EventEmitter<string>();
 
   constructor(private breakpointService: BreakpointObserver) {}
 
@@ -18,16 +18,9 @@ export class ExtColourPickerComponent {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-        this.isXSmall = false;
-
-        if (res.breakpoints[Breakpoints.Small]) {
-          this.isSmall = true;
-        }
-
+        this.isSmall = res.breakpoints[Breakpoints.Small];
         if (res.breakpoints[Breakpoints.XSmall]) {
-          this.isSmall = true;
-          this.isXSmall = true;
+          this.isSmall = this.isXSmall = true;
         }
       });
 

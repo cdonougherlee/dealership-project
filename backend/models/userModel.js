@@ -20,12 +20,22 @@ const UserSchema = mongoose.Schema(
       type: String,
       required: [true, "Please select a dealership"],
     },
+    // cars: [
+    //   {
+    //     // For future db implementation
+    //     // type: Schema.Types.ObjectId,
+    //     type: Object,
+    //     // ref: "Car",
+    //   },
+    // ],
     cars: [
       {
-        // For future db implementation
-        // type: Schema.Types.ObjectId,
-        type: Object,
-        // ref: "Car",
+        brand: String,
+        model: String,
+        colour: String,
+        trim: String,
+        options: Array,
+        owner: Schema.Types.ObjectId,
       },
     ],
   },

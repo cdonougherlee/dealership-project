@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CRUDService } from 'src/app/core/services/crud.service';
+import { Car } from 'src/app/core/interfaces/Car';
 
 @Component({
   selector: 'app-display-car',
@@ -8,14 +9,13 @@ import { CRUDService } from 'src/app/core/services/crud.service';
   styleUrls: ['./display-car.component.scss'],
 })
 export class DisplayCarComponent {
-  @Input() car!: any;
+  @Input() car!: Car;
   @Input() index!: number;
-  @Output() refreshEvent = new EventEmitter<any>();
+  @Output() refreshEvent = new EventEmitter<string>();
   isSmall: boolean = false;
   isXSmall: boolean = false;
   selectedExterior!: string;
   selectedTrim!: string;
-  errorMsg: String | null = null;
 
   constructor(
     private crud: CRUDService,
@@ -26,7 +26,6 @@ export class DisplayCarComponent {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isXSmall = false;
         this.isSmall = res.breakpoints[Breakpoints.Small];
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isSmall = true;
@@ -34,15 +33,15 @@ export class DisplayCarComponent {
       });
   }
 
-  updateExterior(selectedExterior: any) {
+  updateExterior(selectedExterior: string) {
     this.selectedExterior = selectedExterior;
   }
 
-  updateTrim(selectedTrim: any) {
+  updateTrim(selectedTrim: string) {
     this.selectedTrim = selectedTrim;
   }
 
-  updateCar(index: number, car: any) {
+  updateCar(index: number, car: Car) {
     const reqObject = {
       brand: car.brand,
       model: car.model,
@@ -53,11 +52,10 @@ export class DisplayCarComponent {
 
     return this.crud.updateCar(reqObject, index).subscribe({
       next: () => {
-        this.errorMsg = null;
         this.refreshEvent.emit();
       },
       error: (error) => {
-        this.errorMsg = error;
+        console.log(error);
       },
     });
   }
@@ -65,11 +63,10 @@ export class DisplayCarComponent {
   deleteCar(index: number) {
     return this.crud.deleteCar(index).subscribe({
       next: () => {
-        this.errorMsg = null;
         this.refreshEvent.emit();
       },
       error: (error) => {
-        this.errorMsg = error;
+        console.log(error);
       },
     });
   }

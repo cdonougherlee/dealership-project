@@ -5,6 +5,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { faIdBadge } from '@fortawesome/free-regular-svg-icons';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Utils } from '../../utils/utils';
+import { LoginObject } from '../../interfaces/LoginObject';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,6 @@ import { Utils } from '../../utils/utils';
 export class LoginComponent implements OnInit {
   @ViewChild('loginform', { static: false })
   loginForm!: NgForm;
-
   errorMsg: String | null = null;
   isSmall: boolean = false;
   isXSmall: boolean = false;
@@ -33,9 +33,7 @@ export class LoginComponent implements OnInit {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isXSmall = false;
         this.isSmall = res.breakpoints[Breakpoints.Small];
-
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isSmall = true;
         }
@@ -47,10 +45,10 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginSubmit() {
-    const username = this.loginForm.value.username;
-    const password = this.loginForm.value.password;
+    const username: string = this.loginForm.value.username;
+    const password: string = this.loginForm.value.password;
 
-    const reqObject = {
+    const reqObject: LoginObject = {
       username: username,
       password: password,
     };

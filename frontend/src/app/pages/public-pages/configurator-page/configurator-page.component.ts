@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { CRUDService } from 'src/app/core/services/crud.service';
 import { Router } from '@angular/router';
 import { Utils } from 'src/app/core/utils/utils';
+import { Car } from 'src/app/core/interfaces/Car';
+import { Accessory } from 'src/app/core/interfaces/Accessory';
 
 @Component({
   selector: 'app-configurator-page',
@@ -12,10 +14,9 @@ import { Utils } from 'src/app/core/utils/utils';
 export class ConfiguratorPageComponent implements OnInit {
   isSmall: boolean = false;
   isLoggedIn!: boolean;
-  selectedAccessories: Object[] = [];
-  selectedExterior: string = 'Orange';
+  selectedAccessories: Accessory[] = [];
+  selectedExterior: string = 'Sonic Red';
   selectedTrim: string = 'Black';
-  errorMsg: String | null = null;
 
   constructor(
     private breakpointService: BreakpointObserver,
@@ -34,7 +35,7 @@ export class ConfiguratorPageComponent implements OnInit {
     this.isLoggedIn = this.utils.isLoggedIn();
   }
 
-  updateAccessories(selectedAccessories: Object[]) {
+  updateAccessories(selectedAccessories: Accessory[]) {
     this.selectedAccessories = selectedAccessories;
   }
 
@@ -47,7 +48,8 @@ export class ConfiguratorPageComponent implements OnInit {
   }
 
   onConfiguratorSubmit() {
-    const reqObject = {
+    this.selectedExterior = this.selectedExterior.replace(/\s/g, '_');
+    const reqObject: Car = {
       brand: 'Volvo',
       model: 'S90',
       colour: this.selectedExterior,
@@ -56,11 +58,9 @@ export class ConfiguratorPageComponent implements OnInit {
     };
 
     return this.crud.create(reqObject).subscribe({
-      next: () => {
-        this.errorMsg = null;
-      },
+      next: () => {},
       error: (error) => {
-        this.errorMsg = error;
+        console.log(error);
       },
       complete: () => {
         let username = this.utils.getUsername();

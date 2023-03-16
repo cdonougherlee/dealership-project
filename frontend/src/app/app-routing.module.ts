@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfiguratorPageComponent } from './pages/public-pages/configurator-page/configurator-page.component';
-import { ShowcasePageComponent } from './pages/protected-pages/showcase-page/showcase-page.component';
 import { ProfileComponent } from './pages/protected-pages/profile-page/profile.component';
 import { ErrorPageComponent } from './pages/public-pages/error-page/error-page.component';
 import { LandingComponent } from './pages/public-pages/landing-page/landing.component';
@@ -11,7 +10,6 @@ const routes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'configurator', component: ConfiguratorPageComponent },
   { path: 'profile/:username', component: ProfileComponent },
-  { path: ':username/car/:index', component: ShowcasePageComponent },
   { path: '**', component: ErrorPageComponent },
 ];
 

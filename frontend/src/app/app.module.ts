@@ -24,7 +24,6 @@ import { ProfileComponent } from './pages/protected-pages/profile-page/profile.c
 import { LandingComponent } from './pages/public-pages/landing-page/landing.component';
 import { ConfiguratorPageComponent } from './pages/public-pages/configurator-page/configurator-page.component';
 import { ErrorPageComponent } from './pages/public-pages/error-page/error-page.component';
-import { ShowcasePageComponent } from './pages/protected-pages/showcase-page/showcase-page.component';
 
 // Shared components
 import { LoginComponent } from './core/shared-components/login/login.component';
@@ -76,7 +75,6 @@ import { DisplayCarComponent } from './pages/protected-pages/profile-page/compon
     FooterComponent,
     RegisterComponent,
     ErrorPageComponent,
-    ShowcasePageComponent,
     GalleryComponent,
     FeaturesComponent,
     SpecificationsComponent,

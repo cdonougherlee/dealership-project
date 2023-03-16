@@ -1,6 +1,6 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import { Accessory } from 'src/app/core/interfaces/Accessory';
 
 @Component({
   selector: 'app-edit-accessories',
@@ -8,25 +8,15 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
   styleUrls: ['./edit-accessories.component.scss'],
 })
 export class EditAccessoriesComponent implements OnInit {
-  @Input() selectedAccessories!: Array<any>;
+  @Input() selectedAccessories!: Accessory[];
   displayAccessoriesModal!: boolean;
   isSmall: boolean = false;
   isXSmall: boolean = false;
   faPenToSquare = faPenToSquare;
 
-  constructor(private breakpointService: BreakpointObserver) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.breakpointService
-      .observe([Breakpoints.Small, Breakpoints.XSmall])
-      .subscribe((res) => {
-        this.isXSmall = false;
-        this.isSmall = res.breakpoints[Breakpoints.Small];
-        if (res.breakpoints[Breakpoints.XSmall]) {
-          this.isXSmall = this.isSmall = true;
-        }
-      });
-  }
+  ngOnInit() {}
 
   showAcessoriesModal() {
     this.displayAccessoriesModal = true;

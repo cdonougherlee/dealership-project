@@ -27,17 +27,4 @@ export class DataService {
     );
     return res;
   }
-
-  async getConfigExtImages() {
-    const res = await lastValueFrom(
-      this.http.get<any>('../../assets/photos/config-ext-images.json')
-    );
-    return res;
-  }
-  async getIntImages() {
-    const res = await lastValueFrom(
-      this.http.get<any>('../../assets/photos/config-ext-images.json')
-    );
-    return res;
-  }
 }

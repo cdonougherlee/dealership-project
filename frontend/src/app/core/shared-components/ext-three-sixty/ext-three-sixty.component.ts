@@ -1,8 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { DataService } from 'src/app/core/services/data.service';
+import { PhotoService } from '../../services/photo.service';
 import { faForward } from '@fortawesome/free-solid-svg-icons';
 import { faBackward } from '@fortawesome/free-solid-svg-icons';
+import { Image } from '../../interfaces/Image';
 
 @Component({
   selector: 'app-ext-three-sixty',
@@ -10,28 +11,24 @@ import { faBackward } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./ext-three-sixty.component.scss'],
 })
 export class ExtThreeSixtyComponent {
-  @Input() selectedExterior!: String;
-  images!: any[];
-  path!: String;
+  @Input() selectedExterior!: string;
+  images!: Image[];
+  path!: string;
   isSmall: boolean = false;
-  num: any = '1';
+  num: number = 0;
   faForward = faForward;
   faBackward = faBackward;
 
   constructor(
     private breakpointService: BreakpointObserver,
-    private dataService: DataService
+    private photoService: PhotoService
   ) {}
 
   ngOnInit() {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-
-        if (res.matches) {
-          this.isSmall = true;
-        }
+        this.isSmall = res.matches;
       });
 
     this.getImages();
@@ -43,26 +40,22 @@ export class ExtThreeSixtyComponent {
   }
 
   rotateLeft() {
-    this.num = parseInt(this.num);
     this.num += 1;
-    if (this.num > 5) {
-      this.num = 2;
+    if (this.num > 36) {
+      this.num = 1;
     }
-    this.num = this.num.toString();
   }
 
   rotateRight() {
-    this.num = parseInt(this.num);
     this.num -= 1;
-    if (this.num < 2) {
-      this.num = 5;
+    if (this.num < 1) {
+      this.num = 36;
     }
-    this.num = this.num.toString();
   }
 
-  responsiveOptions: any[] = [
+  responsiveOptions: object[] = [
     {
-      breakpoint: '1024px', // Can't use isSmall here as that is type boolean
+      breakpoint: '1024px', // Can't use isSmall here as galleria doesn't accept boolean
       numVisible: 5,
     },
     {
@@ -76,9 +69,9 @@ export class ExtThreeSixtyComponent {
   ];
 
   getImages() {
-    this.dataService.getConfigExtImages().then((res) => {
-      this.path = res.path + this.selectedExterior + '-';
-      // baseURL + path + selectedExterior/num.webp
+    this.photoService.getExtImages().then((res) => {
+      this.selectedExterior = this.selectedExterior.replace(/\s/g, '_');
+      this.path = res.path + this.selectedExterior + '/';
       this.images = res.images;
     });
   }

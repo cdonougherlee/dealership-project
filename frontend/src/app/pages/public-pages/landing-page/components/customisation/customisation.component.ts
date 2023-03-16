@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { PhotoService } from 'src/app/core/services/photo.service';
+import { Image } from 'src/app/core/interfaces/Image';
 
 @Component({
   selector: 'app-customisation',
@@ -9,8 +10,7 @@ import { PhotoService } from 'src/app/core/services/photo.service';
 })
 export class CustomisationComponent {
   path!: string;
-  silhouette!: string;
-  images!: any[];
+  images!: Image[];
   isSmall: boolean = false;
   isXSmall: boolean = false;
 
@@ -29,7 +29,6 @@ export class CustomisationComponent {
 
     this.photoService.getCarouselImages().then((res) => {
       this.path = res.path;
-      this.silhouette = res.silhouette;
       this.images = res.images;
     });
   }

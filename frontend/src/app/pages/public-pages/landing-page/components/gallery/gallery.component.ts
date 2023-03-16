@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { PhotoService } from 'src/app/core/services/photo.service';
+import { Image } from 'src/app/core/interfaces/Image';
 
 @Component({
   selector: 'app-gallery',
@@ -8,12 +9,12 @@ import { PhotoService } from 'src/app/core/services/photo.service';
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent {
-  images!: any[];
+  images!: Image[];
   path!: string;
   isSmall!: boolean;
 
-  responsiveOptions: any[] = [
-    // For p-galleria
+  // For p-galleria
+  responsiveOptions: object[] = [
     {
       breakpoint: '1024px', // Can't use isSmall here as galleria doesn't accept boolean
       numVisible: 5,

@@ -9,7 +9,7 @@ import { Utils } from 'src/app/core/utils/utils';
 })
 export class ErrorPageComponent implements OnInit {
   faArrowUpRightFromSquare = faArrowUpRightFromSquare;
-  username!: String | null;
+  username!: string | null;
   loggedIn: boolean = false;
 
   constructor(private utils: Utils) {}

@@ -1,0 +1,25 @@
+{
+  "path": "https://ik.imagekit.io/h0s40k5ceq/photos/exterior/",
+  "images": [
+    {
+      "imageSrc": "2.jpg",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    },
+    {
+      "imageSrc": "3.jpg",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    },
+    {
+      "imageSrc": "4.jpg",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    },
+    {
+      "imageSrc": "5.jpg",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    }
+  ]
+}

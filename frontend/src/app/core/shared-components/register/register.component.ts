@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 import { faIdBadge } from '@fortawesome/free-regular-svg-icons';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Utils } from '../../utils/utils';
+import { RegisterObject } from '../../interfaces/RegisterObject';
 
 @Component({
   selector: 'app-register',
@@ -14,19 +15,12 @@ import { Utils } from '../../utils/utils';
 export class RegisterComponent implements OnInit {
   @ViewChild('registerform', { static: false })
   registerForm!: NgForm;
-
   @Input() displaySidebar: boolean = false;
-
   faIdBadge = faIdBadge;
-
   errorMsg: String | null = null;
-
   isSmall: boolean = false;
-
   isXSmall: boolean = false;
-
   displayLogin: boolean = false;
-
   prefDealer: string = 'Greenlane';
 
   constructor(
@@ -40,11 +34,7 @@ export class RegisterComponent implements OnInit {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-        this.isXSmall = false;
-
         this.isSmall = res.breakpoints[Breakpoints.Small];
-
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isSmall = true;
         }
@@ -61,17 +51,18 @@ export class RegisterComponent implements OnInit {
 
   // Submits a post request to the /users/register route of Express app
   onRegisterSubmit() {
-    const username = this.registerForm.value.username;
-    const password = this.registerForm.value.password;
-    const password2 = this.registerForm.value.password2;
-    const prefDealer = this.prefDealer;
+    const username: string = this.registerForm.value.username;
+    const password: string = this.registerForm.value.password;
+    const password2: string = this.registerForm.value.password2;
+    const prefDealer: string = this.prefDealer;
 
-    const reqObject = {
+    const reqObject: RegisterObject = {
       username: username,
       password: password,
       password2: password2,
       prefDealer: prefDealer,
     };
+
     return this.auth.register(reqObject).subscribe({
       next: (response) => {
         this.utils.setLocalStorage(response);

@@ -29,13 +29,12 @@ export class FooterComponent implements OnInit {
     this.breakpointService
       .observe([Breakpoints.XSmall, Breakpoints.Small])
       .subscribe((res) => {
-        this.isXSmall = false;
-        this.isSmall = res.breakpoints[Breakpoints.Small];
-
+        this.isXSmall = res.breakpoints[Breakpoints.Small];
         if (res.breakpoints[Breakpoints.XSmall]) {
-          this.isXSmall = true;
+          this.isXSmall = this.isXSmall = true;
         }
       });
+
     this.loggedIn = this.utils.isLoggedIn();
     this.username = this.utils.getUsername();
   }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { DataService } from 'src/app/core/services/data.service';
+import { Spec } from 'src/app/core/interfaces/Spec';
 
 @Component({
   selector: 'app-specifications',
@@ -9,10 +10,10 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class SpecificationsComponent {
   isSmall: boolean = false;
-  performanceSpecs!: any[];
-  capacitySpecs!: any[];
-  weightSpecs!: any[];
-  exteriorSpecs!: any[];
+  performanceSpecs!: Spec[];
+  capacitySpecs!: Spec[];
+  weightSpecs!: Spec[];
+  exteriorSpecs!: Spec[];
 
   constructor(
     private breakpointService: BreakpointObserver,

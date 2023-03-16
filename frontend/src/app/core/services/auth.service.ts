@@ -6,6 +6,9 @@ import {
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
+import { RegisterObject } from '../interfaces/RegisterObject';
+import { LoginObject } from '../interfaces/LoginObject';
+import { ProfileUpdate } from '../interfaces/ProfileUpdate';
 
 @Injectable({
   providedIn: 'root',
@@ -16,38 +19,38 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   // Login
-  login(data: Object): Observable<any> {
+  login(data: LoginObject): Observable<any> {
     let url = `${this.baseUri}/login`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
   // Logout
-  logout() {
+  logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('expires');
     localStorage.removeItem('username');
   }
 
   // Register
-  register(data: Object): Observable<any> {
+  register(data: RegisterObject): Observable<any> {
     let url = `${this.baseUri}/register`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
 
   // Get Profile
-  getProfile(username: any): Observable<any> {
+  getProfile(username: string | null): Observable<any> {
     let url = `${this.baseUri}/profile/${username}`;
     return this.http.get(url).pipe(catchError(this.errorMgmt));
   }
 
   // Update Profile
-  updateProfile(data: Object, username: any): Observable<any> {
+  updateProfile(data: ProfileUpdate, username: string): Observable<any> {
     let url = `${this.baseUri}/profile/${username}`;
     return this.http.put(url, data).pipe(catchError(this.errorMgmt));
   }
 
   // Delete Profile
-  deleteProfile(username: any): Observable<any> {
+  deleteProfile(username: string | null): Observable<any> {
     let url = `${this.baseUri}/profile/${username}`;
     return this.http.delete(url).pipe(catchError(this.errorMgmt));
   }
