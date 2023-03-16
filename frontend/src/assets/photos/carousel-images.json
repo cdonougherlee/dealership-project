@@ -1,0 +1,21 @@
+{
+  "path": "https://ik.imagekit.io/h0s40k5ceq/photos/carousel/",
+  "silhouette": "silhouette.png",
+  "images": [
+    {
+      "imageSrc": "Volvo-S90.png",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    },
+    {
+      "imageSrc": "4k-showroom.jpg",
+      "alt": "1080p-evening-bridge.jpg",
+      "title": "1080p-evening-bridge.jpg"
+    },
+    {
+      "imageSrc": "4k-red-garage.jpg",
+      "alt": "1080p-water.jpg",
+      "title": "1080p-water.jpg"
+    }
+  ]
+}

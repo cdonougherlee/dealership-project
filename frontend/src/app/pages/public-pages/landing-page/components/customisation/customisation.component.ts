@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
-import { DataService } from 'src/app/core/services/data.service';
+import { PhotoService } from 'src/app/core/services/photo.service';
 
 @Component({
   selector: 'app-customisation',
@@ -8,36 +8,28 @@ import { DataService } from 'src/app/core/services/data.service';
   styleUrls: ['./customisation.component.scss'],
 })
 export class CustomisationComponent {
-  path!: String;
+  path!: string;
+  silhouette!: string;
   images!: any[];
-
   isSmall: boolean = false;
   isXSmall: boolean = false;
 
   constructor(
     private breakpointService: BreakpointObserver,
-    private dataService: DataService
+    private photoService: PhotoService
   ) {}
 
   ngOnInit() {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-        this.isXSmall = false;
-
-        if (res.breakpoints[Breakpoints.Small]) {
-          this.isSmall = true;
-        }
-
-        if (res.breakpoints[Breakpoints.XSmall]) {
-          this.isSmall = true;
-          this.isXSmall = true;
-        }
+        this.isSmall = res.breakpoints[Breakpoints.Small];
+        this.isXSmall = res.breakpoints[Breakpoints.XSmall];
       });
 
-    this.dataService.getCarouselImages().then((res) => {
+    this.photoService.getCarouselImages().then((res) => {
       this.path = res.path;
+      this.silhouette = res.silhouette;
       this.images = res.images;
     });
   }

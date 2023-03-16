@@ -13,7 +13,7 @@ export class ConfiguratorPageComponent implements OnInit {
   isSmall: boolean = false;
   isLoggedIn!: boolean;
   selectedAccessories: Object[] = [];
-  selectedExterior: string = 'orange';
+  selectedExterior: string = 'Orange';
   selectedTrim: string = 'Black';
   errorMsg: String | null = null;
 
@@ -28,11 +28,7 @@ export class ConfiguratorPageComponent implements OnInit {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-
-        if (res.matches) {
-          this.isSmall = true;
-        }
+        this.isSmall = res.matches;
       });
 
     this.isLoggedIn = this.utils.isLoggedIn();

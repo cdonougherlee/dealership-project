@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
-  // Variable intialisation
   isSmall: boolean = false;
 
   constructor(private breakpointService: BreakpointObserver) {}
@@ -16,11 +15,7 @@ export class LandingComponent implements OnInit {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-
-        if (res.matches) {
-          this.isSmall = true;
-        }
+        this.isSmall = res.matches;
       });
   }
 }

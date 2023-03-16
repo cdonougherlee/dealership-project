@@ -8,16 +8,11 @@ import { DataService } from 'src/app/core/services/data.service';
   styleUrls: ['./specifications.component.scss'],
 })
 export class SpecificationsComponent {
-  activeState: boolean[] = [true, false, false];
   isSmall: boolean = false;
   performanceSpecs!: any[];
   capacitySpecs!: any[];
   weightSpecs!: any[];
   exteriorSpecs!: any[];
-
-  toggle(index: number) {
-    this.activeState[index] = !this.activeState[index];
-  }
 
   constructor(
     private breakpointService: BreakpointObserver,
@@ -28,11 +23,7 @@ export class SpecificationsComponent {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-
-        if (res.matches) {
-          this.isSmall = true;
-        }
+        this.isSmall = res.matches;
       });
 
     this.dataService.getSpecs().then((specs) => {

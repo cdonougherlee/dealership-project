@@ -6,10 +6,10 @@
 
       <p-accordionTab header="Performance">
         <p-table [value]="performanceSpecs" styleClass="p-datatable-striped" responsiveLayout="scroll">
-          <ng-template pTemplate="body" let-p>
+          <ng-template pTemplate="body" let-performance>
             <tr>
-              <td>{{p.subject}}</td>
-              <td>{{p.value}}</td>
+              <td>{{performance.subject}}</td>
+              <td>{{performance.value}}</td>
             </tr>
           </ng-template>
         </p-table>
@@ -17,10 +17,10 @@
 
       <p-accordionTab header="Capacity">
         <p-table [value]="capacitySpecs" styleClass="p-datatable-striped" responsiveLayout="scroll">
-          <ng-template pTemplate="body" let-s>
+          <ng-template pTemplate="body" let-capacity>
             <tr>
-              <td>{{s.subject}}</td>
-              <td>{{s.value}}</td>
+              <td>{{capacity.subject}}</td>
+              <td>{{capacity.value}}</td>
             </tr>
           </ng-template>
         </p-table>
@@ -28,10 +28,10 @@
 
       <p-accordionTab header="Weight">
         <p-table [value]="weightSpecs" styleClass="p-datatable-striped" responsiveLayout="scroll">
-          <ng-template pTemplate="body" let-w>
+          <ng-template pTemplate="body" let-weight>
             <tr>
-              <td>{{w.subject}}</td>
-              <td>{{w.value}}</td>
+              <td>{{weight.subject}}</td>
+              <td>{{weight.value}}</td>
             </tr>
           </ng-template>
         </p-table>
@@ -39,10 +39,10 @@
 
       <p-accordionTab header="Exterior Dimensions">
         <p-table [value]="exteriorSpecs" styleClass="p-datatable-striped" responsiveLayout="scroll">
-          <ng-template pTemplate="body" let-e>
+          <ng-template pTemplate="body" let-exterior>
             <tr>
-              <td>{{e.subject}}</td>
-              <td>{{e.value}}</td>
+              <td>{{exterior.subject}}</td>
+              <td>{{exterior.value}}</td>
             </tr>
           </ng-template>
         </p-table>

@@ -6,20 +6,6 @@ import { lastValueFrom } from 'rxjs';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  async getBaseURL() {
-    const res = await lastValueFrom(
-      this.http.get<any>('../../assets/data/base-url.json')
-    );
-    return res;
-  }
-
-  async getBackDropImages() {
-    const res = await lastValueFrom(
-      this.http.get<any>('../../assets/data/backdrop.json')
-    );
-    return res;
-  }
-
   async getDealerLocations() {
     const res = await lastValueFrom(
       this.http.get<any>('../../assets/data/dealer-locations.json')
@@ -42,29 +28,15 @@ export class DataService {
     return res;
   }
 
-  async getGalleryImages() {
-    const res = await lastValueFrom(
-      this.http.get<any>('../../assets/data/gallery-images.json')
-    );
-    return res;
-  }
-
-  async getCarouselImages() {
-    const res = await lastValueFrom(
-      this.http.get<any>('../../assets/data/carousel-images.json')
-    );
-    return res;
-  }
-
   async getConfigExtImages() {
     const res = await lastValueFrom(
-      this.http.get<any>('../../assets/data/config-ext-images.json')
+      this.http.get<any>('../../assets/photos/config-ext-images.json')
     );
     return res;
   }
   async getIntImages() {
     const res = await lastValueFrom(
-      this.http.get<any>('../../assets/data/config-ext-images.json')
+      this.http.get<any>('../../assets/photos/config-ext-images.json')
     );
     return res;
   }

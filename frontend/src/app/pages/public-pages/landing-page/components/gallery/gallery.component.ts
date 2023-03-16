@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { DataService } from 'src/app/core/services/data.service';
+import { PhotoService } from 'src/app/core/services/photo.service';
 
 @Component({
   selector: 'app-gallery',
@@ -9,12 +9,13 @@ import { DataService } from 'src/app/core/services/data.service';
 })
 export class GalleryComponent {
   images!: any[];
-  path!: String;
+  path!: string;
   isSmall!: boolean;
 
   responsiveOptions: any[] = [
+    // For p-galleria
     {
-      breakpoint: '1024px', // Can't use isSmall here as that is type boolean
+      breakpoint: '1024px', // Can't use isSmall here as galleria doesn't accept boolean
       numVisible: 5,
     },
     {
@@ -29,7 +30,7 @@ export class GalleryComponent {
 
   constructor(
     private breakpointService: BreakpointObserver,
-    private dataService: DataService
+    private photoService: PhotoService
   ) {}
 
   ngOnInit() {
@@ -39,7 +40,7 @@ export class GalleryComponent {
         this.isSmall = res.matches;
       });
 
-    this.dataService.getGalleryImages().then((res) => {
+    this.photoService.getGalleryImages().then((res) => {
       this.path = res.path;
       this.images = res.images;
     });
