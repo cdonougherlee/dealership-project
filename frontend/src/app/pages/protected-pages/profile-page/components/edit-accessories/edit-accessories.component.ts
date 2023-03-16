@@ -10,8 +10,6 @@ import { Accessory } from 'src/app/core/interfaces/Accessory';
 export class EditAccessoriesComponent implements OnInit {
   @Input() selectedAccessories!: Accessory[];
   displayAccessoriesModal!: boolean;
-  isSmall: boolean = false;
-  isXSmall: boolean = false;
   faPenToSquare = faPenToSquare;
 
   constructor() {}

@@ -16,6 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
 import { CardModule } from 'primeng/card';
+import { ToastModule } from 'primeng/toast';
 
 import { AppComponent } from './app.component';
 
@@ -114,6 +115,7 @@ import { DisplayCarComponent } from './pages/protected-pages/profile-page/compon
     DropdownModule,
     DialogModule,
     CardModule,
+    ToastModule,
   ],
   providers: [
     DataService,

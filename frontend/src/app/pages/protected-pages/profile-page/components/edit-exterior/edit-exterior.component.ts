@@ -22,6 +22,7 @@ export class EditExteriorComponent {
 
   updateExterior(selectedExterior: string) {
     this.selectedExterior = selectedExterior;
+    this.selectedExterior = this.selectedExterior.replace(/\s/g, '_');
     this.exteriorEvent.emit(this.selectedExterior);
   }
 }

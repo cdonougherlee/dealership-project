@@ -12,11 +12,13 @@ import { NgForm } from '@angular/forms';
 import { Utils } from 'src/app/core/utils/utils';
 import { Router } from '@angular/router';
 import { ProfileUpdate } from 'src/app/core/interfaces/ProfileUpdate';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss'],
+  providers: [MessageService],
 })
 export class EditProfileComponent {
   @Input() currentPrefDealer!: string;
@@ -29,13 +31,13 @@ export class EditProfileComponent {
   faPenToSquare = faPenToSquare;
   isSmall: boolean = false;
   isXSmall: boolean = false;
-  errorMsg!: string | null;
 
   constructor(
     private auth: AuthService,
     private breakpointService: BreakpointObserver,
     private router: Router,
-    private utils: Utils
+    private utils: Utils,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -43,6 +45,7 @@ export class EditProfileComponent {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
+        this.isXSmall = false;
         this.isSmall = res.breakpoints[Breakpoints.Small];
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isSmall = true;
@@ -64,7 +67,10 @@ export class EditProfileComponent {
     if (!username) {
       username = this.username;
     }
-    const prefDealer: string = this.newPrefDealer;
+    let prefDealer: string = this.newPrefDealer;
+    if (!prefDealer) {
+      prefDealer = 'Greenlane';
+    }
 
     const reqObject: ProfileUpdate = {
       username: username,
@@ -78,10 +84,13 @@ export class EditProfileComponent {
         this.displaySidebar = false;
         this.currentPrefDealer = prefDealer;
         this.outputNewDetails(reqObject);
-        this.errorMsg = null;
       },
       error: (error) => {
-        this.errorMsg = error;
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: error,
+        });
       },
     });
   }
@@ -90,10 +99,9 @@ export class EditProfileComponent {
     return this.auth.deleteProfile(this.username).subscribe({
       next: () => {
         this.auth.logout();
-        this.errorMsg = null;
       },
       error: (error) => {
-        this.errorMsg = error;
+        console.log(error);
       },
       complete: () => {
         this.router.navigate([`/landing`]);

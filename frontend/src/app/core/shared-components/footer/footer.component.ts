@@ -29,7 +29,8 @@ export class FooterComponent implements OnInit {
     this.breakpointService
       .observe([Breakpoints.XSmall, Breakpoints.Small])
       .subscribe((res) => {
-        this.isXSmall = res.breakpoints[Breakpoints.Small];
+        this.isXSmall = false;
+        this.isSmall = res.breakpoints[Breakpoints.Small];
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isXSmall = true;
         }

@@ -1,4 +1,5 @@
 <section *ngIf="!displayLogin; else elseBlock">
+  <p-toast position="top-right"></p-toast>
 
   <!-- Register button to open sidebar -->
   <p (click)="displaySidebar = true" class="scale-animation"><fa-icon [icon]="faIdBadge"></fa-icon><span
@@ -8,6 +9,7 @@
   <!-- Sidebar -->
   <p-sidebar [(visible)]="displaySidebar" position="right" [baseZIndex]="1" styleClass="p-sidebar-md"
     [ngClass]="{'small-screen': isSmall }">
+
     <div id="sidebar-content">
       <h3>Register <a (click)="displayLoginClick()">Log in</a></h3>
 
@@ -30,8 +32,6 @@
         </div>
 
         <app-dealership-locations (prefDealerEvent)="updatePrefDealer($event)"></app-dealership-locations>
-
-        <label id="error" *ngIf="errorMsg">{{errorMsg}}</label>
 
         <button type="submit" class="btn">Register</button>
       </form>

@@ -26,6 +26,7 @@ export class DisplayCarComponent {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
+        this.isXSmall = false;
         this.isSmall = res.breakpoints[Breakpoints.Small];
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isSmall = true;

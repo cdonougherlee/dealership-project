@@ -1,6 +1,8 @@
 <p id="trigger" (click)="displaySidebar = true" class="scale-animation"><fa-icon [icon]="faPenToSquare"></fa-icon><span
     *ngIf="!isXSmall">
     Edit details</span></p>
+<p-toast position="top-right"></p-toast>
+
 
 <!-- Sidebar -->
 <p-sidebar [(visible)]="displaySidebar" position="right" [baseZIndex]="1" styleClass="p-sidebar-md"
@@ -24,8 +26,6 @@
 
 
       <app-dealership-locations (prefDealerEvent)="updatePrefDealer($event)"></app-dealership-locations>
-
-      <label id="error" *ngIf="errorMsg">{{errorMsg}}</label>
 
       <button type="submit" class="btn">Update</button>
     </form>

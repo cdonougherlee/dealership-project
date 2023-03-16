@@ -10,8 +10,6 @@ export class EditTrimComponent {
   @Input() selectedTrim!: string;
   @Output() trimEvent = new EventEmitter<string>();
   displayTrimModal!: boolean;
-  isSmall: boolean = false;
-  isXSmall: boolean = false;
   faPenToSquare = faPenToSquare;
 
   constructor() {}

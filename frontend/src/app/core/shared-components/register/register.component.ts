@@ -6,18 +6,19 @@ import { faIdBadge } from '@fortawesome/free-regular-svg-icons';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Utils } from '../../utils/utils';
 import { RegisterObject } from '../../interfaces/RegisterObject';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  providers: [MessageService],
 })
 export class RegisterComponent implements OnInit {
   @ViewChild('registerform', { static: false })
   registerForm!: NgForm;
   @Input() displaySidebar: boolean = false;
   faIdBadge = faIdBadge;
-  errorMsg: String | null = null;
   isSmall: boolean = false;
   isXSmall: boolean = false;
   displayLogin: boolean = false;
@@ -27,13 +28,15 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private auth: AuthService,
     private breakpointService: BreakpointObserver,
-    private utils: Utils
+    private utils: Utils,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
+        this.isXSmall = false;
         this.isSmall = res.breakpoints[Breakpoints.Small];
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isSmall = true;
@@ -66,10 +69,13 @@ export class RegisterComponent implements OnInit {
     return this.auth.register(reqObject).subscribe({
       next: (response) => {
         this.utils.setLocalStorage(response);
-        this.errorMsg = null;
       },
       error: (error) => {
-        this.errorMsg = error;
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: error,
+        });
       },
       complete: () => {
         this.router.navigate([`/profile/${username}`]);

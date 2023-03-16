@@ -23,11 +23,7 @@ export class ProfileComponent implements OnInit {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
-        this.isSmall = false;
-
-        if (res.matches) {
-          this.isSmall = true;
-        }
+        this.isSmall = res.matches;
       });
   }
 }

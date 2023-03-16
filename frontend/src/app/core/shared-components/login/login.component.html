@@ -1,4 +1,6 @@
 <section *ngIf="!displayRegister; else elseBlock">
+  <p-toast position="top-right"></p-toast>
+
   <!-- Register button to open sidebar -->
   <p (click)="displaySidebar = true" class="scale-animation"><fa-icon [icon]="faIdBadge"></fa-icon><span
       *ngIf="!isXSmall">
@@ -21,8 +23,6 @@
           <input type="password" class="p-inputtext-lg" pInputText placeholder="Password" name="password" ngModel
             required>
         </div>
-
-        <label id="error" *ngIf="errorMsg">{{errorMsg}}</label>
 
         <button type="submit" class="btn">Login</button>
       </form>

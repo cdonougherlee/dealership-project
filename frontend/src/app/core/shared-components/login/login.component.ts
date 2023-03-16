@@ -6,16 +6,17 @@ import { faIdBadge } from '@fortawesome/free-regular-svg-icons';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Utils } from '../../utils/utils';
 import { LoginObject } from '../../interfaces/LoginObject';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  providers: [MessageService],
 })
 export class LoginComponent implements OnInit {
   @ViewChild('loginform', { static: false })
   loginForm!: NgForm;
-  errorMsg: String | null = null;
   isSmall: boolean = false;
   isXSmall: boolean = false;
   displaySidebar: boolean = true;
@@ -26,13 +27,15 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private breakpointService: BreakpointObserver,
-    private utils: Utils
+    private utils: Utils,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
     this.breakpointService
       .observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((res) => {
+        this.isXSmall = false;
         this.isSmall = res.breakpoints[Breakpoints.Small];
         if (res.breakpoints[Breakpoints.XSmall]) {
           this.isXSmall = this.isSmall = true;
@@ -56,10 +59,13 @@ export class LoginComponent implements OnInit {
     return this.auth.login(reqObject).subscribe({
       next: (response) => {
         this.utils.setLocalStorage(response);
-        this.errorMsg = null;
       },
       error: (error) => {
-        this.errorMsg = error;
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: error,
+        });
       },
       complete: () => {
         this.router.navigate([`/profile/${username}`]);
