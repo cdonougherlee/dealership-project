@@ -14,7 +14,7 @@ import { ProfileUpdate } from '../interfaces/ProfileUpdate';
   providedIn: 'root',
 })
 export class AuthService {
-  baseUri: string = 'http://localhost:3000';
+  baseUri: string = 'https://dealership-project-production.up.railway.app';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http: HttpClient) {}
 

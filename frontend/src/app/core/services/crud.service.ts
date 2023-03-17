@@ -13,7 +13,7 @@ import { Car } from '../interfaces/Car';
   providedIn: 'root',
 })
 export class CRUDService {
-  baseUri: string = 'http://localhost:3000';
+  baseUri: string = 'https://dealership-project-production.up.railway.app';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   username!: string | null;
 
