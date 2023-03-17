@@ -2,10 +2,11 @@
 
   <div id="int-wrapper" class="grid">
     <div>
-      <img [src]="'https://ik.imagekit.io/h0s40k5ceq/photos/interior/' + selectedTrim + '/4k-head-on.jpg'" alt="">
+      <img width=3225 height=2304 [ngSrc]="'/photos/interior/' + selectedTrim + '/4k-head-on.jpg'"
+        sizes="(max-width: 600px) 100vw, 50vw" [ngSrcset]=srcSet>
     </div>
     <div>
-      <img [src]="'https://ik.imagekit.io/h0s40k5ceq/photos/interior/' + selectedTrim + '/1080p-water.jpg'" alt="">
+      <img [src]="'https://ik.imagekit.io/h0s40k5ceq/photos/interior/' + selectedTrim + '/1080p-water.jpg'">
 
     </div>
     <div>

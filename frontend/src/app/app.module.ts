@@ -85,7 +85,7 @@ import { DisplayCarComponent } from './pages/protected-pages/profile-page/compon
     ExtColourPickerComponent,
     ExtThreeSixtyComponent,
     IntTrimPickerComponent,
-    TrimDisplayComponent,
+
     AccessoriesComponent,
     EditAccessoriesComponent,
     DetailsComponent,
@@ -116,6 +116,7 @@ import { DisplayCarComponent } from './pages/protected-pages/profile-page/compon
     DialogModule,
     CardModule,
     ToastModule,
+    TrimDisplayComponent,
   ],
   providers: [
     DataService,
