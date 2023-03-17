@@ -3,8 +3,7 @@ const jsonwebtoken = require("jsonwebtoken");
 const fs = require("fs");
 const path = require("path");
 
-const pathToPrivKey = path.join(__dirname, "..", "id_rsa_priv.pem");
-const PRIV_KEY = fs.readFileSync(pathToPrivKey, "utf8");
+const PRIV_KEY = process.env.PRIV_KEY;
 
 //  Verify password using crypto library, decrypted with the hash using the salt
 //  sha512 is a cryptographic hash algo. Provides a 32byte signature
