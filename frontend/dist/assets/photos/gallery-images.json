@@ -1,0 +1,25 @@
+{
+  "path": "https://ik.imagekit.io/h0s40k5ceq/photos/gallery/",
+  "images": [
+    {
+      "imageSrc": "1080p-architecture.jpg",
+      "alt": "Description for Image 1",
+      "title": "Title 1"
+    },
+    {
+      "imageSrc": "1080p-evening-bridge.jpg",
+      "alt": "1080p-evening-bridge.jpg",
+      "title": "Title 2"
+    },
+    {
+      "imageSrc": "4k-head-on.jpg",
+      "alt": "4k-head-on.jpg",
+      "title": "Title 3"
+    },
+    {
+      "imageSrc": "1080p-water.jpg",
+      "alt": "1080p-water.jpg",
+      "title": "Title 4"
+    }
+  ]
+}
