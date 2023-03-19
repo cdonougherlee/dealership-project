@@ -17,48 +17,42 @@ export class PhotoService {
 
   async getBackDropImage() {
     const res = await lastValueFrom(
-      this.http.get<any>("/dealership-project/assets/photos/backdrop.json")
+      this.http.get<any>("/Dealership-project/assets/data/volvo-specs.json")
     );
     return res;
   }
 
   async getGalleryImages() {
     const res = await lastValueFrom(
-      this.http.get<any>(
-        "/dealership-project/assets/photos/gallery-images.json"
-      )
+      this.http.get<any>("/Dealership-project/assets/data/volvo-specs.json")
     );
     return res;
   }
 
   async getFeaturesImages() {
     const res = await lastValueFrom(
-      this.http.get<any>(
-        "/dealership-project/assets/photos/features-images.json"
-      )
+      this.http.get<any>("/Dealership-project/assets/data/volvo-specs.json")
     );
     return res;
   }
 
   async getCarouselImages() {
     const res = await lastValueFrom(
-      this.http.get<any>(
-        "/dealership-project/assets/photos/carousel-images.json"
-      )
+      this.http.get<any>("/Dealership-project/assets/data/volvo-specs.json")
     );
     return res;
   }
 
   async getExtImages() {
     const res = await lastValueFrom(
-      this.http.get<any>("/dealership-project/assets/photos/ext-images.json")
+      this.http.get<any>("/Dealership-project/assets/data/volvo-specs.json")
     );
     return res;
   }
 
   async getIntImages() {
     const res = await lastValueFrom(
-      this.http.get<any>("/dealership-project/assets/photos/int-images.json")
+      this.http.get<any>("/Dealership-project/assets/data/volvo-specs.json")
     );
     return res;
   }
