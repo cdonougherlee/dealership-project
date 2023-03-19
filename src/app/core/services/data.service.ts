@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { lastValueFrom } from "rxjs";
 
 @Injectable()
 export class DataService {
@@ -8,14 +8,16 @@ export class DataService {
 
   async getDealerLocations() {
     const res = await lastValueFrom(
-      this.http.get<any>('../../assets/data/dealer-locations.json')
+      this.http.get<any>(
+        "/dealership-project/assets/data/dealer-locations.json"
+      )
     );
     return res;
   }
 
   async getSpecs() {
     const res = await lastValueFrom(
-      this.http.get<any>('../../assets/data/volvo-specs.json')
+      this.http.get<any>("/dealership-project/assets/data/volvo-specs.json")
     );
     const specs = res.specs;
     return specs;
@@ -23,7 +25,7 @@ export class DataService {
 
   async getAccessories() {
     const res = await lastValueFrom(
-      this.http.get<any>('../../assets/data/accessories.json')
+      this.http.get<any>("/dealership-project/assets/data/accessories.json")
     );
     return res;
   }
