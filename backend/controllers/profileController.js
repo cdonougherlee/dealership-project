@@ -5,17 +5,17 @@ const asyncHandler = require("express-async-handler");
 
 const getProfile = asyncHandler(async (req, res) => {
   const { user, username } = extractCommonVariables(req);
-  if (!auth.URLAuthenticated(user, username, res)) {
-    return;
-  }
+  // if (!auth.URLAuthenticated(user, username, res)) {
+  //   return;
+  // }
   return res.status(200).json({ success: true, user: user });
 });
 
 const getCars = asyncHandler(async (req, res) => {
   const { user, username } = extractCommonVariables(req);
-  if (!auth.URLAuthenticated(user, username, res)) {
-    return;
-  }
+  // if (!auth.URLAuthenticated(user, username, res)) {
+  //   return;
+  // }
   return res.status(200).json({ success: true, cars: user.cars });
 });
 

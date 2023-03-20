@@ -5,9 +5,9 @@ const auth = require("../middleware/authMiddleware");
 
 const createCar = asyncHandler(async (req, res) => {
   const { user, username } = extractCommonVariables(req);
-  if (!auth.URLAuthenticated(user, username, res)) {
-    return;
-  }
+  // if (!auth.URLAuthenticated(user, username, res)) {
+  //   return;
+  // }
 
   // Create car
   const { brand, model, colour, trim, options } = req.body;
@@ -44,9 +44,9 @@ const createCar = asyncHandler(async (req, res) => {
 
 const viewCar = asyncHandler(async (req, res) => {
   const { user, id, username } = extractCommonVariables(req);
-  if (!auth.URLAuthenticated(user, username, res)) {
-    return;
-  }
+  // if (!auth.URLAuthenticated(user, username, res)) {
+  //   return;
+  // }
 
   // Get requested car from user's cars array[index]
   const car = await Car.findOne({ _id: id });
@@ -60,9 +60,9 @@ const viewCar = asyncHandler(async (req, res) => {
 
 const updateCar = asyncHandler(async (req, res) => {
   const { user, index, username } = extractCommonVariables(req);
-  if (!auth.URLAuthenticated(user, username, res)) {
-    return;
-  }
+  // if (!auth.URLAuthenticated(user, username, res)) {
+  //   return;
+  // }
 
   // Update requested car from user's cars array[index]
   const updatedCar = (user.cars[index] = req.body);
@@ -79,9 +79,9 @@ const updateCar = asyncHandler(async (req, res) => {
 
 const deleteCar = asyncHandler(async (req, res) => {
   const { user, index, username } = extractCommonVariables(req);
-  if (!auth.URLAuthenticated(user, username, res)) {
-    return;
-  }
+  // if (!auth.URLAuthenticated(user, username, res)) {
+  //   return;
+  // }
 
   // Delete requested car from user's cars array[index]
   const deletedCar = user.cars.splice(index, 1);
