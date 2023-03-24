@@ -1,21 +1,21 @@
 {
-  "path": "https://ik.imagekit.io/h0s40k5ceq/photos/carousel/",
-  "silhouette": "silhouette.png",
+  "path": "https://ik.imagekit.io/h0s40k5ceq/photos/",
+  "silhouette": "carousel/silhouette.webp",
   "images": [
     {
-      "imageSrc": "Volvo-S90.png",
+      "imageSrc": "interior/Tan/1.webp",
       "alt": "Description for Image 1",
       "title": "Title 1"
     },
     {
-      "imageSrc": "4k-showroom.jpg",
-      "alt": "1080p-evening-bridge.jpg",
-      "title": "1080p-evening-bridge.jpg"
+      "imageSrc": "interior/Tan/2.webp",
+      "alt": "2",
+      "title": "2"
     },
     {
-      "imageSrc": "4k-red-garage.jpg",
-      "alt": "1080p-water.jpg",
-      "title": "1080p-water.jpg"
+      "imageSrc": "interior/Tan/3.webp",
+      "alt": "3",
+      "title": "3"
     }
   ]
 }

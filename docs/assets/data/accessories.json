@@ -31,9 +31,70 @@
       "description": "Enhance the utility of your S90",
       "base": "None",
       "values": [
+        { "value": "None" },
         { "value": "Bicycle carrier" },
         { "value": "Retractable ski carrier" },
         { "value": "85L roof box" }
+      ]
+    },
+    {
+      "index": 2,
+
+      "name": "Floor mats",
+      "description": "For convenience of cleaning",
+      "base": "Carpet",
+      "values": [
+        { "value": "Carpet" },
+        { "value": "Rubber - front only" },
+        { "value": "Rubber - front and rear" }
+      ]
+    },
+    {
+      "index": 3,
+
+      "name": "Tyres",
+      "description": "For convenience of cleaning",
+      "base": "Carpet",
+      "values": [
+        { "value": "Carpet" },
+        { "value": "Rubber - front only" },
+        { "value": "Rubber - front and rear" }
+      ]
+    },
+    {
+      "index": 2,
+
+      "name": "Floor mats",
+      "description": "For convenience of cleaning",
+      "base": "Carpet",
+      "values": [
+        { "value": "Carpet" },
+        { "value": "Rubber - front only" },
+        { "value": "Rubber - front and rear" }
+      ]
+    },
+    {
+      "index": 2,
+
+      "name": "Floor mats",
+      "description": "For convenience of cleaning",
+      "base": "Carpet",
+      "values": [
+        { "value": "Carpet" },
+        { "value": "Rubber - front only" },
+        { "value": "Rubber - front and rear" }
+      ]
+    },
+    {
+      "index": 2,
+
+      "name": "Floor mats",
+      "description": "For convenience of cleaning",
+      "base": "Carpet",
+      "values": [
+        { "value": "Carpet" },
+        { "value": "Rubber - front only" },
+        { "value": "Rubber - front and rear" }
       ]
     },
     {
