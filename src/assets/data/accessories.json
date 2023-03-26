@@ -26,11 +26,7 @@
     },
     {
       "name": "Seats",
-      "value": "None"
-    },
-    {
-      "name": "Phone tech",
-      "value": "None"
+      "value": "Heated seats"
     }
   ],
 
@@ -114,25 +110,11 @@
 
       "name": "Seats",
       "description": "Make every drive a luxury",
-      "base": "None",
+      "base": "Heated seats",
       "values": [
-        { "value": "None" },
         { "value": "Heated seats" },
         { "value": "Heated and cooling seats" },
         { "value": "Executive massage package" }
-      ]
-    },
-    {
-      "index": 7,
-
-      "name": "Phone tech",
-      "description": "Get the most accessibilty from your S90",
-      "base": "None",
-      "values": [
-        { "value": "None" },
-        { "value": "Wireless charging pad" },
-        { "value": "Air vent phone holder" },
-        { "value": "Phone as key module" }
       ]
     }
   ]
