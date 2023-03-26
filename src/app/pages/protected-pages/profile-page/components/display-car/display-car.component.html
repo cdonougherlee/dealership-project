@@ -9,7 +9,7 @@
 
     <img src="https://ik.imagekit.io/h0s40k5ceq/photos/exterior/{{car.colour}}/1.webp" alt="Exterior">
     <img src="https://ik.imagekit.io/h0s40k5ceq/photos/interior/{{car.trim}}/4.webp" alt="">
-    <img src="https://ik.imagekit.io/h0s40k5ceq/photos/accessories.webp" alt="">
+    <img src="https://ik.imagekit.io/h0s40k5ceq/photos/accessories/{{car.trim}}.webp" alt="">
 
     <div>
       <button class="btn" (click)="updateCar(index, car)">Save Changes</button>
@@ -30,8 +30,7 @@
 
         <img src="https://ik.imagekit.io/h0s40k5ceq/photos/exterior/{{car.colour}}/1.webp" alt="">
         <img src="https://ik.imagekit.io/h0s40k5ceq/photos/interior/{{car.trim}}/4.webp" alt="">
-        <!-- <img src="https://ik.imagekit.io/h0s40k5ceq/photos/wheels/{{car.options[1].value}}/1" alt=""> -->
-        <img src="https://ik.imagekit.io/h0s40k5ceq/photos/accessories.webp" alt="">
+        <img src="https://ik.imagekit.io/h0s40k5ceq/photos/accessories/{{car.trim}}.webp" alt="">
 
         <h4>{{index + 1}} - {{car.brand}} {{car.model}}</h4>
         <button class="btn" (click)="updateCar(index, car)">Save Changes</button>
