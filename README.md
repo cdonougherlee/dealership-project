@@ -35,6 +35,8 @@ I started with using a image CDN (ImageKit.io) and having all my CGI assests be 
 
 ## Future version ideas
 
+-Need to update configurator colour selection thumbnails to relate to their respective colour.
+
 -The logic behind the site can be expanded easily to add more cars and edit content. Can do an admin dashboard to add/remove cars and edit information, could also create some kind of trade-me mockup
 
 -Add prices, switch between currencies 
