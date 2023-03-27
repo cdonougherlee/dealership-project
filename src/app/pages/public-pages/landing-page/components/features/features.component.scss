@@ -2,6 +2,10 @@
   grid-template-columns: 1fr 1fr;
 }
 
+img {
+  height: auto;
+}
+
 // For mobile
 .small-screen {
   .grid {
@@ -11,6 +15,5 @@
 
   img {
     width: 80%;
-    height: auto;
   }
 }
