@@ -22,6 +22,8 @@ export class CustomisationComponent {
   images!: Image[];
   isSmall: boolean = false;
   isXSmall: boolean = false;
+  srcSet =
+    "100w, 200w, 300w, 400w, 500w, 600w, 700w, 800w, 900w, 1000w, 1100w, 1200w";
 
   constructor(
     private breakpointService: BreakpointObserver,
