@@ -2,15 +2,10 @@
   grid-template-columns: 1fr 1fr;
 }
 
-img {
-  height: auto;
-}
-
 // For mobile
 .small-screen {
   .grid {
     grid-template-columns: 1fr;
-    gap: 25px;
   }
 
   img {
