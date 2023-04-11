@@ -6,5 +6,10 @@
 .small-screen {
   .grid {
     grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  img {
+    width: 80%;
   }
 }

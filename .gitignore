@@ -14,6 +14,8 @@ id_rsa_priv.pem
 *.user
 *.userosscache
 *.sln.docstates
+.angular
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

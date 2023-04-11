@@ -11,6 +11,22 @@
     {
       "name": "Floor mats",
       "value": "Carpet"
+    },
+    {
+      "name": "Tyres",
+      "value": "Summer tyres"
+    },
+    {
+      "name": "Boot",
+      "value": "None"
+    },
+    {
+      "name": "Windows",
+      "value": "None"
+    },
+    {
+      "name": "Seats",
+      "value": "Heated seats"
     }
   ],
 
@@ -31,6 +47,7 @@
       "description": "Enhance the utility of your S90",
       "base": "None",
       "values": [
+        { "value": "None" },
         { "value": "Bicycle carrier" },
         { "value": "Retractable ski carrier" },
         { "value": "85L roof box" }
@@ -46,6 +63,58 @@
         { "value": "Carpet" },
         { "value": "Rubber - front only" },
         { "value": "Rubber - front and rear" }
+      ]
+    },
+    {
+      "index": 3,
+
+      "name": "Tyres",
+      "description": "Ensure your S90's capablities",
+      "base": "Summer tyres",
+      "values": [
+        { "value": "Summer tyres" },
+        { "value": "Winter tyres" },
+        { "value": "Run flats" },
+        { "value": "Economy tyres" }
+      ]
+    },
+    {
+      "index": 4,
+
+      "name": "Boot",
+      "description": "Prepare for any circumstance",
+      "base": "None",
+      "values": [
+        { "value": "None" },
+        { "value": "Cargo net" },
+        { "value": "First aid kit" },
+        { "value": "Fire extinguisher" },
+        { "value": "Full safety package" }
+      ]
+    },
+    {
+      "index": 5,
+
+      "name": "Windows",
+      "description": "Combine style and function",
+      "base": "None",
+      "values": [
+        { "value": "None" },
+        { "value": "Light tint" },
+        { "value": "Full tint" },
+        { "value": "Rear sunshade package" }
+      ]
+    },
+    {
+      "index": 6,
+
+      "name": "Seats",
+      "description": "Make every drive a luxury",
+      "base": "Heated seats",
+      "values": [
+        { "value": "Heated seats" },
+        { "value": "Heated and cooling seats" },
+        { "value": "Executive massage package" }
       ]
     }
   ]

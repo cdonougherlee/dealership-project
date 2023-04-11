@@ -1,22 +1,22 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
-import { CRUDService } from 'src/app/core/services/crud.service';
-import { Router } from '@angular/router';
-import { Utils } from 'src/app/core/utils/utils';
-import { Car } from 'src/app/core/interfaces/Car';
-import { Accessory } from 'src/app/core/interfaces/Accessory';
+import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+import { Component, OnInit } from "@angular/core";
+import { CRUDService } from "src/app/core/services/crud.service";
+import { Router } from "@angular/router";
+import { Utils } from "src/app/core/utils/utils";
+import { Car } from "src/app/core/interfaces/Car";
+import { Accessory } from "src/app/core/interfaces/Accessory";
 
 @Component({
-  selector: 'app-configurator-page',
-  templateUrl: './configurator-page.component.html',
-  styleUrls: ['./configurator-page.component.scss'],
+  selector: "app-configurator-page",
+  templateUrl: "./configurator-page.component.html",
+  styleUrls: ["./configurator-page.component.scss"],
 })
 export class ConfiguratorPageComponent implements OnInit {
   isSmall: boolean = false;
   isLoggedIn!: boolean;
   selectedAccessories: Accessory[] = [];
-  selectedExterior: string = 'Sonic Red';
-  selectedTrim: string = 'Black';
+  selectedExterior: string = "Candy Red";
+  selectedTrim: string = "Black";
 
   constructor(
     private breakpointService: BreakpointObserver,
@@ -48,10 +48,10 @@ export class ConfiguratorPageComponent implements OnInit {
   }
 
   onConfiguratorSubmit() {
-    this.selectedExterior = this.selectedExterior.replace(/\s/g, '_');
+    this.selectedExterior = this.selectedExterior.replace(/\s/g, "_");
     const reqObject: Car = {
-      brand: 'Volvo',
-      model: 'S90',
+      brand: "Volvo",
+      model: "S90",
       colour: this.selectedExterior,
       trim: this.selectedTrim,
       options: this.selectedAccessories,

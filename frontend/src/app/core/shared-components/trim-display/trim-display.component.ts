@@ -1,11 +1,11 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { Image } from '../../interfaces/Image';
+import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+import { Component, Input, OnInit, SimpleChanges } from "@angular/core";
+import { Image } from "../../interfaces/Image";
 
 @Component({
-  selector: 'app-trim-display',
-  templateUrl: './trim-display.component.html',
-  styleUrls: ['./trim-display.component.scss'],
+  selector: "app-trim-display",
+  templateUrl: "./trim-display.component.html",
+  styleUrls: ["./trim-display.component.scss"],
 })
 export class TrimDisplayComponent implements OnInit {
   isSmall: boolean = false;
@@ -28,6 +28,6 @@ export class TrimDisplayComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.selectedTrim = changes['selectedTrim'].currentValue;
+    this.selectedTrim = changes["selectedTrim"].currentValue;
   }
 }
