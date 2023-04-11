@@ -35,7 +35,7 @@ const createCar = asyncHandler(async (req, res) => {
   if (car) {
     user.cars.push(car);
     user.save();
-    return res.status(200).json({ success: true, msg: car });
+    return res.status(201).json({ success: true, msg: car });
   } else {
     // Else return invalid data error
     return res.status(400).json({ success: false, msg: "Invalid user data" });
